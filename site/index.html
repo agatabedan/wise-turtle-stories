@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Wise Turtle Stories | Gentle books for little readers</title>
+  <meta
+    name="description"
+    content="Wise Turtle Stories creates gentle books and parent resources for little readers and families."
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="./index.html" class="brand" aria-label="Wise Turtle Stories home">
+        <img src="./assets/logo.png" alt="Wise Turtle Stories" />
+      </a>
+
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="Open menu"
+        aria-expanded="false"
+      >
+        Menu
+      </button>
+
+      <nav class="site-nav" id="siteNav">
+        <a href="./index.html" class="active">Home</a>
+        <a href="./books.html">Books</a>
+        <a href="./about.html">About</a>
+        <a href="./contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section book-slider-section" id="book-slider">
+      <div class="container">
+        <div class="section-heading reveal reveal-up">
+          <p class="eyebrow">Book Shelf</p>
+          <h2>Start with a story that fits today</h2>
+          <p class="section-subtitle">
+            Browse the current Wise Turtle Stories collection. More titles will be added soon.
+          </p>
+        </div>
+
+        <div class="book-slider reveal reveal-up delay-1" data-book-slider>
+          <div class="slider-frame">
+            <div class="slider-slides" data-slider-slides></div>
+          </div>
+
+          <div class="slider-controls" aria-label="Book slider controls">
+            <button type="button" class="slider-arrow" data-slider-prev aria-label="Previous book">
+              Previous
+            </button>
+            <div class="slider-dots" data-slider-dots></div>
+            <button type="button" class="slider-arrow" data-slider-next aria-label="Next book">
+              Next
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="hero section">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal reveal-left">
+          <p class="eyebrow">Gentle books for ages 2-5</p>
+          <h1>Stories for big feelings and little hearts</h1>
+          <p class="lead">
+            Thoughtful children's books and simple parent resources for calm routines,
+            emotional learning, and warm reading time together.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="./books.html">Explore Books</a>
+            <a class="btn btn-secondary" href="#newsletter">Get the Free Guide</a>
+          </div>
+
+          <div class="hero-meta" aria-label="Book highlights">
+            <span>Ages 2-5</span>
+            <span>Paperback only</span>
+            <span>Parent-friendly stories</span>
+          </div>
+        </div>
+
+        <div class="hero-card has-cover reveal reveal-right delay-1">
+          <img
+            src="./assets/Cover1.jpeg"
+            alt="Cover of Yan The Little Squirrel: Big Feelings, Little Choices"
+            class="book-cover"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-heading reveal reveal-up">
+          <p class="eyebrow">Featured Book</p>
+          <h2>Yan The Little Squirrel</h2>
+          <p class="section-subtitle">Big Feelings, Little Choices</p>
+        </div>
+
+        <div class="card featured-book reveal reveal-up delay-1">
+          <div class="featured-book-cover has-cover">
+            <img
+              src="./assets/Cover1.jpeg"
+              alt="Cover of Yan The Little Squirrel: Big Feelings, Little Choices"
+            />
+          </div>
+
+          <div>
+            <h3>A gentle story for children and parents</h3>
+            <p>
+              Designed for children ages 2-5, this story introduces emotions and everyday
+              choices in a calm, accessible way.
+            </p>
+
+            <ul class="check-list">
+              <li>For ages 2-5 and parents reading together</li>
+              <li>Paperback available now</li>
+              <li>eBook edition coming soon</li>
+            </ul>
+
+            <div class="inline-actions">
+              <a class="btn btn-primary" href="./book-yan.html">View Book Details</a>
+              <a
+                class="btn btn-secondary"
+                href="https://www.amazon.ca/Yan-Little-Squirrel-Wise-Turtle/dp/B0GR6HLRK8"
+                target="_blank"
+                rel="noopener"
+              >
+                Buy on Amazon
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reviews-section" data-review-wrapper>
+      <div class="container">
+        <div class="section-heading reveal reveal-up">
+          <p class="eyebrow">Top Reviews</p>
+          <h2>What readers are saying</h2>
+        </div>
+
+        <div
+          class="review-carousel reveal reveal-up delay-1"
+          data-review-section
+          data-review-mode="carousel"
+          data-review-limit="2"
+        >
+          <div class="review-track" data-review-list></div>
+          <div class="review-controls" aria-label="Review carousel controls">
+            <button type="button" class="review-arrow" data-review-prev aria-label="Previous review">
+              Previous
+            </button>
+            <div class="review-dots" data-review-dots></div>
+            <button type="button" class="review-arrow" data-review-next aria-label="Next review">
+              Next
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt-bg">
+      <div class="container book-library" data-book-library data-limit="3">
+        <div class="section-heading reveal reveal-up">
+          <p class="eyebrow">Find a Story</p>
+          <h2>Search the library</h2>
+          <p class="section-subtitle">
+            Filter by age or theme to find the best fit for your little reader.
+          </p>
+        </div>
+
+        <div class="library-controls reveal reveal-up delay-1">
+          <label>
+            <span>Search</span>
+            <input type="search" data-book-search placeholder="Search by title, feeling, routine..." />
+          </label>
+
+          <label>
+            <span>Age</span>
+            <select data-age-filter>
+              <option value="all">All ages</option>
+              <option value="2-5">Ages 2-5</option>
+            </select>
+          </label>
+
+          <label>
+            <span>Category</span>
+            <select data-category-filter>
+              <option value="all">All categories</option>
+              <option value="Yan The Little Squirrel">Yan The Little Squirrel</option>
+              <option value="Fira &amp; Agate: Forest Adventures">Fira &amp; Agate: Forest Adventures</option>
+              <option value="Snowly Tales: Everyday Calm">Snowly Tales: Everyday Calm</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="library-grid reveal reveal-up delay-2" data-books-grid></div>
+        <p class="empty-state" data-books-empty hidden>No books match those filters yet.</p>
+
+        <div class="inline-actions library-more">
+          <a class="btn btn-secondary" href="./books.html">Open Full Library</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="newsletter">
+      <div class="container">
+        <div class="newsletter-box reveal reveal-up">
+          <div>
+            <p class="eyebrow">Free Parent Guide</p>
+            <h2>Turn toddler meltdowns into calmer moments</h2>
+            <p class="newsletter-text">
+              Get the free Wise Turtle parent guide for no battles, waiting tantrums,
+              and separation anxiety.
+            </p>
+          </div>
+
+          <form id="newsletterForm" class="newsletter-form" data-newsletter-form>
+            <label for="email" class="sr-only">Email address</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Enter your email"
+              required
+              autocomplete="email"
+            />
+            <button type="submit" class="btn btn-primary">Send me the guide</button>
+          </form>
+
+          <p class="form-note">
+            By subscribing, you agree to receive email updates. You can unsubscribe anytime.
+            <a href="./privacy.html">Privacy Policy</a>
+          </p>
+          <p id="formMessage" class="form-message" data-form-message aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt-bg">
+      <div class="container split-panel">
+        <div class="section-heading reveal reveal-left">
+          <p class="eyebrow">About the Brand</p>
+          <h2>Why Wise Turtle Stories?</h2>
+        </div>
+        <div class="reveal reveal-right delay-1">
+          <p>
+            Wise Turtle Stories is a children's book brand focused on kind, thoughtful
+            storytelling for young readers and the adults who read with them.
+          </p>
+          <p>
+            The goal is simple: beautiful stories families can return to when feelings are big,
+            routines are hard, or everyone needs a softer moment.
+          </p>
+          <div class="inline-actions">
+            <a class="btn btn-primary" href="./about.html">Meet the Author</a>
+            <a class="btn btn-secondary" href="./contact.html">Get in Touch</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>Wise Turtle Stories</h3>
+        <p>Gentle children's books for little readers and their families.</p>
+      </div>
+
+      <div>
+        <h4>Explore</h4>
+        <ul class="footer-links">
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./books.html">Books</a></li>
+          <li><a href="./about.html">About</a></li>
+          <li><a href="./contact.html">Contact</a></li>
+          <li><a href="./privacy.html">Privacy</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Free Guide</h4>
+        <p>Get a gentle guide for hard parenting moments.</p>
+        <a href="#newsletter" class="btn btn-secondary btn-small">Get the Guide</a>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>&copy; <span id="year"></span> Wise Turtle Stories. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="./js/script.js"></script>
+</body>
+</html>

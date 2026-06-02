@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Contact | Wise Turtle Stories</title>
+  <meta
+    name="description"
+    content="Contact Wise Turtle Stories for partnerships, bookstores, media, and general inquiries."
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="./index.html" class="brand" aria-label="Wise Turtle Stories home">
+        <img src="./assets/logo.png" alt="Wise Turtle Stories" />
+      </a>
+
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="Open menu"
+        aria-expanded="false"
+      >
+        Menu
+      </button>
+
+      <nav class="site-nav" id="siteNav">
+        <a href="./index.html">Home</a>
+        <a href="./books.html">Books</a>
+        <a href="./about.html">About</a>
+        <a href="./contact.html" class="active">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <div class="section-heading reveal reveal-up">
+        <p class="eyebrow">Contact</p>
+        <h1>Get in Touch</h1>
+        <p class="section-subtitle">
+          For bookstores, partnerships, media, parent questions, and general inquiries.
+        </p>
+      </div>
+
+      <div class="contact-grid reveal reveal-up delay-1">
+        <article class="contact-card">
+          <span>Instagram</span>
+          <h2>Follow the stories</h2>
+          <p>Follow Anna Klimentova on Instagram.</p>
+          <a href="https://www.instagram.com/annaklimentova1/" target="_blank" rel="noopener">
+            Instagram
+          </a>
+        </article>
+
+        <article class="contact-card">
+          <span>LinkedIn</span>
+          <h2>Business inquiries</h2>
+          <p>Connect with Anna Klimentova on LinkedIn.</p>
+          <a href="https://www.linkedin.com/in/annaklimentova" target="_blank" rel="noopener">
+            LinkedIn
+          </a>
+        </article>
+
+        <article class="contact-card">
+          <span>Email</span>
+          <h2>Write directly</h2>
+          <p>Send a direct message for partnerships, questions, or media inquiries.</p>
+          <a href="mailto:anna@wiseturtle.ca">Email</a>
+        </article>
+      </div>
+
+      <section class="section contact-signup-section">
+        <div class="newsletter-box contact-signup-box reveal reveal-up">
+          <div class="contact-signup-copy">
+            <p class="eyebrow">Subscribe for Updates</p>
+            <h2>Get the free guide and future book updates</h2>
+            <p class="newsletter-text">
+              Join the same Wise Turtle email list for parent support, new releases,
+              and gentle tools for big feelings.
+            </p>
+          </div>
+
+          <form class="newsletter-form contact-newsletter-form" data-newsletter-form>
+            <label for="contactEmail" class="sr-only">Email address</label>
+            <input
+              type="email"
+              id="contactEmail"
+              name="email"
+              placeholder="Enter your email"
+              required
+              autocomplete="email"
+            />
+            <button type="submit" class="btn btn-primary">Send me the guide</button>
+          </form>
+
+          <p class="form-note">
+            By subscribing, you agree to receive email updates. You can unsubscribe anytime.
+            <a href="./privacy.html">Privacy Policy</a>
+          </p>
+          <p class="form-message" data-form-message aria-live="polite"></p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <p>&copy; <span id="year"></span> Wise Turtle Stories. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="./js/script.js"></script>
+</body>
+</html>

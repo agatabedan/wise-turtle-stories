@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: wise-turtle-stories
+    env: node
+    rootDir: site/api
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        sync: false
+      - key: DATABASE_SSL
+        value: false
+      - key: MAILERLITE_API_TOKEN
+        sync: false
+      - key: MAILERLITE_GROUP_ID
+        sync: false
+      - key: FRONTEND_ORIGIN
+        sync: false
+      - key: ADMIN_TOKEN
+        sync: false

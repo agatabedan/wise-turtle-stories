@@ -1,0 +1,18 @@
+.DS_Store
+
+# Root logs
+*.log
+
+# Environment secrets
+.env
+site/api/.env
+
+# Dependencies
+node_modules/
+site/api/node_modules/
+
+# Review data with private emails
+site/api/data/reviews.json
+
+# OS / editor noise
+.vscode/
