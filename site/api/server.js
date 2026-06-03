@@ -628,6 +628,30 @@ app.post("/subscribe", async (req, res) => {
   }
 });
 
+// Keep old .html links working while showing clean URLs in the browser.
+const htmlRedirects = new Map([
+  ["/index.html", "/"],
+  ["/books.html", "/books"],
+  ["/about.html", "/about"],
+  ["/contact.html", "/contact"],
+  ["/privacy.html", "/privacy"],
+  ["/book-yan.html", "/book-yan"],
+  ["/book-story-two.html", "/book-story-two"],
+  ["/book-story-three.html", "/book-story-three"]
+]);
+
+app.use((req, res, next) => {
+  const pathname = req.path;
+  const targetPath = htmlRedirects.get(pathname);
+
+  if (!targetPath) {
+    return next();
+  }
+
+  const suffix = req.url.slice(pathname.length);
+  return res.redirect(301, `${targetPath}${suffix}`);
+});
+
 // The same Express service hosts the static HTML/CSS/JS site for Render.
 app.use(
   express.static(SITE_DIR, {
