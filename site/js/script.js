@@ -54,7 +54,6 @@ const BOOKS = [
   },
   {
     id: "story-three",
-    published: false,
     title: "Third Wise Turtle Story",
     subtitle: "Title Coming Soon",
     age: "2-5",
