@@ -1396,6 +1396,56 @@ a[aria-disabled="true"] {
   color: var(--text);
 }
 
+/* Author profile image and bio layout on the About page. */
+.author-feature {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.82fr) minmax(0, 1.18fr);
+  grid-template-areas:
+    "portrait bio"
+    "portrait books";
+  gap: 20px;
+  align-items: stretch;
+}
+
+.author-portrait {
+  grid-area: portrait;
+  margin: 0;
+  padding: 12px;
+  border: 1px solid rgba(219, 231, 216, 0.95);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(241, 247, 238, 0.92)),
+    var(--card);
+  box-shadow:
+    0 22px 48px rgba(30, 50, 30, 0.12),
+    0 4px 12px rgba(30, 50, 30, 0.08);
+}
+
+.author-portrait img {
+  width: 100%;
+  height: min(620px, 62vw);
+  object-fit: cover;
+  object-position: center 34%;
+  border-radius: 6px;
+  box-shadow: 0 12px 26px rgba(30, 50, 30, 0.12);
+}
+
+.author-portrait figcaption {
+  margin-top: 10px;
+  color: var(--green-ink);
+  font-size: 0.88rem;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.author-bio-card {
+  grid-area: bio;
+}
+
+.author-books-card {
+  grid-area: books;
+}
+
 /* Book detail page layout, cover gallery, metadata, and buy box. */
 .book-page-grid {
   display: grid;
@@ -1783,6 +1833,18 @@ body.reveal-ready .reveal.is-visible.reveal-scale {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .author-feature {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "portrait"
+      "bio"
+      "books";
+  }
+
+  .author-portrait img {
+    height: min(620px, 82vw);
+  }
+
   .slider-frame {
     min-height: 610px;
   }
@@ -2069,6 +2131,19 @@ body.reveal-ready .reveal.is-visible.reveal-scale {
   .contact-card,
   .story-card {
     padding: 18px;
+  }
+
+  .author-portrait {
+    padding: 9px;
+  }
+
+  .author-portrait img {
+    height: min(520px, 118vw);
+    object-position: center 30%;
+  }
+
+  .author-portrait figcaption {
+    font-size: 0.84rem;
   }
 
   body.reveal-ready .reveal,
