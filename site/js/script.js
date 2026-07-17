@@ -65,9 +65,10 @@ const BOOKS = [
     price: "$18.99 CAD",
     ebookPrice: "$5.99 CAD",
     readingAge: "2-5 years",
+    printLength: "58 pages",
     language: "English",
-    fileSize: "24.1 MB",
-    publicationDate: "June 25, 2026",
+    dimensions: "13.97 x 0.36 x 21.59 cm",
+    publicationDate: "June 29, 2026",
     shortDescription:
       "Three sunny stories that help toddlers practice sunscreen, hats, and drinking water through playful summer adventures.",
     insideDescription:
