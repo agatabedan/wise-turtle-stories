@@ -2,10 +2,10 @@ services:
   - type: web
     name: wise-turtle-stories
     env: node
-    rootDir: site/api
+    rootDir: site
     plan: free
-    buildCommand: npm install
-    startCommand: npm start
+    buildCommand: cd api && npm install
+    startCommand: cd api && npm start
     envVars:
       - key: NODE_ENV
         value: production
