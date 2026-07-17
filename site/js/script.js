@@ -54,18 +54,24 @@ const BOOKS = [
   },
   {
     id: "story-three",
-    title: "Third Wise Turtle Story",
-    subtitle: "Title Coming Soon",
+    title: "Yan the Little Squirrel",
+    subtitle: "Safe Summer Adventures",
     age: "2-5",
     category: YAN_CATEGORY,
-    cover: "",
+    cover: "./assets/yan-adventures-front.jpg",
     detailUrl: "/book-story-three",
-    amazonUrl: "",
-    price: "",
+    amazonUrl: "https://www.amazon.ca/Yan-Little-Squirrel-Adventures-stories-ebook/dp/B0H6L4853F",
+    sampleUrl: "https://read.amazon.ca/sample/B0H6L4853F?clientId=share",
+    price: "$18.99 CAD",
+    ebookPrice: "$5.99 CAD",
+    readingAge: "2-5 years",
+    language: "English",
+    fileSize: "24.1 MB",
+    publicationDate: "June 25, 2026",
     shortDescription:
-      "A gentle placeholder for the third book. Add the final title, cover, and sales copy when ready.",
+      "Three sunny stories that help toddlers practice sunscreen, hats, and drinking water through playful summer adventures.",
     insideDescription:
-      "Full story description coming soon for the third book. This section is ready for the final story copy."
+      "Yan, Hedgie, and Red Birdie learn simple summer safety habits through warm, playful stories made for ages 2-5."
   }
 ];
 

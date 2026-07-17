@@ -727,6 +727,17 @@ a[aria-disabled="true"] {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.price-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 14px 0;
+}
+
+.price-options .price-card {
+  margin: 0;
+}
+
 .price-label {
   color: var(--text);
   font-size: 0.96rem;
