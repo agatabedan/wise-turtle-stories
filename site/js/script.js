@@ -60,7 +60,7 @@ const BOOKS = [
     category: YAN_CATEGORY,
     cover: "./assets/yan-adventures-front.jpg",
     detailUrl: "/book-story-three",
-    amazonUrl: "https://www.amazon.ca/Yan-Little-Squirrel-Adventures-stories-ebook/dp/B0H6L4853F",
+    amazonUrl: "https://www.amazon.ca/Yan-Little-Squirrel-Adventures-stories/dp/B0H7WDSNDP",
     sampleUrl: "https://read.amazon.ca/sample/B0H6L4853F?clientId=share",
     price: "$18.99 CAD",
     ebookPrice: "$5.99 CAD",

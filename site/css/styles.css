@@ -1407,6 +1407,23 @@ a[aria-disabled="true"] {
   color: var(--text);
 }
 
+.book-description-list {
+  display: grid;
+  gap: 12px;
+  margin: 14px 0;
+  padding: 14px 16px;
+  border-left: 4px solid var(--green);
+  background: var(--soft);
+}
+
+.book-description-list p {
+  margin: 0;
+}
+
+.book-description-list strong {
+  color: var(--green-ink);
+}
+
 /* Author profile image and bio layout on the About page. */
 .author-feature {
   display: grid;
