@@ -1347,6 +1347,18 @@ a[aria-disabled="true"] {
   background: rgba(255, 255, 255, 0.48);
 }
 
+.lifeafter-people img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  display: block;
+  margin-bottom: 14px;
+  border-radius: 8px;
+  object-fit: cover;
+  object-position: center;
+  box-shadow: 0 14px 32px rgba(55, 50, 39, 0.16);
+  pointer-events: none;
+}
+
 .lifeafter-people h3 {
   margin: 0 0 4px;
   font-family: "Playfair Display", serif;
