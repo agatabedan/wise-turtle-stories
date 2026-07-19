@@ -133,6 +133,7 @@ initCoverGalleries();
 initReviewSystem();
 initDisabledLinks();
 initLegalTocHighlight();
+initProtectedStory();
 
 /* Mobile header menu: opens/closes the nav on small screens. */
 function initMobileMenu() {
@@ -1024,6 +1025,18 @@ function initLegalTocHighlight() {
 
       target.scrollIntoView({ behavior: "smooth", block: "center" });
       window.requestAnimationFrame(() => runHighlight());
+    });
+  });
+}
+
+/* Makes story artwork feel non-interactive for regular visitors. */
+function initProtectedStory() {
+  const protectedStory = document.querySelector("[data-protected-story]");
+  if (!protectedStory) return;
+
+  ["contextmenu", "dragstart", "selectstart"].forEach((eventName) => {
+    protectedStory.addEventListener(eventName, (event) => {
+      event.preventDefault();
     });
   });
 }
