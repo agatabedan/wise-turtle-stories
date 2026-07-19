@@ -127,6 +127,7 @@ document.body.classList.add("reveal-ready");
 initMobileMenu();
 initFooterYears();
 initNewsletterForms();
+initJourneyForms();
 initReveal();
 initBookSlider();
 initCoverGalleries();
@@ -183,6 +184,93 @@ function getReviewsEndpoint(bookId = "") {
   const path = bookId ? `/reviews?bookId=${encodeURIComponent(bookId)}` : "/reviews";
 
   return `${base}${path}`;
+}
+
+function getJourneyEndpoint() {
+  const customBase = window.WISE_TURTLE_API_BASE_URL || "";
+  const isLocal =
+    window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
+
+  if (isLocal) return "http://localhost:3000/journey";
+  if (customBase) return `${customBase.replace(/\/$/, "")}/journey`;
+  return "/journey";
+}
+
+function initJourneyForms() {
+  const forms = document.querySelectorAll("[data-journey-form]");
+  if (!forms.length) return;
+
+  const params = new URLSearchParams(window.location.search);
+  const weather = params.get("weather") || "flood";
+  const service = params.get("service") || "unsure";
+
+  forms.forEach((form) => {
+    const weatherInput = Array.from(form.querySelectorAll('input[name="weather"]')).find(
+      (input) => input.value === weather
+    );
+    const serviceInput = Array.from(form.querySelectorAll('input[name="service"]')).find(
+      (input) => input.value === service
+    );
+    const messageEl = form.querySelector("[data-journey-message]");
+
+    if (weatherInput) weatherInput.checked = true;
+    if (serviceInput) serviceInput.checked = true;
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const formData = new FormData(form);
+      const payload = {
+        name: String(formData.get("name") || "").trim(),
+        email: String(formData.get("email") || "").trim(),
+        weather: String(formData.get("weather") || "").trim(),
+        service: String(formData.get("service") || "").trim(),
+        situation: String(formData.get("situation") || "").trim(),
+        contactPreference: String(formData.get("contactPreference") || "").trim()
+      };
+
+      if (!payload.name || !payload.email || !payload.weather || !payload.service) {
+        showFormMessage(messageEl, "Please add your name, email, weather, and path.", "error");
+        return;
+      }
+
+      showFormMessage(messageEl, "Sending your journey note...", "");
+      setFormDisabled(form, true);
+
+      try {
+        const response = await fetch(getJourneyEndpoint(), {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+
+        let data = {};
+        try {
+          data = await response.json();
+        } catch (_) {
+          data = {};
+        }
+
+        if (!response.ok) {
+          throw new Error(data.error || "Journey form failed");
+        }
+
+        form.reset();
+        if (weatherInput) weatherInput.checked = true;
+        if (serviceInput) serviceInput.checked = true;
+        showFormMessage(
+          messageEl,
+          "Your Journey Has Begun. Thank you for trusting us with your story. We’ll personally review your message and contact you within 24 hours. You don’t have to navigate this weather alone.",
+          "success"
+        );
+      } catch (error) {
+        console.error(error);
+        showFormMessage(messageEl, "Something went wrong. Please try again in a moment.", "error");
+      } finally {
+        setFormDisabled(form, false);
+      }
+    });
+  });
 }
 
 /* Newsletter signup form: validates email, sends it to the backend, and shows a friendly status. */

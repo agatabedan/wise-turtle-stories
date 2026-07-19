@@ -12,6 +12,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const SITE_DIR = path.join(__dirname, "..");
 const REVIEWS_FILE = path.join(__dirname, "data", "reviews.json");
+const JOURNEY_FILE = path.join(__dirname, "data", "journey-requests.json");
 
 // Runtime configuration lives in environment variables only.
 const MAILERLITE_API_TOKEN = normalizeMailerLiteToken(process.env.MAILERLITE_API_TOKEN || "");
@@ -33,8 +34,12 @@ const LOCAL_ORIGINS = new Set([
 
 const subscribeAttempts = new Map();
 const reviewAttempts = new Map();
+const journeyAttempts = new Map();
 const isProduction = process.env.NODE_ENV === "production";
 const ALLOWED_REVIEW_BOOKS = new Set(["yan", "story-two", "story-three"]);
+const ALLOWED_JOURNEY_WEATHERS = new Set(["air", "flood", "ground", "fire"]);
+const ALLOWED_JOURNEY_SERVICES = new Set(["workshop", "program", "consultation", "unsure"]);
+const ALLOWED_CONTACT_PREFERENCES = new Set(["email", "phone", "video"]);
 const DEFAULT_REVIEWS = [
   {
     id: "megha-yan-2026-03-19",
@@ -222,6 +227,21 @@ async function ensureReviewTable() {
   `);
 }
 
+async function ensureJourneyTable() {
+  await reviewPool.query(`
+    CREATE TABLE IF NOT EXISTS journey_requests (
+      id TEXT PRIMARY KEY,
+      name TEXT NOT NULL,
+      email TEXT NOT NULL,
+      weather TEXT NOT NULL,
+      service TEXT NOT NULL,
+      situation TEXT NOT NULL DEFAULT '',
+      contact_preference TEXT NOT NULL DEFAULT 'email',
+      created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+    )
+  `);
+}
+
 async function importFileReviewsToDatabase() {
   const fileReviews = await readFileReviews();
   if (!fileReviews.length) return;
@@ -280,6 +300,7 @@ async function initReviewStorage() {
     reviewPool = new Pool(getDatabaseConfig());
     await reviewPool.query("SELECT 1");
     await ensureReviewTable();
+    await ensureJourneyTable();
     await importFileReviewsToDatabase();
     reviewStorage = "postgres";
     console.log("Review storage: Postgres");
@@ -370,6 +391,57 @@ async function getAllReviews() {
   return [...DEFAULT_REVIEWS.map(normalizeStoredReview), ...storedReviews];
 }
 
+async function readFileJourneyRequests() {
+  try {
+    const raw = await fs.readFile(JOURNEY_FILE, "utf8");
+    const data = JSON.parse(raw);
+    return Array.isArray(data) ? data : [];
+  } catch (error) {
+    if (error.code === "ENOENT") return [];
+    throw error;
+  }
+}
+
+async function writeFileJourneyRequests(requests) {
+  await fs.mkdir(path.dirname(JOURNEY_FILE), { recursive: true });
+  await fs.writeFile(JOURNEY_FILE, `${JSON.stringify(requests, null, 2)}\n`);
+}
+
+async function createStoredJourneyRequest(request) {
+  if (reviewPool) {
+    await reviewPool.query(
+      `
+        INSERT INTO journey_requests (
+          id,
+          name,
+          email,
+          weather,
+          service,
+          situation,
+          contact_preference,
+          created_at
+        )
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+      `,
+      [
+        request.id,
+        request.name,
+        request.email,
+        request.weather,
+        request.service,
+        request.situation,
+        request.contactPreference,
+        request.createdAt
+      ]
+    );
+    return;
+  }
+
+  const storedRequests = await readFileJourneyRequests();
+  storedRequests.push(request);
+  await writeFileJourneyRequests(storedRequests);
+}
+
 // Basic Express hardening and JSON body parsing for the API endpoints.
 app.disable("x-powered-by");
 app.set("trust proxy", 1);
@@ -419,6 +491,19 @@ function isReviewRateLimited(ip) {
 
   recentAttempts.push(now);
   reviewAttempts.set(ip, recentAttempts);
+
+  return recentAttempts.length > maxAttempts;
+}
+
+function isJourneyRateLimited(ip) {
+  const now = Date.now();
+  const windowMs = 60 * 60 * 1000;
+  const maxAttempts = 8;
+  const attempts = journeyAttempts.get(ip) || [];
+  const recentAttempts = attempts.filter((time) => now - time < windowMs);
+
+  recentAttempts.push(now);
+  journeyAttempts.set(ip, recentAttempts);
 
   return recentAttempts.length > maxAttempts;
 }
@@ -562,6 +647,61 @@ app.post("/reviews", async (req, res) => {
   } catch (error) {
     console.error("Reviews write error:", error);
     return res.status(500).json({ error: "Review could not be saved right now." });
+  }
+});
+
+app.post("/journey", async (req, res) => {
+  try {
+    const ip = req.ip || req.socket?.remoteAddress || "unknown";
+    if (isJourneyRateLimited(ip)) {
+      return res.status(429).json({ error: "Too many requests. Please try again later." });
+    }
+
+    const name = trimText(req.body?.name, 100);
+    const email = trimText(req.body?.email, 180).toLowerCase();
+    const weather = trimText(req.body?.weather, 40);
+    const service = trimText(req.body?.service, 40);
+    const situation = trimText(req.body?.situation, 2400);
+    const contactPreference = trimText(req.body?.contactPreference, 40) || "email";
+
+    if (!name) {
+      return res.status(400).json({ error: "Name is required." });
+    }
+
+    if (!email || !isValidEmail(email)) {
+      return res.status(400).json({ error: "Valid email is required." });
+    }
+
+    if (!ALLOWED_JOURNEY_WEATHERS.has(weather)) {
+      return res.status(400).json({ error: "Please choose a weather option." });
+    }
+
+    if (!ALLOWED_JOURNEY_SERVICES.has(service)) {
+      return res.status(400).json({ error: "Please choose a path." });
+    }
+
+    if (!ALLOWED_CONTACT_PREFERENCES.has(contactPreference)) {
+      return res.status(400).json({ error: "Please choose a contact preference." });
+    }
+
+    await createStoredJourneyRequest({
+      id: randomUUID(),
+      name,
+      email,
+      weather,
+      service,
+      situation,
+      contactPreference,
+      createdAt: new Date().toISOString()
+    });
+
+    return res.status(201).json({
+      success: true,
+      message: "Your Journey Has Begun"
+    });
+  } catch (error) {
+    console.error("Journey request error:", error);
+    return res.status(500).json({ error: "Journey request could not be saved right now." });
   }
 });
 

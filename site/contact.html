@@ -118,6 +118,113 @@
           <p class="form-message" data-form-message aria-live="polite"></p>
         </div>
       </section>
+
+      <section class="journey-contact-section reveal reveal-up" id="begin-journey">
+        <div class="journey-contact-panel">
+          <p class="eyebrow">Begin Your Journey</p>
+          <h2>The Beginning of Every Journey starts with a single step.</h2>
+          <p class="journey-intro">
+            Tell us a little about where you are today. We’ll personally review your
+            message and get back to you within 24 hours to discuss the best next step.
+          </p>
+
+          <form class="journey-form" data-journey-form>
+            <div class="journey-form-grid">
+              <label>
+                <span>Your Name</span>
+                <input type="text" name="name" autocomplete="name" required />
+              </label>
+
+              <label>
+                <span>Email Address</span>
+                <input type="email" name="email" autocomplete="email" required />
+              </label>
+            </div>
+
+            <fieldset>
+              <legend>Which weather best describes where you are today?</legend>
+
+              <label class="journey-choice">
+                <input type="radio" name="weather" value="air" />
+                <span>
+                  <strong>🌬 Something is in the Air</strong>
+                  <small>Something doesn’t feel right, but I’m not sure what is changing.</small>
+                </span>
+              </label>
+
+              <label class="journey-choice">
+                <input type="radio" name="weather" value="flood" />
+                <span>
+                  <strong>🌧 Life After the Flood</strong>
+                  <small>Life has already changed, and I’m learning how to move forward.</small>
+                </span>
+              </label>
+
+              <label class="journey-choice">
+                <input type="radio" name="weather" value="ground" />
+                <span>
+                  <strong>🌱 Looking for Solid Ground</strong>
+                  <small>I’m ready to build new habits, skills, and a stronger foundation.</small>
+                </span>
+              </label>
+
+              <label class="journey-choice">
+                <input type="radio" name="weather" value="fire" />
+                <span>
+                  <strong>🔥 Keep the Fire Burning</strong>
+                  <small>I know where I’m going. I need support to stay motivated and keep moving.</small>
+                </span>
+              </label>
+            </fieldset>
+
+            <fieldset>
+              <legend>Which path are you interested in?</legend>
+
+              <label class="journey-choice">
+                <input type="radio" name="service" value="workshop" />
+                <span><strong>2.5-Hour Workshop</strong></span>
+              </label>
+
+              <label class="journey-choice">
+                <input type="radio" name="service" value="program" />
+                <span><strong>8-Week Transformation Program</strong></span>
+              </label>
+
+              <label class="journey-choice">
+                <input type="radio" name="service" value="consultation" />
+                <span><strong>One-on-One Consultation</strong></span>
+              </label>
+
+              <label class="journey-choice">
+                <input type="radio" name="service" value="unsure" />
+                <span><strong>I’m not sure yet. I’d like your recommendation.</strong></span>
+              </label>
+            </fieldset>
+
+            <label class="journey-textarea">
+              <span>Tell us a little about your situation.</span>
+              <small>
+                What life change are you navigating? Share as much or as little as you’d like.
+                Whatever you’re comfortable with is enough for us to understand how we can best support you.
+              </small>
+              <textarea name="situation" rows="6"></textarea>
+            </label>
+
+            <fieldset>
+              <legend>Preferred way to connect</legend>
+
+              <div class="journey-inline-options">
+                <label><input type="radio" name="contactPreference" value="email" checked /> Email</label>
+                <label><input type="radio" name="contactPreference" value="phone" /> Phone</label>
+                <label><input type="radio" name="contactPreference" value="video" /> Video Call</label>
+              </div>
+            </fieldset>
+
+            <button type="submit" class="btn btn-primary">Begin My Journey</button>
+            <p class="form-message" data-journey-message aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
     </div>
   </main>
 
