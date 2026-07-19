@@ -636,6 +636,7 @@ const htmlRedirects = new Map([
   ["/contact.html", "/contact"],
   ["/privacy.html", "/privacy"],
   ["/start.html", "/start"],
+  ["/lifeafter.html", "/lifeafter"],
   ["/book-yan.html", "/book-yan"],
   ["/book-story-two.html", "/book-story-two"],
   ["/book-story-three.html", "/book-story-three"]
