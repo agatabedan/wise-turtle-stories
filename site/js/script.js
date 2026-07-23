@@ -212,9 +212,25 @@ function initJourneyForms() {
       (input) => input.value === service
     );
     const messageEl = form.querySelector("[data-journey-message]");
+    const phoneField = form.querySelector("[data-journey-phone-field]");
+    const phoneInput = form.querySelector('input[name="phone"]');
+    const contactPreferenceInputs = form.querySelectorAll('input[name="contactPreference"]');
+
+    const togglePhoneField = () => {
+      const selectedPreference = form.querySelector('input[name="contactPreference"]:checked');
+      const needsPhone = selectedPreference?.value === "phone";
+
+      if (phoneField) phoneField.hidden = !needsPhone;
+      if (phoneInput) {
+        phoneInput.required = needsPhone;
+        if (!needsPhone) phoneInput.value = "";
+      }
+    };
 
     if (weatherInput) weatherInput.checked = true;
     if (serviceInput) serviceInput.checked = true;
+    contactPreferenceInputs.forEach((input) => input.addEventListener("change", togglePhoneField));
+    togglePhoneField();
 
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
@@ -226,11 +242,17 @@ function initJourneyForms() {
         weather: String(formData.get("weather") || "").trim(),
         service: String(formData.get("service") || "").trim(),
         situation: String(formData.get("situation") || "").trim(),
-        contactPreference: String(formData.get("contactPreference") || "").trim()
+        contactPreference: String(formData.get("contactPreference") || "").trim(),
+        phone: String(formData.get("phone") || "").trim()
       };
 
       if (!payload.name || !payload.email || !payload.weather || !payload.service) {
         showFormMessage(messageEl, "Please add your name, email, weather, and path.", "error");
+        return;
+      }
+
+      if (payload.contactPreference === "phone" && !payload.phone) {
+        showFormMessage(messageEl, "Please add a phone number so we can call you.", "error");
         return;
       }
 
@@ -258,6 +280,7 @@ function initJourneyForms() {
         form.reset();
         if (weatherInput) weatherInput.checked = true;
         if (serviceInput) serviceInput.checked = true;
+        togglePhoneField();
         showFormMessage(
           messageEl,
           "Your Journey Has Begun. Thank you for trusting us with your story. We’ll personally review your message and contact you within 24 hours. You don’t have to navigate this weather alone.",

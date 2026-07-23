@@ -1443,6 +1443,7 @@ a[aria-disabled="true"] {
 
 .journey-form input[type="text"],
 .journey-form input[type="email"],
+.journey-form input[type="tel"],
 .journey-form textarea {
   width: 100%;
   padding: 13px 14px;
@@ -1455,6 +1456,10 @@ a[aria-disabled="true"] {
 
 .journey-form textarea {
   resize: vertical;
+}
+
+.journey-phone-field {
+  display: block;
 }
 
 .journey-choice {

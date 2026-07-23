@@ -237,9 +237,14 @@ async function ensureJourneyTable() {
       service TEXT NOT NULL,
       situation TEXT NOT NULL DEFAULT '',
       contact_preference TEXT NOT NULL DEFAULT 'email',
+      phone TEXT NOT NULL DEFAULT '',
       created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
     )
   `);
+
+  await reviewPool.query(
+    "ALTER TABLE journey_requests ADD COLUMN IF NOT EXISTS phone TEXT NOT NULL DEFAULT ''"
+  );
 }
 
 async function importFileReviewsToDatabase() {
@@ -419,9 +424,10 @@ async function createStoredJourneyRequest(request) {
           service,
           situation,
           contact_preference,
+          phone,
           created_at
         )
-        VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
       `,
       [
         request.id,
@@ -431,6 +437,7 @@ async function createStoredJourneyRequest(request) {
         request.service,
         request.situation,
         request.contactPreference,
+        request.phone,
         request.createdAt
       ]
     );
@@ -663,6 +670,7 @@ app.post("/journey", async (req, res) => {
     const service = trimText(req.body?.service, 40);
     const situation = trimText(req.body?.situation, 2400);
     const contactPreference = trimText(req.body?.contactPreference, 40) || "email";
+    const phone = trimText(req.body?.phone, 50);
 
     if (!name) {
       return res.status(400).json({ error: "Name is required." });
@@ -684,6 +692,10 @@ app.post("/journey", async (req, res) => {
       return res.status(400).json({ error: "Please choose a contact preference." });
     }
 
+    if (contactPreference === "phone" && !phone) {
+      return res.status(400).json({ error: "A phone number is required when phone is selected." });
+    }
+
     await createStoredJourneyRequest({
       id: randomUUID(),
       name,
@@ -692,6 +704,7 @@ app.post("/journey", async (req, res) => {
       service,
       situation,
       contactPreference,
+      phone,
       createdAt: new Date().toISOString()
     });
 
