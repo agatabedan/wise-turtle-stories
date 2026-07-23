@@ -1204,6 +1204,19 @@ a[aria-disabled="true"] {
   top: clamp(-120px, -8vh, -56px);
 }
 
+/* These illustrations have narrower painted text areas, so keep copy off the artwork. */
+.lifeafter-page--step-one,
+.lifeafter-page--solid-ground,
+.lifeafter-page--building,
+.lifeafter-page--map {
+  --lifeafter-text-width: min(440px, 26vw);
+}
+
+.lifeafter-page--map .lifeafter-copy {
+  left: clamp(28px, 4vw, 64px);
+  top: clamp(-154px, -10vh, -78px);
+}
+
 .lifeafter-dark .lifeafter-copy {
   color: #fffaf0;
   text-shadow: 0 2px 14px rgba(0, 0, 0, 0.78);
