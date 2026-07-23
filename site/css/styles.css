@@ -1326,14 +1326,28 @@ a[aria-disabled="true"] {
   align-self: end;
 }
 
+.lifeafter-final {
+  justify-content: center;
+}
+
+.lifeafter-final .lifeafter-copy {
+  width: min(1040px, 100%);
+  text-align: center;
+}
+
 .lifeafter-people {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
-  margin-top: 22px;
+  align-items: start;
+  gap: clamp(32px, 5vw, 76px);
+  margin: 28px auto 0;
+  text-align: left;
 }
 
 .lifeafter-people article {
+  max-width: 460px;
+  width: 100%;
+  justify-self: center;
   text-shadow: 0 1px 10px rgba(255, 250, 238, 0.84);
 }
 
