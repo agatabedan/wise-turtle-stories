@@ -1767,10 +1767,21 @@ header.lifeafter-header {
   min-height: 100vh;
 }
 
+/* The first heading needs room below its transparent navigation. */
+.lifeafter-page.lifeafter-hero:not(.lifeafter-center):not(.lifeafter-offer-page):not(.lifeafter-final) .lifeafter-copy {
+  top: clamp(-32px, -2vh, -14px);
+}
+
 @media (max-width: 860px) {
   .lifeafter-header .site-nav {
     background: rgba(248, 244, 233, 0.93);
     border-color: rgba(62, 83, 63, 0.24);
+  }
+}
+
+@media (max-width: 700px) {
+  .lifeafter-page.lifeafter-hero:not(.lifeafter-center):not(.lifeafter-offer-page):not(.lifeafter-final) .lifeafter-copy {
+    top: 18px;
   }
 }
 
