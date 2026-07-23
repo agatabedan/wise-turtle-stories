@@ -1277,6 +1277,36 @@ a[aria-disabled="true"] {
   border-color: rgba(255, 255, 255, 0.22);
 }
 
+/* Keep Life After calls to action calm enough to sit inside the illustrations. */
+.lifeafter-story .btn-primary {
+  min-height: 46px;
+  padding: 11px 20px;
+  border-color: rgba(43, 67, 48, 0.68);
+  border-radius: 7px;
+  background: rgba(46, 72, 52, 0.64);
+  color: #f6f0e5;
+  box-shadow: 0 8px 20px rgba(43, 54, 39, 0.16);
+  font-family: "Playfair Display", serif;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.1;
+  text-shadow: none;
+  backdrop-filter: blur(5px);
+}
+
+.lifeafter-story .btn-primary:hover,
+.lifeafter-story .btn-primary:focus-visible {
+  border-color: rgba(38, 59, 42, 0.9);
+  background: rgba(42, 64, 46, 0.8);
+  color: #fffaf0;
+  box-shadow: 0 10px 22px rgba(43, 54, 39, 0.2);
+}
+
+.lifeafter-story .btn-primary:focus-visible {
+  outline: 2px solid rgba(65, 99, 71, 0.52);
+  outline-offset: 3px;
+}
+
 .lifeafter-offer-page {
   justify-content: center;
 }
