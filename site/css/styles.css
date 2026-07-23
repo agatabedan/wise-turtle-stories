@@ -1197,6 +1197,13 @@ a[aria-disabled="true"] {
   text-shadow: 0 1px 10px rgba(255, 250, 238, 0.82);
 }
 
+/* Place story text inside the pale space intentionally painted into each illustration. */
+.lifeafter-page:not(.lifeafter-center):not(.lifeafter-offer-page):not(.lifeafter-final) .lifeafter-copy {
+  position: relative;
+  left: clamp(36px, 5vw, 80px);
+  top: clamp(-120px, -8vh, -56px);
+}
+
 .lifeafter-dark .lifeafter-copy {
   color: #fffaf0;
   text-shadow: 0 2px 14px rgba(0, 0, 0, 0.78);
@@ -2346,6 +2353,11 @@ body.reveal-ready .reveal.is-visible.reveal-scale {
     padding: 0;
     background: transparent;
     box-shadow: none;
+  }
+
+  .lifeafter-page:not(.lifeafter-center):not(.lifeafter-offer-page):not(.lifeafter-final) .lifeafter-copy {
+    left: 22px;
+    top: -42px;
   }
 
   .lifeafter-copy h1 {
