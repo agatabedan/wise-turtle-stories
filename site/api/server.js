@@ -17,6 +17,7 @@ const JOURNEY_FILE = path.join(__dirname, "data", "journey-requests.json");
 // Runtime configuration lives in environment variables only.
 const MAILERLITE_API_TOKEN = normalizeMailerLiteToken(process.env.MAILERLITE_API_TOKEN || "");
 const MAILERLITE_GROUP_ID = (process.env.MAILERLITE_GROUP_ID || "").trim();
+const MAILERLITE_JOURNEY_GROUP_ID = (process.env.MAILERLITE_JOURNEY_GROUP_ID || "").trim();
 const FRONTEND_ORIGINS = (process.env.FRONTEND_ORIGIN || "")
   .split(",")
   .map((origin) => origin.trim())
@@ -87,6 +88,33 @@ function normalizeMailerLiteToken(token) {
 
 function hasMailerLiteConfig() {
   return isRealEnvValue(MAILERLITE_API_TOKEN) && isRealEnvValue(MAILERLITE_GROUP_ID);
+}
+
+function hasJourneyMailerLiteConfig() {
+  return isRealEnvValue(MAILERLITE_API_TOKEN) && isRealEnvValue(MAILERLITE_JOURNEY_GROUP_ID);
+}
+
+async function addMailerLiteSubscriber({ email, groupId, name = "" }) {
+  const body = {
+    email,
+    groups: [groupId]
+  };
+
+  if (name) body.fields = { name };
+
+  const response = await fetch("https://connect.mailerlite.com/api/subscribers", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      Authorization: `Bearer ${MAILERLITE_API_TOKEN}`
+    },
+    body: JSON.stringify(body)
+  });
+
+  if (!response.ok) {
+    throw new Error(`MailerLite request failed with status ${response.status}.`);
+  }
 }
 
 function hasDatabaseConfig() {
@@ -695,6 +723,19 @@ app.post("/journey", async (req, res) => {
     if (contactPreference === "phone" && !phone) {
       return res.status(400).json({ error: "A phone number is required when phone is selected." });
     }
+
+    if (!hasJourneyMailerLiteConfig()) {
+      return res.status(503).json({
+        error: "Journey email is not configured yet. Please try again in a moment."
+      });
+    }
+
+    // Joining this group starts the Journey confirmation workflow in MailerLite.
+    await addMailerLiteSubscriber({
+      email,
+      name,
+      groupId: MAILERLITE_JOURNEY_GROUP_ID
+    });
 
     await createStoredJourneyRequest({
       id: randomUUID(),
