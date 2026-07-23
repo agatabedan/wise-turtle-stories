@@ -845,10 +845,19 @@ function initReveal() {
 
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const mobile = window.matchMedia("(max-width: 700px)").matches;
+  const firstStoryReveal = document.querySelector(".lifeafter-hero .reveal");
 
   if (reduceMotion || mobile || !("IntersectionObserver" in window)) {
     revealElements.forEach((el) => el.classList.add("is-visible"));
     return;
+  }
+
+  // The first story page is already on screen, so reveal it after the first paint
+  // instead of waiting for a scroll observer that can miss it during a reload.
+  if (firstStoryReveal) {
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => firstStoryReveal.classList.add("is-visible"));
+    });
   }
 
   const revealObserver = new IntersectionObserver(
@@ -865,7 +874,9 @@ function initReveal() {
     }
   );
 
-  revealElements.forEach((el) => revealObserver.observe(el));
+  revealElements.forEach((el) => {
+    if (el !== firstStoryReveal) revealObserver.observe(el);
+  });
 }
 
 /* Homepage book slider: changes every 3 seconds until the visitor chooses a slide manually. */
