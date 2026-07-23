@@ -1163,7 +1163,7 @@ a[aria-disabled="true"] {
 }
 
 .lifeafter-page {
-  --lifeafter-text-width: min(560px, 42vw);
+  --lifeafter-text-width: min(440px, 34vw);
   position: relative;
   min-height: calc(100vh - 92px);
   display: flex;
@@ -1225,7 +1225,7 @@ a[aria-disabled="true"] {
 
 .lifeafter-copy h2,
 .lifeafter-offer h2 {
-  font-size: clamp(2.1rem, 4vw, 4.2rem);
+  font-size: clamp(2.1rem, 3.5vw, 3.6rem);
   line-height: 1;
 }
 
@@ -1301,6 +1301,7 @@ a[aria-disabled="true"] {
 }
 
 .lifeafter-guidance-page .lifeafter-single-offer {
+  width: min(400px, 32vw);
   margin-left: clamp(32px, 7vw, 128px);
 }
 
@@ -1350,6 +1351,16 @@ a[aria-disabled="true"] {
   text-align: center;
 }
 
+.lifeafter-final .eyebrow {
+  margin: 0;
+  color: #2b3e2e;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.4rem, 4.6vw, 4.4rem);
+  font-weight: 700;
+  line-height: 1;
+  text-transform: none;
+}
+
 .lifeafter-people {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1379,13 +1390,17 @@ a[aria-disabled="true"] {
 }
 
 .lifeafter-people h3 {
-  margin: 0 0 4px;
+  margin: 24px 0 8px;
+  color: #242421;
   font-family: "Playfair Display", serif;
+  font-size: clamp(1.8rem, 2.2vw, 2.5rem);
+  line-height: 1.08;
 }
 
 .lifeafter-people p {
   margin: 0;
-  font-size: 0.96rem;
+  font-size: 1.05rem;
+  line-height: 1.48;
 }
 
 .journey-contact-section {
@@ -2342,7 +2357,7 @@ body.reveal-ready .reveal.is-visible.reveal-scale {
   }
 
   .lifeafter-page {
-    --lifeafter-text-width: 100%;
+    --lifeafter-text-width: min(100% - 22px, 430px);
     min-height: calc(100vh - 64px);
     align-items: flex-end;
     padding: 28px 14px;
@@ -2394,6 +2409,7 @@ body.reveal-ready .reveal.is-visible.reveal-scale {
   }
 
   .lifeafter-guidance-page .lifeafter-single-offer {
+    width: 100%;
     margin-left: 0;
   }
 
@@ -2403,6 +2419,14 @@ body.reveal-ready .reveal.is-visible.reveal-scale {
 
   .lifeafter-people {
     grid-template-columns: 1fr;
+  }
+
+  .lifeafter-final .eyebrow {
+    font-size: 2.45rem;
+  }
+
+  .lifeafter-people h3 {
+    font-size: 1.8rem;
   }
 
   .journey-contact-section {
