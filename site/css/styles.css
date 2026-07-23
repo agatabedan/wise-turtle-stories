@@ -1235,6 +1235,17 @@ a[aria-disabled="true"] {
   font-size: 1.18rem;
 }
 
+/* Story labels use the same quiet, book-like voice as the illustrated journey. */
+.lifeafter-story .eyebrow,
+.lifeafter-story .lifeafter-offer span {
+  color: #566552;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(0.9rem, 1.15vw, 1.05rem);
+  font-weight: 700;
+  line-height: 1.12;
+  text-transform: uppercase;
+}
+
 .lifeafter-copy p,
 .lifeafter-copy li,
 .lifeafter-offer p,
@@ -1343,9 +1354,6 @@ a[aria-disabled="true"] {
 .lifeafter-offer span {
   display: inline-flex;
   margin-bottom: 12px;
-  color: var(--green);
-  font-weight: 800;
-  text-transform: uppercase;
 }
 
 .lifeafter-offer strong {
@@ -1364,8 +1372,9 @@ a[aria-disabled="true"] {
 }
 
 .lifeafter-offer-meta {
-  color: var(--green-ink);
-  font-weight: 800;
+  color: #566552;
+  font-size: 0.98rem;
+  font-weight: 600;
 }
 
 .lifeafter-guide-card {
