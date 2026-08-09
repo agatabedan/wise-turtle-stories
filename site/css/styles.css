@@ -2607,7 +2607,7 @@ body.reveal-ready .reveal.is-visible.reveal-scale {
 
   .lifeafter-hero-note {
     right: auto;
-    bottom: 7vw;
+    bottom: 1.5vw;
     left: 50%;
     width: 56vw;
     transform: translateX(-50%);
@@ -2695,7 +2695,7 @@ body.reveal-ready .reveal.is-visible.reveal-scale {
 
   .lifeafter-offer-page {
     height: 66.666vw;
-    justify-content: center;
+    justify-content: flex-start;
     background-size: 100% 100%;
     background-position: center;
   }
@@ -2765,7 +2765,7 @@ body.reveal-ready .reveal.is-visible.reveal-scale {
 
   .lifeafter-guidance-page {
     height: 66.666vw;
-    justify-content: center;
+    justify-content: flex-start;
     background-size: 100% 100%;
   }
 
@@ -2790,11 +2790,12 @@ body.reveal-ready .reveal.is-visible.reveal-scale {
 
   .lifeafter-page--map {
     --lifeafter-text-width: 31vw;
+    align-items: flex-start;
   }
 
   .lifeafter-page--map .lifeafter-copy {
     left: 5vw;
-    top: 0;
+    top: 5vw;
   }
 
   .lifeafter-page--map .lifeafter-copy p {
