@@ -18,6 +18,8 @@ const JOURNEY_FILE = path.join(__dirname, "data", "journey-requests.json");
 const MAILERLITE_API_TOKEN = normalizeMailerLiteToken(process.env.MAILERLITE_API_TOKEN || "");
 const MAILERLITE_GROUP_ID = (process.env.MAILERLITE_GROUP_ID || "").trim();
 const MAILERLITE_JOURNEY_GROUP_ID = (process.env.MAILERLITE_JOURNEY_GROUP_ID || "").trim();
+const GOOGLE_SHEETS_WEBHOOK_URL = (process.env.GOOGLE_SHEETS_WEBHOOK_URL || "").trim();
+const GOOGLE_SHEETS_WEBHOOK_TOKEN = (process.env.GOOGLE_SHEETS_WEBHOOK_TOKEN || "").trim();
 const FRONTEND_ORIGINS = (process.env.FRONTEND_ORIGIN || "")
   .split(",")
   .map((origin) => origin.trim())
@@ -94,6 +96,10 @@ function hasJourneyMailerLiteConfig() {
   return isRealEnvValue(MAILERLITE_API_TOKEN) && isRealEnvValue(MAILERLITE_JOURNEY_GROUP_ID);
 }
 
+function hasGoogleSheetsConfig() {
+  return isRealEnvValue(GOOGLE_SHEETS_WEBHOOK_URL) && isRealEnvValue(GOOGLE_SHEETS_WEBHOOK_TOKEN);
+}
+
 async function addMailerLiteSubscriber({ email, groupId, name = "" }) {
   const body = {
     email,
@@ -114,6 +120,24 @@ async function addMailerLiteSubscriber({ email, groupId, name = "" }) {
 
   if (!response.ok) {
     throw new Error(`MailerLite request failed with status ${response.status}.`);
+  }
+}
+
+// Mirrors saved Life After applications into the owner's private Google Sheet.
+async function sendJourneyToGoogleSheet(request) {
+  if (!hasGoogleSheetsConfig()) return;
+
+  const webhookUrl = new URL(GOOGLE_SHEETS_WEBHOOK_URL);
+  webhookUrl.searchParams.set("token", GOOGLE_SHEETS_WEBHOOK_TOKEN);
+
+  const response = await fetch(webhookUrl, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(request)
+  });
+
+  if (!response.ok) {
+    throw new Error(`Google Sheets request failed with status ${response.status}.`);
   }
 }
 
@@ -737,7 +761,7 @@ app.post("/journey", async (req, res) => {
       groupId: MAILERLITE_JOURNEY_GROUP_ID
     });
 
-    await createStoredJourneyRequest({
+    const journeyRequest = {
       id: randomUUID(),
       name,
       email,
@@ -747,6 +771,13 @@ app.post("/journey", async (req, res) => {
       contactPreference,
       phone,
       createdAt: new Date().toISOString()
+    };
+
+    await createStoredJourneyRequest(journeyRequest);
+
+    // The database remains the source of truth if Google Sheets is temporarily unavailable.
+    sendJourneyToGoogleSheet(journeyRequest).catch((error) => {
+      console.error("Google Sheets sync error:", error);
     });
 
     return res.status(201).json({
