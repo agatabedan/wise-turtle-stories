@@ -2512,14 +2512,20 @@ body.reveal-ready .reveal.is-visible.reveal-scale {
 
   .lifeafter-page {
     --lifeafter-text-width: min(100% - 22px, 430px);
-    min-height: calc(100vh - 64px);
-    align-items: flex-end;
-    padding: 28px 14px;
-    background-position: 62% center;
+    /* Phone screens are portrait: show each wide illustration whole, then let its text breathe below. */
+    min-height: 0;
+    display: block;
+    padding: calc(66.666vw + 30px) 22px 42px;
+    background-color: #f5ead2;
+    background-position: center top;
+    background-size: 100% auto;
   }
 
   .lifeafter-page::before {
-    background: transparent;
+    inset: calc(66.666vw - 42px) 0 auto;
+    height: 52px;
+    z-index: 0;
+    background: linear-gradient(to bottom, rgba(245, 234, 210, 0), #f5ead2 78%);
   }
 
   .lifeafter-dark::before {
@@ -2527,18 +2533,23 @@ body.reveal-ready .reveal.is-visible.reveal-scale {
   }
 
   .lifeafter-copy {
+    position: relative;
+    z-index: 1;
+    width: 100%;
     padding: 0;
     background: transparent;
     box-shadow: none;
+    text-shadow: none;
   }
 
   .lifeafter-page:not(.lifeafter-center):not(.lifeafter-offer-page):not(.lifeafter-final) .lifeafter-copy {
-    left: 22px;
-    top: -42px;
+    left: 0;
+    top: 0;
   }
 
   .lifeafter-copy h1 {
-    font-size: 2.65rem;
+    font-size: 2.55rem;
+    line-height: 0.96;
   }
 
   .lifeafter-copy h2,
@@ -2550,8 +2561,87 @@ body.reveal-ready .reveal.is-visible.reveal-scale {
   .lifeafter-copy li,
   .lifeafter-offer p,
   .lifeafter-offer li {
-    font-size: 1rem;
-    line-height: 1.42;
+    font-size: 1.03rem;
+    line-height: 1.52;
+  }
+
+  .lifeafter-copy p,
+  .lifeafter-offer p {
+    margin-bottom: 16px;
+  }
+
+  .lifeafter-copy ul,
+  .lifeafter-offer ul {
+    margin-bottom: 18px;
+  }
+
+  /* The opening scene stays cinematic, but its long copy gets dedicated room above the footer note. */
+  .lifeafter-story .lifeafter-hero {
+    min-height: 100svh;
+    display: flex;
+    align-items: flex-end;
+    padding: 104px 24px 92px;
+    background-position: 58% center;
+    background-size: cover;
+  }
+
+  .lifeafter-page.lifeafter-hero:not(.lifeafter-center):not(.lifeafter-offer-page):not(.lifeafter-final) .lifeafter-copy {
+    width: min(100%, 342px);
+    left: 0;
+    top: 0;
+  }
+
+  .lifeafter-hero .lifeafter-copy h1 {
+    font-size: 2.7rem;
+  }
+
+  .lifeafter-hero .lifeafter-copy p,
+  .lifeafter-hero .lifeafter-copy li {
+    font-size: 0.96rem;
+    line-height: 1.35;
+  }
+
+  .lifeafter-hero .lifeafter-copy p {
+    margin-bottom: 10px;
+  }
+
+  .lifeafter-hero-note {
+    right: 20px;
+    bottom: 20px;
+    width: calc(100% - 40px);
+    transform: none;
+    font-size: 0.8rem;
+    line-height: 1.25;
+  }
+
+  /* These pages use the quiet paper art rather than an illustration-led chapter. */
+  .lifeafter-center,
+  .lifeafter-final {
+    padding: 64px 22px;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .lifeafter-center::before,
+  .lifeafter-final::before {
+    display: none;
+  }
+
+  .lifeafter-center .lifeafter-copy,
+  .lifeafter-final .lifeafter-copy {
+    width: 100%;
+  }
+
+  .lifeafter-offer-page {
+    padding-top: calc(66.666vw + 34px);
+  }
+
+  .lifeafter-offers {
+    width: 100%;
+  }
+
+  .lifeafter-offer {
+    text-shadow: none;
   }
 
   .lifeafter-offers {
@@ -2573,6 +2663,14 @@ body.reveal-ready .reveal.is-visible.reveal-scale {
 
   .lifeafter-people {
     grid-template-columns: 1fr;
+    gap: 42px;
+    margin-top: 22px;
+  }
+
+  .lifeafter-people img {
+    box-shadow:
+      0 0 0 4px rgba(255, 250, 240, 0.7),
+      0 12px 28px rgba(55, 50, 39, 0.14);
   }
 
   .lifeafter-final .eyebrow {
