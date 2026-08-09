@@ -2921,6 +2921,26 @@ body.reveal-ready .reveal.is-visible.reveal-scale {
     transform: none;
     transition: none;
   }
+
+  /* Let the Life After chapters arrive gently while scrolling, without sideways motion. */
+  body.reveal-ready .lifeafter-story .reveal,
+  body.reveal-ready .lifeafter-story .reveal-left,
+  body.reveal-ready .lifeafter-story .reveal-right,
+  body.reveal-ready .lifeafter-story .reveal-up,
+  body.reveal-ready .lifeafter-story .reveal-scale {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  body.reveal-ready .lifeafter-story .reveal.is-visible,
+  body.reveal-ready .lifeafter-story .reveal.is-visible.reveal-left,
+  body.reveal-ready .lifeafter-story .reveal.is-visible.reveal-right,
+  body.reveal-ready .lifeafter-story .reveal.is-visible.reveal-up,
+  body.reveal-ready .lifeafter-story .reveal.is-visible.reveal-scale {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 @media (max-width: 560px) {

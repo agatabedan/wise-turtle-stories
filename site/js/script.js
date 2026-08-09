@@ -838,16 +838,17 @@ function setFormDisabled(form, disabled) {
   });
 }
 
-/* Scroll reveal animation. On mobile and reduced-motion settings it stays simple and stable. */
+/* Scroll reveal animation. Life After keeps a gentle vertical reveal on phones. */
 function initReveal() {
   const revealElements = document.querySelectorAll(".reveal");
   if (!revealElements.length) return;
 
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const mobile = window.matchMedia("(max-width: 700px)").matches;
+  const isLifeAfterStory = Boolean(document.querySelector(".lifeafter-story"));
   const firstStoryReveal = document.querySelector(".lifeafter-hero .reveal");
 
-  if (reduceMotion || mobile || !("IntersectionObserver" in window)) {
+  if (reduceMotion || (mobile && !isLifeAfterStory) || !("IntersectionObserver" in window)) {
     revealElements.forEach((el) => el.classList.add("is-visible"));
     return;
   }
