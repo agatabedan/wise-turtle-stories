@@ -2770,7 +2770,7 @@ body.reveal-ready .reveal.is-visible.reveal-scale {
   }
 
   .lifeafter-guidance-page .lifeafter-single-offer {
-    width: 38vw;
+    width: 30vw;
     margin-left: 6vw;
   }
 
@@ -2788,14 +2788,20 @@ body.reveal-ready .reveal.is-visible.reveal-scale {
     margin-bottom: 3px;
   }
 
+  .lifeafter-guidance-page .lifeafter-offer p strong {
+    margin: 0 0 1px;
+    font-size: 0.48rem;
+    line-height: 1.12;
+  }
+
   .lifeafter-page--map {
     --lifeafter-text-width: 31vw;
     align-items: flex-start;
   }
 
   .lifeafter-page--map .lifeafter-copy {
-    left: 5vw;
-    top: 5vw;
+    left: 6vw;
+    top: 13vw;
   }
 
   .lifeafter-page--map .lifeafter-copy p {
