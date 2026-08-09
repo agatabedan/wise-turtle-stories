@@ -2511,21 +2511,19 @@ body.reveal-ready .reveal.is-visible.reveal-scale {
   }
 
   .lifeafter-page {
-    --lifeafter-text-width: min(100% - 22px, 430px);
-    /* Phone screens are portrait: show each wide illustration whole, then let its text breathe below. */
+    --lifeafter-text-width: 44vw;
     min-height: 0;
-    display: block;
-    padding: calc(66.666vw + 30px) 22px 42px;
-    background-color: #f5ead2;
-    background-position: center top;
-    background-size: 100% auto;
+    height: 66.666vw;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    background-position: center;
+    background-size: 100% 100%;
   }
 
   .lifeafter-page::before {
-    inset: calc(66.666vw - 42px) 0 auto;
-    height: 52px;
-    z-index: 0;
-    background: linear-gradient(to bottom, rgba(245, 234, 210, 0), #f5ead2 78%);
+    inset: 0;
+    background: transparent;
   }
 
   .lifeafter-dark::before {
@@ -2534,89 +2532,100 @@ body.reveal-ready .reveal.is-visible.reveal-scale {
 
   .lifeafter-copy {
     position: relative;
-    z-index: 1;
-    width: 100%;
+    width: var(--lifeafter-text-width);
     padding: 0;
     background: transparent;
     box-shadow: none;
-    text-shadow: none;
+    text-shadow: 0 1px 7px rgba(255, 250, 238, 0.78);
   }
 
   .lifeafter-page:not(.lifeafter-center):not(.lifeafter-offer-page):not(.lifeafter-final) .lifeafter-copy {
-    left: 0;
-    top: 0;
+    left: 7vw;
+    top: -2vw;
   }
 
   .lifeafter-copy h1 {
-    font-size: 2.55rem;
-    line-height: 0.96;
+    font-size: 1.55rem;
+    line-height: 0.94;
   }
 
   .lifeafter-copy h2,
   .lifeafter-offer h2 {
-    font-size: 2rem;
+    font-size: 1.08rem;
+    line-height: 1;
   }
 
   .lifeafter-copy p,
   .lifeafter-copy li,
   .lifeafter-offer p,
   .lifeafter-offer li {
-    font-size: 1.03rem;
-    line-height: 1.52;
+    font-size: 0.62rem;
+    line-height: 1.28;
   }
 
   .lifeafter-copy p,
   .lifeafter-offer p {
-    margin-bottom: 16px;
+    margin-bottom: 5px;
   }
 
   .lifeafter-copy ul,
   .lifeafter-offer ul {
-    margin-bottom: 18px;
+    margin: 0 0 6px;
+    padding-left: 0.85rem;
   }
 
-  /* The opening scene stays cinematic, but its long copy gets dedicated room above the footer note. */
+  /* Keep the mobile hero as one illustrated page, with its copy in the painted clear space. */
   .lifeafter-story .lifeafter-hero {
-    min-height: 100svh;
-    display: flex;
-    align-items: flex-end;
-    padding: 104px 24px 92px;
-    background-position: 58% center;
-    background-size: cover;
+    min-height: 0;
+    height: 66.666vw;
+    padding: 0;
+    background-position: center;
+    background-size: 100% 100%;
   }
 
   .lifeafter-page.lifeafter-hero:not(.lifeafter-center):not(.lifeafter-offer-page):not(.lifeafter-final) .lifeafter-copy {
-    width: min(100%, 342px);
-    left: 0;
-    top: 0;
+    width: 44vw;
+    left: 7vw;
+    top: 8vw;
   }
 
   .lifeafter-hero .lifeafter-copy h1 {
-    font-size: 2.7rem;
+    font-size: 1.65rem;
+    margin-bottom: 6px;
   }
 
   .lifeafter-hero .lifeafter-copy p,
   .lifeafter-hero .lifeafter-copy li {
-    font-size: 0.96rem;
-    line-height: 1.35;
+    font-size: 0.5rem;
+    line-height: 1.16;
   }
 
   .lifeafter-hero .lifeafter-copy p {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
   }
 
   .lifeafter-hero-note {
-    right: 20px;
-    bottom: 20px;
-    width: calc(100% - 40px);
+    right: auto;
+    bottom: 3vw;
+    left: 7vw;
+    width: 44vw;
     transform: none;
-    font-size: 0.8rem;
-    line-height: 1.25;
+    font-size: 0.45rem;
+    line-height: 1.2;
+    text-align: left;
   }
 
-  /* These pages use the quiet paper art rather than an illustration-led chapter. */
+  .lifeafter-page--step-one,
+  .lifeafter-page--solid-ground,
+  .lifeafter-page--building,
+  .lifeafter-page--map {
+    --lifeafter-text-width: 42vw;
+  }
+
+  /* These pages intentionally use the quiet paper art rather than a scene. */
   .lifeafter-center,
   .lifeafter-final {
+    height: auto;
     padding: 64px 22px;
     background-position: center;
     background-size: cover;
@@ -2633,15 +2642,44 @@ body.reveal-ready .reveal.is-visible.reveal-scale {
   }
 
   .lifeafter-offer-page {
-    padding-top: calc(66.666vw + 34px);
+    justify-content: flex-start;
   }
 
   .lifeafter-offers {
-    width: 100%;
+    width: 56vw;
+    margin-left: 7vw;
   }
 
   .lifeafter-offer {
-    text-shadow: none;
+    text-shadow: 0 1px 7px rgba(255, 250, 238, 0.78);
+  }
+
+  .lifeafter-offer span,
+  .lifeafter-story .lifeafter-offer span {
+    margin-bottom: 4px;
+    font-size: 0.54rem;
+  }
+
+  .lifeafter-offer h3 {
+    margin-bottom: 5px;
+    font-size: 0.68rem;
+  }
+
+  .lifeafter-offer strong {
+    margin: 7px 0;
+    font-size: 0.9rem;
+  }
+
+  .lifeafter-offer small,
+  .lifeafter-offer-meta {
+    margin-top: 2px;
+    font-size: 0.54rem;
+  }
+
+  .lifeafter-story .btn-primary {
+    min-height: 24px;
+    padding: 5px 8px;
+    font-size: 0.55rem;
   }
 
   .lifeafter-offers {
