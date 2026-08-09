@@ -2511,7 +2511,7 @@ body.reveal-ready .reveal.is-visible.reveal-scale {
   }
 
   .lifeafter-page {
-    --lifeafter-text-width: 44vw;
+    --lifeafter-text-width: 40vw;
     min-height: 0;
     height: 66.666vw;
     display: flex;
@@ -2540,8 +2540,8 @@ body.reveal-ready .reveal.is-visible.reveal-scale {
   }
 
   .lifeafter-page:not(.lifeafter-center):not(.lifeafter-offer-page):not(.lifeafter-final) .lifeafter-copy {
-    left: 7vw;
-    top: -2vw;
+    left: 6vw;
+    top: 0;
   }
 
   .lifeafter-copy h1 {
@@ -2584,13 +2584,13 @@ body.reveal-ready .reveal.is-visible.reveal-scale {
   }
 
   .lifeafter-page.lifeafter-hero:not(.lifeafter-center):not(.lifeafter-offer-page):not(.lifeafter-final) .lifeafter-copy {
-    width: 44vw;
-    left: 7vw;
-    top: 8vw;
+    width: 40vw;
+    left: 6vw;
+    top: 7vw;
   }
 
   .lifeafter-hero .lifeafter-copy h1 {
-    font-size: 1.65rem;
+    font-size: 1.48rem;
     margin-bottom: 6px;
   }
 
@@ -2607,8 +2607,8 @@ body.reveal-ready .reveal.is-visible.reveal-scale {
   .lifeafter-hero-note {
     right: auto;
     bottom: 3vw;
-    left: 7vw;
-    width: 44vw;
+    left: 6vw;
+    width: 40vw;
     transform: none;
     font-size: 0.45rem;
     line-height: 1.2;
@@ -2619,7 +2619,36 @@ body.reveal-ready .reveal.is-visible.reveal-scale {
   .lifeafter-page--solid-ground,
   .lifeafter-page--building,
   .lifeafter-page--map {
+    --lifeafter-text-width: 38vw;
+  }
+
+  /* These two chapters carry a CTA, so they need extra vertical room on a phone. */
+  .lifeafter-page--cta {
     --lifeafter-text-width: 42vw;
+    height: 106vw;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .lifeafter-page--cta .lifeafter-copy {
+    top: 0;
+  }
+
+  .lifeafter-page--cta .lifeafter-copy p,
+  .lifeafter-page--cta .lifeafter-copy li {
+    font-size: 0.58rem;
+    line-height: 1.24;
+  }
+
+  .lifeafter-page--cta .lifeafter-copy h3 {
+    margin-bottom: 4px;
+    font-size: 0.76rem;
+    line-height: 1.14;
+  }
+
+  .lifeafter-page--cta .lifeafter-cta {
+    margin-top: 8px;
+    padding-top: 8px;
   }
 
   /* These pages intentionally use the quiet paper art rather than a scene. */
@@ -2642,12 +2671,16 @@ body.reveal-ready .reveal.is-visible.reveal-scale {
   }
 
   .lifeafter-offer-page {
-    justify-content: flex-start;
+    height: 106vw;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
   }
 
   .lifeafter-offers {
-    width: 56vw;
-    margin-left: 7vw;
+    width: 58vw;
+    margin-left: 6vw;
+    gap: 0;
   }
 
   .lifeafter-offer {
@@ -2662,12 +2695,13 @@ body.reveal-ready .reveal.is-visible.reveal-scale {
 
   .lifeafter-offer h3 {
     margin-bottom: 5px;
-    font-size: 0.68rem;
+    font-size: 0.64rem;
+    line-height: 1.16;
   }
 
   .lifeafter-offer strong {
-    margin: 7px 0;
-    font-size: 0.9rem;
+    margin: 5px 0;
+    font-size: 0.86rem;
   }
 
   .lifeafter-offer small,
@@ -2677,32 +2711,63 @@ body.reveal-ready .reveal.is-visible.reveal-scale {
   }
 
   .lifeafter-story .btn-primary {
-    min-height: 24px;
+    min-height: 26px;
     padding: 5px 8px;
     font-size: 0.55rem;
   }
 
   .lifeafter-offers {
-    gap: 12px;
+    gap: 0;
   }
 
   .lifeafter-guidance-page {
+    height: 78vw;
     justify-content: center;
+    background-size: 100% 100%;
   }
 
   .lifeafter-guidance-page .lifeafter-single-offer {
-    width: 100%;
-    margin-left: 0;
+    width: 42vw;
+    margin-left: 6vw;
   }
 
   .lifeafter-offer {
-    padding: 18px;
+    padding: 0;
+  }
+
+  .lifeafter-guidance-page .lifeafter-offer h2 {
+    font-size: 0.94rem;
+  }
+
+  .lifeafter-guidance-page .lifeafter-offer p {
+    font-size: 0.54rem;
+    line-height: 1.23;
+    margin-bottom: 6px;
+  }
+
+  .lifeafter-page--map {
+    --lifeafter-text-width: 34vw;
+  }
+
+  .lifeafter-page--map .lifeafter-copy {
+    left: 5vw;
+    top: 0;
+  }
+
+  .lifeafter-page--map .lifeafter-copy p {
+    font-size: 0.5rem;
+    line-height: 1.2;
+  }
+
+  .lifeafter-page--map .lifeafter-copy h2 {
+    font-size: 0.92rem;
+    margin-bottom: 5px;
   }
 
   .lifeafter-people {
-    grid-template-columns: 1fr;
-    gap: 42px;
-    margin-top: 22px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 14px;
   }
 
   .lifeafter-people img {
@@ -2712,11 +2777,27 @@ body.reveal-ready .reveal.is-visible.reveal-scale {
   }
 
   .lifeafter-final .eyebrow {
-    font-size: 2.45rem;
+    font-size: 1.55rem;
   }
 
   .lifeafter-people h3 {
-    font-size: 1.8rem;
+    margin: 10px 0 4px;
+    font-size: 0.9rem;
+    line-height: 1.1;
+  }
+
+  .lifeafter-people p {
+    font-size: 0.6rem;
+    line-height: 1.32;
+  }
+
+  .lifeafter-person-role {
+    margin-bottom: 6px;
+    font-size: 0.64rem;
+  }
+
+  .lifeafter-people p + p {
+    margin-top: 6px;
   }
 
   .journey-contact-section {
