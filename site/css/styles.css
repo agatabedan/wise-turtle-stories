@@ -1788,37 +1788,31 @@ header.solidground-header {
   filter: drop-shadow(0 1px 8px rgba(255, 250, 238, 0.5));
 }
 
+/* The adult pages share one complete navigation system. */
+.lifeafter-header .site-nav,
 .solidground-header .site-nav {
-  max-width: 530px;
-  margin-left: auto;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 8px;
+  max-width: 1180px;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
 }
 
 .solidground-header .site-nav a {
-  min-height: 40px;
-  padding: 7px 9px;
-  border: 0;
-  border-bottom: 1px solid transparent;
-  border-radius: 0;
-  background: transparent;
-  color: #263c2c;
-  font-family: Inter, sans-serif;
-  font-size: 0.88rem;
-  font-weight: 500;
+  border-color: rgba(62, 83, 63, 0.26);
+  background: rgba(248, 244, 233, 0.36);
+  color: #284232;
+  backdrop-filter: blur(5px);
 }
 
 .solidground-header .site-nav a:hover,
 .solidground-header .site-nav a.active {
-  border-bottom-color: #435a3e;
-  background: transparent;
-  color: #263c2c;
+  border-color: rgba(43, 75, 51, 0.56);
+  background: rgba(49, 84, 57, 0.72);
+  color: #fffaf0;
 }
 
 .solidground-header .menu-toggle {
-  border-color: rgba(52, 75, 55, 0.28);
-  background: rgba(255, 252, 242, 0.58);
-  color: #263c2c;
+  border-color: rgba(62, 83, 63, 0.3);
+  background: rgba(248, 244, 233, 0.55);
+  color: #284232;
   backdrop-filter: blur(5px);
 }
 
@@ -1839,6 +1833,11 @@ header.solidground-header {
   width: min(660px, 92vw);
   margin-top: 10px;
   text-align: center;
+}
+
+/* A restrained light halo keeps the hero copy readable over the illustration. */
+.solidground-hero-copy > * {
+  text-shadow: 0 2px 14px rgba(255, 252, 242, 0.92), 0 0 8px rgba(255, 252, 242, 0.74);
 }
 
 .solidground-hero h1,
@@ -2004,6 +2003,7 @@ header.solidground-header {
 .solidground-other {
   min-height: max(623px, 49.6vw);
   box-sizing: border-box;
+  padding-inline: 0;
   padding-top: 0;
   background: url("/assets/solidground/before-footer.png") center / cover no-repeat;
 }
@@ -2014,10 +2014,10 @@ header.solidground-header {
 }
 
 .solidground-journey-grid {
-  width: min(1180px, 100%);
+  width: calc(100% - 32px);
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(18px, 2vw, 28px);
+  gap: clamp(22px, 2.15vw, 40px);
   margin: 0 auto;
 }
 
@@ -2029,9 +2029,9 @@ header.solidground-header {
   justify-content: flex-end;
   gap: 14px;
   padding: 24px;
-  border: 1px solid rgba(73, 88, 77, 0.28);
-  border-radius: 12px;
-  background: rgba(255, 252, 241, 0.12);
+  border: 0;
+  border-radius: 0;
+  background: transparent;
   color: #214b67;
   text-align: center;
   text-decoration: none;
@@ -2064,7 +2064,7 @@ header.solidground-header {
   }
 
   .solidground-header .site-nav a {
-    border-bottom: 0;
+    border: 0;
   }
 
   .solidground-header .site-nav a.active {
@@ -2108,6 +2108,15 @@ header.solidground-header {
 
   .solidground-audience,
   .solidground-other {
+    padding-inline: 14px;
+  }
+
+  /* The lower illustration already contains its card frames, so it stays full width. */
+  .solidground-other {
+    padding-inline: 0;
+  }
+
+  .solidground-other .solidground-section-heading {
     padding-inline: 14px;
   }
 
