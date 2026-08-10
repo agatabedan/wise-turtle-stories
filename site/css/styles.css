@@ -1763,6 +1763,370 @@ header.lifeafter-header {
   backdrop-filter: blur(5px);
 }
 
+/* Finding Solid Ground keeps the adult Wise Turtle identity, with a quiet transparent menu. */
+.solidground-body {
+  background: #f7f0df;
+}
+
+header.solidground-header {
+  position: absolute;
+  inset: 0 0 auto;
+  background: transparent;
+  border-bottom-color: transparent;
+  backdrop-filter: none;
+}
+
+.solidground-header .nav-wrap {
+  min-height: 94px;
+}
+
+.solidground-header .brand img {
+  width: clamp(178px, 22vw, 280px);
+  height: clamp(48px, 6vw, 72px);
+  object-fit: cover;
+  object-position: center;
+  filter: drop-shadow(0 1px 8px rgba(255, 250, 238, 0.5));
+}
+
+.solidground-header .site-nav {
+  max-width: 530px;
+  margin-left: auto;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.solidground-header .site-nav a {
+  min-height: 40px;
+  padding: 7px 9px;
+  border: 0;
+  border-bottom: 1px solid transparent;
+  border-radius: 0;
+  background: transparent;
+  color: #263c2c;
+  font-family: Inter, sans-serif;
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+.solidground-header .site-nav a:hover,
+.solidground-header .site-nav a.active {
+  border-bottom-color: #435a3e;
+  background: transparent;
+  color: #263c2c;
+}
+
+.solidground-header .menu-toggle {
+  border-color: rgba(52, 75, 55, 0.28);
+  background: rgba(255, 252, 242, 0.58);
+  color: #263c2c;
+  backdrop-filter: blur(5px);
+}
+
+.solidground-story {
+  color: #242b23;
+  background: #f7f0df url("/assets/solidground/solid-ground-background.png") center / cover fixed;
+}
+
+.solidground-hero {
+  min-height: 700px;
+  display: grid;
+  place-items: center;
+  padding: 150px 24px 108px;
+  background: url("/assets/solidground/hero-solid-ground.png") center / cover no-repeat;
+}
+
+.solidground-hero-copy {
+  width: min(660px, 92vw);
+  margin-top: 10px;
+  text-align: center;
+}
+
+.solidground-hero h1,
+.solidground-section-heading h2,
+.solidground-card-copy h3,
+.solidground-journey-card span {
+  font-family: "Playfair Display", serif;
+  letter-spacing: 0;
+}
+
+.solidground-hero h1 {
+  margin: 0;
+  color: #30462e;
+  font-size: clamp(3rem, 5.4vw, 5.6rem);
+  line-height: 1;
+}
+
+.solidground-hero h1::after,
+.solidground-section-heading h2::after {
+  content: "";
+  display: block;
+  width: 132px;
+  height: 15px;
+  margin: 15px auto 14px;
+  border-top: 1px solid rgba(70, 93, 59, 0.45);
+  background: radial-gradient(ellipse at center, #798c55 0 3px, transparent 3.5px);
+  background-size: 24px 10px;
+  background-repeat: no-repeat;
+  background-position: center top;
+}
+
+.solidground-lead {
+  margin: 0 0 28px;
+  font-size: clamp(1.05rem, 1.7vw, 1.42rem);
+  line-height: 1.35;
+}
+
+.solidground-intro {
+  max-width: 570px;
+  margin: 0 auto;
+  font-size: clamp(0.98rem, 1.25vw, 1.13rem);
+  line-height: 1.45;
+}
+
+.solidground-intro p {
+  margin: 0 0 18px;
+}
+
+.solidground-audience,
+.solidground-other {
+  padding: clamp(60px, 8vw, 108px) max(18px, 5vw);
+}
+
+.solidground-audience {
+  background: url("/assets/solidground/solid-ground-background.png") center / cover no-repeat;
+}
+
+.solidground-section-heading {
+  max-width: 760px;
+  margin: 0 auto clamp(34px, 5vw, 54px);
+  text-align: center;
+}
+
+.solidground-section-heading h2 {
+  margin: 0;
+  color: #435b35;
+  font-size: clamp(2.2rem, 3.6vw, 4rem);
+  line-height: 1.08;
+}
+
+.solidground-section-heading p {
+  margin: 0;
+  font-size: clamp(1rem, 1.25vw, 1.18rem);
+  line-height: 1.5;
+}
+
+.solidground-audience-grid {
+  width: min(1050px, 100%);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(18px, 2.8vw, 38px);
+  margin: 0 auto;
+}
+
+.solidground-audience-card {
+  position: relative;
+  display: flex;
+  aspect-ratio: 0.535;
+  min-height: 0;
+  overflow: hidden;
+  border: 1px solid rgba(93, 105, 73, 0.3);
+  border-radius: 13px;
+  color: #2d3429;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 12px 28px rgba(81, 68, 47, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.solidground-audience-card:hover,
+.solidground-audience-card:focus-visible {
+  color: #2d3429;
+  transform: translateY(-5px);
+  box-shadow: 0 18px 34px rgba(66, 57, 43, 0.16);
+}
+
+.solidground-audience-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  user-select: none;
+}
+
+.solidground-card-copy {
+  position: relative;
+  z-index: 1;
+  align-self: flex-end;
+  width: 100%;
+  padding: 28px 25px 22px;
+}
+
+.solidground-card-copy h3 {
+  margin: 0 0 20px;
+  font-size: clamp(1.65rem, 2.1vw, 2.35rem);
+  line-height: 1.03;
+}
+
+.solidground-card-copy p {
+  max-width: 250px;
+  margin: 0 auto 20px;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.solidground-arrow,
+.solidground-journey-card b {
+  width: 44px;
+  height: 44px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #fffdf5;
+  font-family: Inter, sans-serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
+.solidground-child {
+  border-color: rgba(174, 128, 33, 0.58);
+}
+
+.solidground-child h3 { color: #9c5d17; }
+.solidground-child .solidground-arrow { background: #ad7511; }
+.solidground-self h3 { color: #566937; }
+.solidground-self .solidground-arrow { background: #5a7135; }
+.solidground-teen { border-color: rgba(54, 86, 106, 0.48); }
+.solidground-teen h3 { color: #1d4e68; }
+.solidground-teen .solidground-arrow { background: #245c78; }
+
+.solidground-other {
+  min-height: max(623px, 49.6vw);
+  box-sizing: border-box;
+  padding-top: 0;
+  background: url("/assets/solidground/before-footer.png") center / cover no-repeat;
+}
+
+.solidground-other .solidground-section-heading {
+  padding-top: clamp(54px, 7vw, 96px);
+  margin-bottom: clamp(28px, 4vw, 44px);
+}
+
+.solidground-journey-grid {
+  width: min(1180px, 100%);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(18px, 2vw, 28px);
+  margin: 0 auto;
+}
+
+.solidground-journey-card {
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 14px;
+  padding: 24px;
+  border: 1px solid rgba(73, 88, 77, 0.28);
+  border-radius: 12px;
+  background: rgba(255, 252, 241, 0.12);
+  color: #214b67;
+  text-align: center;
+  text-decoration: none;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.solidground-journey-card:hover,
+.solidground-journey-card:focus-visible {
+  color: inherit;
+  filter: brightness(1.03);
+  transform: translateY(-4px);
+}
+
+.solidground-journey-card span {
+  font-size: clamp(1.45rem, 2.4vw, 2.2rem);
+  font-weight: 700;
+  line-height: 1.03;
+}
+
+.solidground-journey-card b { background: rgba(30, 83, 108, 0.78); }
+.solidground-flood { color: #1f5972; }
+.solidground-flood b { background: rgba(45, 108, 122, 0.76); }
+.solidground-fire { color: #a95112; }
+.solidground-fire b { background: rgba(194, 111, 23, 0.78); }
+
+@media (max-width: 860px) {
+  .solidground-header .site-nav {
+    background: rgba(255, 252, 242, 0.94);
+    border: 1px solid rgba(67, 86, 61, 0.2);
+  }
+
+  .solidground-header .site-nav a {
+    border-bottom: 0;
+  }
+
+  .solidground-header .site-nav a.active {
+    background: rgba(78, 102, 67, 0.14);
+  }
+}
+
+@media (max-width: 700px) {
+  .solidground-header .nav-wrap {
+    min-height: 70px;
+  }
+
+  .solidground-header .brand img {
+    width: 164px;
+    height: 44px;
+  }
+
+  .solidground-hero {
+    min-height: 670px;
+    padding: 124px 22px 74px;
+    background-position: center;
+  }
+
+  .solidground-hero-copy {
+    width: min(410px, 94vw);
+  }
+
+  .solidground-hero h1 {
+    font-size: clamp(2.6rem, 11vw, 3.5rem);
+  }
+
+  .solidground-lead {
+    margin-bottom: 24px;
+    font-size: 1.08rem;
+  }
+
+  .solidground-intro {
+    font-size: 0.92rem;
+    line-height: 1.42;
+  }
+
+  .solidground-audience,
+  .solidground-other {
+    padding-inline: 14px;
+  }
+
+  .solidground-audience-grid,
+  .solidground-journey-grid {
+    grid-template-columns: 1fr;
+    width: min(420px, 100%);
+  }
+
+  .solidground-audience-card {
+    aspect-ratio: 0.535;
+    min-height: 0;
+  }
+
+  .solidground-journey-card {
+    min-height: 190px;
+  }
+}
+
 .lifeafter-story .lifeafter-hero {
   min-height: 100vh;
 }
