@@ -1929,11 +1929,11 @@ header.solidground-header {
   min-height: 0;
   overflow: hidden;
   border: 0;
-  border-radius: 0;
+  border-radius: 22px;
   color: #2d3429;
   text-align: center;
   text-decoration: none;
-  box-shadow: none;
+  box-shadow: 0 16px 34px rgba(79, 62, 39, 0.12);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -1960,6 +1960,21 @@ header.solidground-header {
   align-self: flex-end;
   width: 100%;
   padding: 28px 25px 22px;
+}
+
+/* The first illustration is brighter, so its copy gets a wider soft-white halo. */
+.solidground-child .solidground-card-copy::before {
+  position: absolute;
+  z-index: -1;
+  content: "";
+  inset: -34px -28px -24px;
+  border-radius: 50%;
+  background: rgba(255, 252, 242, 0.68);
+  filter: blur(23px);
+}
+
+.solidground-child .solidground-card-copy {
+  text-shadow: 0 0 14px rgba(255, 252, 242, 1), 0 0 34px rgba(255, 252, 242, 0.94), 0 0 56px rgba(255, 252, 242, 0.8);
 }
 
 .solidground-card-copy h3 {
