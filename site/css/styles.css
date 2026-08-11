@@ -1946,10 +1946,9 @@ header.solidground-header {
 
 .solidground-audience-card img {
   position: absolute;
-  /* Crop the white export margins baked into the supplied artwork. */
-  inset: -7%;
-  width: 114%;
-  height: 114%;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   pointer-events: none;
   user-select: none;
