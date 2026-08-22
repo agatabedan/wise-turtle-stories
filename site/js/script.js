@@ -73,6 +73,20 @@ const BOOKS = [
       "Three sunny stories that help toddlers practice sunscreen, hats, and drinking water through playful summer adventures.",
     insideDescription:
       "Yan, Hedgie, and Red Birdie learn simple summer safety habits through warm, playful stories made for ages 2-5."
+  },
+  {
+    id: "yan-felt-sick",
+    title: "Yan the Little Squirrel",
+    subtitle: "Felt Sick",
+    age: "2-5",
+    category: YAN_CATEGORY,
+    detailUrl: "https://www.amazon.ca/dp/B0H3JBP5ZM",
+    amazonUrl: "https://www.amazon.ca/dp/B0H3JBP5ZM",
+    amazonLabel: "View Kindle edition",
+    format: "Kindle eBook",
+    showInSlider: false,
+    shortDescription:
+      "A Wise Turtle story for little readers, available as a Kindle eBook."
   }
 ];
 
@@ -885,7 +899,7 @@ function initBookSlider() {
   const slider = document.querySelector("[data-book-slider]");
   if (!slider) return;
 
-  const books = getPublishedBooks();
+  const books = getPublishedBooks().filter((book) => book.showInSlider !== false);
   if (!books.length) return;
 
   const slidesEl = slider.querySelector("[data-slider-slides]");
@@ -1077,22 +1091,22 @@ function renderBookVisual(book) {
 
 /* Amazon button appears only when a real price and purchase link exist. */
 function renderAmazonAction(book) {
-  if (!book.amazonUrl || !book.price) return "";
+  if (!book.amazonUrl) return "";
 
   return `
     <a class="btn btn-secondary" href="${book.amazonUrl}" target="_blank" rel="noopener">
-      Buy on Amazon
+      ${escapeHtml(book.amazonLabel || "Buy on Amazon")}
     </a>
   `;
 }
 
 /* Compact price option used inside library cards. */
 function renderBookPrice(book) {
-  if (!book.price) return "";
+  if (!book.price && !book.format) return "";
   return `
-    <div class="book-price" aria-label="Paperback price">
-      <span>Paperback</span>
-      <strong>${escapeHtml(book.price)}</strong>
+    <div class="book-price" aria-label="Book format and price">
+      <span>${escapeHtml(book.format || "Paperback")}</span>
+      <strong>${escapeHtml(book.price || "Available on Amazon")}</strong>
     </div>
   `;
 }
