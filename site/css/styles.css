@@ -190,7 +190,7 @@ p {
 .site-nav {
   flex: 1;
   display: grid;
-  grid-template-columns: repeat(7, minmax(0, 1fr));
+  grid-template-columns: repeat(8, minmax(0, 1fr));
   align-items: stretch;
   gap: 8px;
   max-width: 1060px;
@@ -1792,7 +1792,7 @@ header.solidground-header {
 .lifeafter-header .site-nav,
 .solidground-header .site-nav {
   max-width: 1180px;
-  grid-template-columns: repeat(7, minmax(0, 1fr));
+  grid-template-columns: repeat(8, minmax(0, 1fr));
 }
 
 .solidground-header .site-nav a {
