@@ -8,6 +8,7 @@
  * from the slider and library until you are ready.
  */
 const YAN_CATEGORY = "Yan The Little Squirrel";
+const NOAH_CATEGORY = "Noah The Little Otter";
 
 const BOOKS = [
   {
@@ -114,6 +115,20 @@ const BOOKS = [
     showInSlider: false,
     shortDescription:
       "A Wise Turtle story about navigating a big change, from the Little Heroes, New Chapters collection."
+  },
+  {
+    id: "noah-river-flowing",
+    title: "Noah the Little Otter",
+    subtitle: "And the River That Wouldn’t Stop Flowing",
+    age: "2-5",
+    category: NOAH_CATEGORY,
+    detailUrl: "https://www.amazon.ca/dp/B0H5JMBGX6",
+    amazonUrl: "https://www.amazon.ca/dp/B0H5JMBGX6",
+    price: "$14.99 CAD",
+    format: "Paperback",
+    showInSlider: false,
+    shortDescription:
+      "A gentle story for little readers about a river that wouldn’t stop flowing."
   }
 ];
 
