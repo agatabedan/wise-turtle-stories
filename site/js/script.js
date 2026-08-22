@@ -87,6 +87,19 @@ const BOOKS = [
     showInSlider: false,
     shortDescription:
       "A Wise Turtle story for little readers, available as a Kindle eBook."
+  },
+  {
+    id: "yan-together-in-hospital",
+    title: "Yan the Little Squirrel",
+    subtitle: "Together in Hospital",
+    age: "2-5",
+    category: YAN_CATEGORY,
+    detailUrl: "https://www.amazon.ca/dp/B0HD2CWFY8",
+    amazonUrl: "https://www.amazon.ca/dp/B0HD2CWFY8",
+    format: "Paperback",
+    showInSlider: false,
+    shortDescription:
+      "A Wise Turtle story for little readers, available on Amazon."
   }
 ];
 
