@@ -100,6 +100,20 @@ const BOOKS = [
     showInSlider: false,
     shortDescription:
       "A Wise Turtle story for little readers, available on Amazon."
+  },
+  {
+    id: "yan-big-change",
+    title: "Yan the Little Squirrel",
+    subtitle: "And a Big Change",
+    age: "2-5",
+    category: YAN_CATEGORY,
+    detailUrl: "https://www.amazon.ca/dp/B0HG2WTM8S",
+    amazonUrl: "https://www.amazon.ca/dp/B0HG2WTM8S",
+    price: "$24.99 CAD",
+    format: "Paperback",
+    showInSlider: false,
+    shortDescription:
+      "A Wise Turtle story about navigating a big change, from the Little Heroes, New Chapters collection."
   }
 ];
 
