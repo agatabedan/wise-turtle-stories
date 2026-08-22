@@ -868,6 +868,11 @@ const htmlRedirects = new Map([
   ["/book-story-three.html", "/book-story-three"]
 ]);
 
+// Contact content now lives at the end of The Story page.
+app.get("/contact", (_req, res) => {
+  res.redirect(301, "/about#contact");
+});
+
 app.use((req, res, next) => {
   const pathname = req.path;
   const targetPath = htmlRedirects.get(pathname);
