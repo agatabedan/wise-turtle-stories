@@ -642,6 +642,14 @@ a[aria-disabled="true"] {
   font-size: 0.62rem;
 }
 
+.library-grid[data-view="grid"] .library-copy .book-subtitle {
+  margin-top: 2px;
+  font-size: 0.76rem;
+  letter-spacing: -0.035em;
+  line-height: 1.15;
+  white-space: nowrap;
+}
+
 .library-grid .library-copy .eyebrow {
   font-size: 0.68rem;
 }
