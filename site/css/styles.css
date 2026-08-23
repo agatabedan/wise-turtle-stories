@@ -639,7 +639,11 @@ a[aria-disabled="true"] {
 }
 
 .library-grid[data-view="grid"] .library-copy .eyebrow {
-  font-size: 0.7rem;
+  font-size: 0.62rem;
+}
+
+.library-grid .library-copy .eyebrow {
+  font-size: 0.68rem;
 }
 
 .library-grid[data-view="grid"] .library-copy > p:not(.eyebrow, .book-subtitle) {
