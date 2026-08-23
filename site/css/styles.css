@@ -611,39 +611,34 @@ a[aria-disabled="true"] {
 
 /* Compact cover view lets the full library fit on screen at a glance. */
 .library-grid[data-view="grid"] {
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
 }
 
 .library-grid[data-view="grid"] .library-cover {
-  min-height: 290px;
-  padding: 16px;
+  min-height: 235px;
+  padding: 14px;
 }
 
 .library-grid[data-view="grid"] .library-cover.has-cover {
-  padding: 16px 16px 0;
+  padding: 14px 14px 0;
 }
 
 .library-grid[data-view="grid"] .library-cover img {
-  max-width: 190px;
-  max-height: 275px;
+  max-width: 145px;
+  max-height: 230px;
 }
 
 .library-grid[data-view="grid"] .library-copy {
-  gap: 6px;
   padding: 16px;
 }
 
 .library-grid[data-view="grid"] .library-copy h3 {
-  font-size: 1.3rem;
+  font-size: 1.35rem;
 }
 
 .library-grid[data-view="grid"] .library-copy .eyebrow {
-  font-size: 0.78rem;
-}
-
-.library-grid[data-view="grid"] .library-copy > :not(.eyebrow, h3, .book-subtitle) {
-  display: none;
+  font-size: 0.8rem;
 }
 
 /* List view keeps the full description, price, and Explore Book link. */
@@ -658,6 +653,18 @@ a[aria-disabled="true"] {
 
 .library-grid[data-view="list"] .library-cover {
   min-height: 100%;
+}
+
+@media (max-width: 980px) {
+  .library-grid[data-view="grid"] {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .library-grid[data-view="grid"] {
+    grid-template-columns: 1fr;
+  }
 }
 
 .library-view-toggle {
