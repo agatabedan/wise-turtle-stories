@@ -23,7 +23,6 @@ const BOOKS = [
     sampleUrl: "https://read.amazon.ca/sample/B0GR6HLRK8?clientId=share",
     price: "$18.99 CAD",
     readingAge: "2-5 years",
-    printLength: "42 pages",
     language: "English",
     dimensions: "13.97 x 0.25 x 21.59 cm",
     publicationDate: "March 3, 2026",
