@@ -122,15 +122,23 @@ const BOOKS = [
     id: "yan-big-change",
     title: "Yan the Little Squirrel",
     subtitle: "And a Big Change",
-    age: "2-5",
+    age: "4-7",
     category: YAN_CATEGORY,
-    detailUrl: "https://www.amazon.ca/dp/B0HG2WTM8S",
+    cover: "./assets/yan-big-change-front.png",
+    detailUrl: "/book-big-change",
     amazonUrl: "https://www.amazon.ca/dp/B0HG2WTM8S",
+    sampleUrl: "https://www.amazon.ca/dp/B0HG2WTM8S?asin=B0HG2WTM8S&revisionId=&format=4&depth=1",
     price: "$24.99 CAD",
+    ebookPrice: "$8.99 CAD",
     format: "Paperback",
+    readingAge: "4-7 years",
+    printLength: "140 pages",
+    language: "English",
+    dimensions: "13.97 x 0.81 x 21.59 cm",
+    publicationDate: "August 19, 2026",
     showInSlider: false,
     shortDescription:
-      "A Wise Turtle story about navigating a big change, from the Little Heroes, New Chapters collection."
+      "A gentle story about starting school, big feelings, and new beginnings."
   },
   {
     id: "noah-river-flowing",
