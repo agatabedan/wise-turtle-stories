@@ -102,12 +102,21 @@ const BOOKS = [
     subtitle: "Together in Hospital",
     age: "2-5",
     category: YAN_CATEGORY,
-    detailUrl: "https://www.amazon.ca/dp/B0HD2CWFY8",
+    cover: "./assets/yan-hospital-front.png",
+    detailUrl: "/book-together-hospital",
     amazonUrl: "https://www.amazon.ca/dp/B0HD2CWFY8",
+    sampleUrl: "https://www.amazon.ca/dp/B0HD2CWFY8?asin=B0HD2CWFY8&revisionId=&format=4&depth=1",
+    price: "$24.99 CAD",
+    ebookPrice: "$8.99 CAD",
     format: "Paperback",
+    readingAge: "2-5 years",
+    printLength: "116 pages",
+    language: "English",
+    dimensions: "13.97 x 0.69 x 21.59 cm",
+    publicationDate: "July 31, 2026",
     showInSlider: false,
     shortDescription:
-      "A Wise Turtle story for little readers, available on Amazon."
+      "A gentle, reassuring collection of stories for little heroes facing sickness, hospital visits, medical procedures, and big feelings."
   },
   {
     id: "yan-big-change",
