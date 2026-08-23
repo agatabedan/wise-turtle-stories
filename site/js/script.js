@@ -78,16 +78,23 @@ const BOOKS = [
   {
     id: "yan-felt-sick",
     title: "Yan the Little Squirrel",
-    subtitle: "Felt Sick",
+    subtitle: "Who Felt Sick",
     age: "2-5",
     category: YAN_CATEGORY,
-    detailUrl: "https://www.amazon.ca/dp/B0H3JBP5ZM",
-    amazonUrl: "https://www.amazon.ca/dp/B0H3JBP5ZM",
+    cover: "./assets/yan-felt-sick-front.png",
+    detailUrl: "/book-felt-sick",
+    amazonUrl: "https://www.amazon.ca/gp/product/B0H3JBP5ZM?ref_=dbs_m_mng_rwt_calw_tkin_2&storeType=ebooks",
+    sampleUrl: "https://www.amazon.ca/gp/product/B0H3JBP5ZM?ref_=dbs_m_mng_rwt_calw_tkin_2&storeType=ebooks&asin=B0H3JBP5ZM&revisionId=ae59c0a7&format=3&depth=1",
     amazonLabel: "View Kindle edition",
+    price: "$3.99 CAD",
     format: "Kindle eBook",
+    readingAge: "2-5 years",
+    printLength: "42 pages",
+    language: "English",
+    publicationDate: "May 31, 2026",
     showInSlider: false,
     shortDescription:
-      "A Wise Turtle story for little readers, available as a Kindle eBook."
+      "A comforting story that helps young children understand illness and recovery."
   },
   {
     id: "yan-together-in-hospital",
