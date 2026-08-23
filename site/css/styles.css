@@ -644,8 +644,8 @@ a[aria-disabled="true"] {
 
 .library-grid[data-view="grid"] .library-copy .book-subtitle {
   margin-top: 2px;
-  font-size: 0.76rem;
-  letter-spacing: -0.035em;
+  font-size: 0.65rem;
+  letter-spacing: -0.055em;
   line-height: 1.15;
   white-space: nowrap;
 }
