@@ -1172,7 +1172,7 @@ function renderLibraryCard(book) {
         <h3>${escapeHtml(book.title)}</h3>
         <p class="book-subtitle">${escapeHtml(book.subtitle)}</p>
         ${renderBookRating(book)}
-        ${renderBookPrice(book)}
+        ${renderBookPriceOptions(book, "library-price-options")}
         <p>${escapeHtml(book.shortDescription)}</p>
         <div class="inline-actions">
           <a class="btn btn-primary" href="${book.detailUrl}">Explore Book</a>

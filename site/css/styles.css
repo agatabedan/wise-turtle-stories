@@ -510,6 +510,14 @@ a[aria-disabled="true"] {
   margin: 0;
 }
 
+.library-price-options {
+  margin: 8px 0 2px;
+}
+
+.library-price-options .book-price {
+  margin: 0;
+}
+
 .slider-controls {
   display: flex;
   align-items: center;
