@@ -276,7 +276,7 @@ p {
 .btn-small {
   min-height: 38px;
   padding: 8px 12px;
-  font-size: 1.08rem;
+  font-size: 0.92rem;
 }
 
 .btn:disabled,
@@ -632,6 +632,8 @@ a[aria-disabled="true"] {
 .library-grid[data-view="grid"] .library-copy {
   gap: 4px;
   padding: 10px;
+  justify-items: center;
+  text-align: center;
 }
 
 .library-grid[data-view="grid"] .library-copy h3 {
@@ -660,6 +662,27 @@ a[aria-disabled="true"] {
 
 .library-grid[data-view="grid"] .book-rating {
   display: none;
+}
+
+.library-grid[data-view="grid"] .book-price {
+  min-width: 108px;
+  gap: 2px;
+  margin: 8px 0 0;
+  padding: 6px 8px;
+}
+
+.library-grid[data-view="grid"] .book-price span {
+  font-size: 0.72rem;
+}
+
+.library-grid[data-view="grid"] .book-price strong {
+  font-size: 0.96rem;
+}
+
+.library-grid[data-view="grid"] .inline-actions {
+  width: 100%;
+  justify-content: center;
+  margin-top: 8px;
 }
 
 .library-grid[data-view="grid"] .inline-actions .btn {
