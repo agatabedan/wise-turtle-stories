@@ -219,9 +219,15 @@
             <option value="Noah The Little Otter">Noah The Little Otter</option>
             </select>
           </label>
+
+          <div class="library-view-toggle" role="group" aria-label="Library view">
+            <span>View</span>
+            <button type="button" data-library-view="grid" aria-pressed="true">Grid</button>
+            <button type="button" data-library-view="list" aria-pressed="false">List</button>
+          </div>
         </div>
 
-        <div class="library-grid reveal reveal-up delay-2" data-books-grid></div>
+        <div class="library-grid reveal reveal-up delay-2" data-books-grid data-view="grid"></div>
         <p class="empty-state" data-books-empty hidden>No books match those filters yet.</p>
 
         <div class="inline-actions library-more">

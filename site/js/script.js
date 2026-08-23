@@ -1067,9 +1067,35 @@ function initBookLibraries() {
     const categoryFilter = library.querySelector("[data-category-filter]");
     const grid = library.querySelector("[data-books-grid]");
     const empty = library.querySelector("[data-books-empty]");
+    const viewButtons = library.querySelectorAll("[data-library-view]");
     const limit = Number(library.dataset.limit || getPublishedBooks().length);
 
     if (!grid) return;
+
+    function setView(view) {
+      const selectedView = view === "list" ? "list" : "grid";
+      grid.dataset.view = selectedView;
+      viewButtons.forEach((button) => {
+        const active = button.dataset.libraryView === selectedView;
+        button.setAttribute("aria-pressed", String(active));
+      });
+      try {
+        localStorage.setItem("wise-turtle-library-view", selectedView);
+      } catch {
+        // Storage can be unavailable in private browsing.
+      }
+    }
+
+    let savedView = "grid";
+    try {
+      savedView = localStorage.getItem("wise-turtle-library-view") || "grid";
+    } catch {
+      // Use the compact grid view when storage is unavailable.
+    }
+    setView(savedView);
+    viewButtons.forEach((button) => {
+      button.addEventListener("click", () => setView(button.dataset.libraryView));
+    });
 
     function render() {
       const query = searchInput?.value.trim().toLowerCase() || "";
@@ -1141,7 +1167,6 @@ function renderLibraryCard(book) {
         <p>${escapeHtml(book.shortDescription)}</p>
         <div class="inline-actions">
           <a class="btn btn-primary" href="${book.detailUrl}">Explore Book</a>
-          ${renderAmazonAction(book)}
         </div>
       </div>
     </article>
