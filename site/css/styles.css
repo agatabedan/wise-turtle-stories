@@ -496,6 +496,20 @@ a[aria-disabled="true"] {
   line-height: 1.1;
 }
 
+.book-price-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.slider-price-options {
+  margin-top: 14px;
+}
+
+.slider-price-options .book-price {
+  margin: 0;
+}
+
 .slider-controls {
   display: flex;
   align-items: center;
@@ -571,7 +585,7 @@ a[aria-disabled="true"] {
 
 .library-controls {
   display: grid;
-  grid-template-columns: minmax(260px, 1fr) 180px 220px auto;
+  grid-template-columns: minmax(220px, 1fr) 150px 190px 150px auto;
   gap: 12px;
   margin-bottom: 20px;
 }

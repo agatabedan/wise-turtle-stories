@@ -1050,6 +1050,7 @@ function renderSliderSlide(book, index) {
         <h3>${escapeHtml(book.title)}</h3>
         <p class="book-subtitle">${escapeHtml(book.subtitle)}</p>
         <p>${escapeHtml(book.shortDescription)}</p>
+        ${renderBookPriceOptions(book, "slider-price-options")}
         <div class="inline-actions">
           <a class="btn btn-primary" href="${book.detailUrl}">Explore Book</a>
           ${renderAmazonAction(book)}
@@ -1065,6 +1066,7 @@ function initBookLibraries() {
     const searchInput = library.querySelector("[data-book-search]");
     const ageFilter = library.querySelector("[data-age-filter]");
     const categoryFilter = library.querySelector("[data-category-filter]");
+    const formatFilter = library.querySelector("[data-format-filter]");
     const grid = library.querySelector("[data-books-grid]");
     const empty = library.querySelector("[data-books-empty]");
     const viewButtons = library.querySelectorAll("[data-library-view]");
@@ -1101,6 +1103,7 @@ function initBookLibraries() {
       const query = searchInput?.value.trim().toLowerCase() || "";
       const selectedAge = ageFilter?.value || "all";
       const selectedCategory = categoryFilter?.value || "all";
+      const selectedFormat = formatFilter?.value || "all";
 
       const filtered = getPublishedBooks().filter((book) => {
         const haystack = `${book.title} ${book.subtitle} ${book.shortDescription} ${book.category}`
@@ -1108,14 +1111,20 @@ function initBookLibraries() {
         const matchesQuery = !query || haystack.includes(query);
         const matchesAge = selectedAge === "all" || book.age === selectedAge;
         const matchesCategory = selectedCategory === "all" || book.category === selectedCategory;
-        return matchesQuery && matchesAge && matchesCategory;
+        const hasPaperback = book.format !== "Kindle eBook" && Boolean(book.price);
+        const hasKindle = book.format === "Kindle eBook" || Boolean(book.ebookPrice);
+        const matchesFormat =
+          selectedFormat === "all" ||
+          (selectedFormat === "paperback" && hasPaperback) ||
+          (selectedFormat === "kindle" && hasKindle);
+        return matchesQuery && matchesAge && matchesCategory && matchesFormat;
       }).slice(0, limit);
 
       grid.innerHTML = filtered.map(renderLibraryCard).join("");
       if (empty) empty.hidden = filtered.length > 0;
     }
 
-    [searchInput, ageFilter, categoryFilter].forEach((control) => {
+    [searchInput, ageFilter, categoryFilter, formatFilter].forEach((control) => {
       control?.addEventListener("input", render);
       control?.addEventListener("change", render);
     });
@@ -1205,6 +1214,36 @@ function renderBookPrice(book) {
     <div class="book-price" aria-label="Book format and price">
       <span>${escapeHtml(book.format || "Paperback")}</span>
       <strong>${escapeHtml(book.price || "Available on Amazon")}</strong>
+    </div>
+  `;
+}
+
+/* Format prices for the homepage slider. Books available in both formats show both choices. */
+function renderBookPriceOptions(book, className = "") {
+  const options = [];
+
+  if (book.format !== "Kindle eBook" && book.price) {
+    options.push({ format: "Paperback", price: book.price });
+  }
+
+  if (book.format === "Kindle eBook" && book.price) {
+    options.push({ format: "Kindle eBook", price: book.price });
+  } else if (book.ebookPrice) {
+    options.push({ format: "Kindle eBook", price: book.ebookPrice });
+  }
+
+  if (!options.length) return "";
+
+  return `
+    <div class="book-price-options ${className}">
+      ${options.map(
+        (option) => `
+          <div class="book-price" aria-label="${escapeHtml(option.format)} price">
+            <span>${escapeHtml(option.format)}</span>
+            <strong>${escapeHtml(option.price)}</strong>
+          </div>
+        `
+      ).join("")}
     </div>
   `;
 }
