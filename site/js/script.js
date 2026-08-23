@@ -144,15 +144,23 @@ const BOOKS = [
     id: "noah-river-flowing",
     title: "Noah the Little Otter",
     subtitle: "And the River That Wouldn’t Stop Flowing",
-    age: "2-5",
+    age: "3-8",
     category: NOAH_CATEGORY,
-    detailUrl: "https://www.amazon.ca/dp/B0H5JMBGX6",
+    cover: "./assets/noah-river-front.png",
+    detailUrl: "/book-noah-river",
     amazonUrl: "https://www.amazon.ca/dp/B0H5JMBGX6",
+    sampleUrl: "https://www.amazon.ca/dp/B0H5JMBGX6?asin=B0H5JMBGX6&revisionId=&format=4&depth=1",
     price: "$14.99 CAD",
+    ebookPrice: "$4.99 CAD",
     format: "Paperback",
+    readingAge: "3-8 years",
+    printLength: "30 pages",
+    language: "English",
+    dimensions: "13.97 x 0.2 x 21.59 cm",
+    publicationDate: "June 15, 2026",
     showInSlider: false,
     shortDescription:
-      "A gentle story for little readers about a river that wouldn’t stop flowing."
+      "A heartfelt story of courage, kindness, and hope for children facing big medical challenges and feelings."
   }
 ];
 

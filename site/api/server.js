@@ -39,7 +39,7 @@ const subscribeAttempts = new Map();
 const reviewAttempts = new Map();
 const journeyAttempts = new Map();
 const isProduction = process.env.NODE_ENV === "production";
-const ALLOWED_REVIEW_BOOKS = new Set(["yan", "story-two", "story-three", "yan-felt-sick", "yan-together-in-hospital", "yan-big-change"]);
+const ALLOWED_REVIEW_BOOKS = new Set(["yan", "story-two", "story-three", "yan-felt-sick", "yan-together-in-hospital", "yan-big-change", "noah-river-flowing"]);
 const ALLOWED_JOURNEY_WEATHERS = new Set(["air", "flood", "ground", "fire"]);
 const ALLOWED_JOURNEY_SERVICES = new Set(["workshop", "program", "consultation", "unsure"]);
 const ALLOWED_CONTACT_PREFERENCES = new Set(["email", "phone", "video"]);
@@ -868,7 +868,8 @@ const htmlRedirects = new Map([
   ["/book-story-three.html", "/book-story-three"],
   ["/book-felt-sick.html", "/book-felt-sick"],
   ["/book-together-hospital.html", "/book-together-hospital"],
-  ["/book-big-change.html", "/book-big-change"]
+  ["/book-big-change.html", "/book-big-change"],
+  ["/book-noah-river.html", "/book-noah-river"]
 ]);
 
 // Contact content now lives at the end of The Story page.
