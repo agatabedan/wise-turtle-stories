@@ -542,6 +542,10 @@ a[aria-disabled="true"] {
   scroll-margin-top: 92px;
 }
 
+#newsletterForm {
+  scroll-margin-top: 110px;
+}
+
 .library-controls {
   display: grid;
   grid-template-columns: minmax(220px, 1fr) 150px 190px 150px auto;
