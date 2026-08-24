@@ -2926,6 +2926,19 @@ header.solidground-header {
   color: var(--muted);
 }
 
+.footer-grid > div:last-child .btn {
+  margin-top: 12px;
+  border-color: #6fae70;
+  border-radius: 14px;
+  background: #78b878;
+  color: white;
+}
+
+.footer-grid > div:last-child .btn:hover {
+  border-color: #5d9f61;
+  background: #5d9f61;
+}
+
 .footer-links {
   margin: 0;
   padding: 0;
