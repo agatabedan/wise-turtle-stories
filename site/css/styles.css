@@ -2629,7 +2629,7 @@ header.solidground-header {
 
 .author-portrait img {
   width: 100%;
-  height: min(620px, 62vw);
+  height: min(440px, 46vw);
   object-fit: cover;
   object-position: center 34%;
   border-radius: 6px;
@@ -3063,7 +3063,7 @@ body.reveal-ready .reveal.is-visible.reveal-scale {
   }
 
   .author-portrait img {
-    height: min(620px, 82vw);
+    height: min(460px, 72vw);
   }
 
   .slider-frame {
@@ -3728,7 +3728,7 @@ body.reveal-ready .reveal.is-visible.reveal-scale {
   }
 
   .author-portrait img {
-    height: min(520px, 118vw);
+    height: min(420px, 104vw);
     object-position: center 30%;
   }
 
