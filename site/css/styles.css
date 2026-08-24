@@ -1133,6 +1133,28 @@ a[aria-disabled="true"] {
   margin-bottom: 0;
 }
 
+.review-like {
+  margin-top: 14px;
+  padding: 5px 0;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.review-like:hover,
+.review-like:focus-visible,
+.review-like.is-liked {
+  color: var(--green-ink);
+}
+
+.review-like.is-liked {
+  color: #b64a4a;
+}
+
 .review-controls {
   display: flex;
   align-items: center;

@@ -201,6 +201,32 @@ const REVIEWS = [
       "This is a very good book that helps teach children, through stories, how to cope with emotional challenges appropriate for their age (2-4).",
       "It provides them with tools to feel empowered and to handle situations more independently when their parents are not with them. The stories address common conflicts children face, such as dealing with disagreement, learning to wait patiently, and managing separation anxiety."
     ]
+  },
+  {
+    id: "anonymous-noah-2026-08-06",
+    bookId: "noah-river-flowing",
+    reviewer: "Anonymous",
+    rating: 5,
+    title: "Beautiful book",
+    reviewedIn: "Canada",
+    reviewDate: "August 6, 2026",
+    format: "Paperback",
+    verifiedPurchase: true,
+    source: "Amazon",
+    body: ["This is a beautiful story! It’s perfect for children facing medical hardships."]
+  },
+  {
+    id: "helene-noah-2026-07-25",
+    bookId: "noah-river-flowing",
+    reviewer: "Helene Desjardins Roy",
+    rating: 5,
+    title: "Children book",
+    reviewedIn: "Canada",
+    reviewDate: "July 25, 2026",
+    format: "Paperback",
+    verifiedPurchase: true,
+    source: "Amazon",
+    body: ["Excellent story and very well explained for children."]
   }
 ];
 
@@ -466,13 +492,19 @@ async function loadReviewData() {
     if (!response.ok) throw new Error("Reviews request failed");
     const data = await response.json();
 
-    activeReviews = Array.isArray(data.reviews) ? data.reviews : REVIEWS;
-    reviewSummaries = data.summaries || buildReviewSummaries(activeReviews);
+    activeReviews = mergeReviews(REVIEWS, Array.isArray(data.reviews) ? data.reviews : []);
+    reviewSummaries = buildReviewSummaries(activeReviews);
   } catch (error) {
     console.warn("Using fallback reviews", error);
     activeReviews = REVIEWS;
     reviewSummaries = buildReviewSummaries(activeReviews);
   }
+}
+
+function mergeReviews(featuredReviews, storedReviews) {
+  const allReviews = new Map(featuredReviews.map((review) => [review.id, review]));
+  storedReviews.forEach((review) => allReviews.set(review.id, review));
+  return [...allReviews.values()];
 }
 
 function buildReviewSummaries(reviews) {
@@ -586,6 +618,7 @@ function renderReviewSection(section) {
 
   if (wrapper) wrapper.hidden = false;
   listEl.innerHTML = reviews.map((review, index) => renderReviewCard(review, index)).join("");
+  initReviewLikes(listEl);
 
   if (mode === "carousel") {
     initReviewCarousel(section, reviews);
@@ -873,6 +906,7 @@ function renderReviewCard(review, index) {
       <div class="review-body">
         ${paragraphs}
       </div>
+      ${renderReviewLikeButton(review)}
     </article>
   `;
 }
@@ -890,7 +924,56 @@ function renderReviewMeta(review) {
     meta.push(`Format: ${review.format}`);
   }
 
+  if (review.verifiedPurchase) {
+    meta.push("Verified Purchase");
+  }
+
   return meta.map((item) => `<p class="review-meta">${escapeHtml(item)}</p>`).join("");
+}
+
+function getLikedReviewIds() {
+  try {
+    const saved = JSON.parse(localStorage.getItem("wise-turtle-liked-reviews") || "[]");
+    return new Set(Array.isArray(saved) ? saved : []);
+  } catch {
+    return new Set();
+  }
+}
+
+function renderReviewLikeButton(review) {
+  const liked = getLikedReviewIds().has(review.id);
+  return `
+    <button
+      type="button"
+      class="review-like${liked ? " is-liked" : ""}"
+      data-review-like="${escapeHtml(review.id)}"
+      aria-pressed="${liked}"
+    >${liked ? "♥ Liked" : "♡ Like"}</button>
+  `;
+}
+
+function initReviewLikes(listEl) {
+  listEl.querySelectorAll("[data-review-like]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const reviewId = button.dataset.reviewLike;
+      if (!reviewId) return;
+
+      const likedIds = getLikedReviewIds();
+      const isLiked = likedIds.has(reviewId);
+      if (isLiked) likedIds.delete(reviewId);
+      else likedIds.add(reviewId);
+
+      try {
+        localStorage.setItem("wise-turtle-liked-reviews", JSON.stringify([...likedIds]));
+      } catch {
+        // Likes remain active for the current page if storage is unavailable.
+      }
+
+      button.classList.toggle("is-liked", !isLiked);
+      button.setAttribute("aria-pressed", String(!isLiked));
+      button.textContent = !isLiked ? "♥ Liked" : "♡ Like";
+    });
+  });
 }
 
 function formatReviewDate(review) {
