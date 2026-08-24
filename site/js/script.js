@@ -203,6 +203,20 @@ const REVIEWS = [
     ]
   },
   {
+    id: "grant-story-two-2026-05-24",
+    bookId: "story-two",
+    reviewer: "Grant",
+    rating: 5,
+    title: "Must read!",
+    reviewedIn: "Canada",
+    reviewDate: "May 24, 2026",
+    format: "Paperback",
+    source: "Amazon",
+    body: [
+      "Such a great and engaging book for both parents and kids. Our 2-year-old loved it so much and was able to follow along and identify the feelings. Don’t wait to buy this book."
+    ]
+  },
+  {
     id: "anonymous-noah-2026-08-06",
     bookId: "noah-river-flowing",
     reviewer: "Anonymous",
