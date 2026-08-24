@@ -300,6 +300,7 @@ initReviewSystem();
 initDisabledLinks();
 initLegalTocHighlight();
 initProtectedStory();
+initLazyFloodArtwork();
 
 /* Mobile header menu: opens/closes the nav on small screens. */
 function initMobileMenu() {
@@ -1454,6 +1455,37 @@ function initProtectedStory() {
     protectedStory.addEventListener(eventName, (event) => {
       event.preventDefault();
     });
+  });
+}
+
+/* Flood uses many full-screen illustrations. Load each only as it nears the screen. */
+function initLazyFloodArtwork() {
+  const pages = Array.from(document.querySelectorAll(".lifeafter-page"));
+  if (!pages.length) return;
+
+  function loadArtwork(page) {
+    const artwork = page.style.getPropertyValue("--lifeafter-bg").trim();
+    if (!artwork || page.dataset.artworkLoaded === "true") return;
+    page.style.setProperty("background-image", artwork, "important");
+    page.dataset.artworkLoaded = "true";
+  }
+
+  if (!("IntersectionObserver" in window)) {
+    pages.forEach(loadArtwork);
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      loadArtwork(entry.target);
+      observer.unobserve(entry.target);
+    });
+  }, { rootMargin: "900px 0px" });
+
+  pages.forEach((page, index) => {
+    if (index < 2) loadArtwork(page);
+    else observer.observe(page);
   });
 }
 
