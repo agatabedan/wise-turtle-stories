@@ -79,7 +79,9 @@
             A comforting story that helps young children understand illness and recovery.
           </p>
 
-          <div class="info-grid">
+          <details class="additional-book-info">
+            <summary>Additional Book Information</summary>
+            <div class="info-grid">
             <div class="info-item">
               <span class="label">Reading age</span>
               <span>2-5 years</span>
@@ -98,21 +100,23 @@
             </div>
           </div>
 
-          <div class="book-editions" aria-label="Editions">
+            <div class="book-editions" aria-label="Editions">
             <p class="book-editions-heading">Edition</p>
             <div class="book-editions-row">
               <span class="edition-pill">Kindle eBook</span>
               <span class="edition-meta">Available now on Amazon Canada</span>
             </div>
-          </div>
+            </div>
+          </details>
 
           <section id="buy" class="buy-box">
             <h2>Buy on Amazon</h2>
-            <div class="price-options" aria-label="Book prices">
-              <div class="price-card" aria-label="Kindle price">
-                <span class="price-label">Kindle eBook</span>
-                <strong>3.99 CAD</strong>
+            <div class="edition-selector" data-edition-selector>
+              <p class="edition-selector-label">Choose format</p>
+              <div class="edition-selector-controls" role="group" aria-label="Choose format">
+                <button type="button" data-edition-price="3.99 CAD" aria-pressed="true">Kindle eBook</button>
               </div>
+              <p class="edition-current-price">Price <strong data-edition-current-price>3.99 CAD</strong></p>
             </div>
             <p>
               Kindle edition available now on Amazon Canada.
@@ -138,6 +142,14 @@
           </section>
         </div>
       </div>
+
+      <section class="related-books-section" aria-labelledby="related-books-heading">
+        <div class="section-heading">
+          <p class="eyebrow">Keep Reading</p>
+          <h2 id="related-books-heading">You may also like</h2>
+        </div>
+        <div class="related-books-grid" data-related-books></div>
+      </section>
 
       <section class="section">
         <div class="section-heading reveal reveal-up">

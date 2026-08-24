@@ -218,6 +218,8 @@ initJourneyForms();
 initReveal();
 initBookSlider();
 initCoverGalleries();
+initEditionSelectors();
+initRelatedBooks();
 initReviewSystem();
 initDisabledLinks();
 initLegalTocHighlight();
@@ -1050,7 +1052,6 @@ function renderSliderSlide(book, index) {
         <h3>${escapeHtml(book.title)}</h3>
         <p class="book-subtitle">${escapeHtml(book.subtitle)}</p>
         <p>${escapeHtml(book.shortDescription)}</p>
-        ${renderBookPriceOptions(book, "slider-price-options")}
         <div class="inline-actions">
           <a class="btn btn-primary" href="${book.detailUrl}">Explore Book</a>
           ${renderAmazonAction(book)}
@@ -1172,7 +1173,6 @@ function renderLibraryCard(book) {
         <h3>${escapeHtml(book.title)}</h3>
         <p class="book-subtitle">${escapeHtml(book.subtitle)}</p>
         ${renderBookRating(book)}
-        ${renderBookPriceOptions(book, "library-price-options")}
         <p>${escapeHtml(book.shortDescription)}</p>
         <div class="inline-actions">
           <a class="btn btn-primary" href="${book.detailUrl}">Explore Book</a>
@@ -1207,45 +1207,51 @@ function renderAmazonAction(book) {
   `;
 }
 
-/* Compact price option used inside library cards. */
-function renderBookPrice(book) {
-  if (!book.price && !book.format) return "";
-  return `
-    <div class="book-price" aria-label="Book format and price">
-      <span>${escapeHtml(book.format || "Paperback")}</span>
-      <strong>${escapeHtml(book.price || "Available on Amazon")}</strong>
-    </div>
-  `;
+/* Format selector on each Explore Book page. */
+function initEditionSelectors() {
+  document.querySelectorAll("[data-edition-selector]").forEach((selector) => {
+    const price = selector.querySelector("[data-edition-current-price]");
+    const buttons = selector.querySelectorAll("[data-edition-price]");
+    if (!price || !buttons.length) return;
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        buttons.forEach((item) => item.setAttribute("aria-pressed", String(item === button)));
+        price.textContent = button.dataset.editionPrice || "";
+      });
+    });
+  });
 }
 
-/* Format prices for the homepage slider. Books available in both formats show both choices. */
-function renderBookPriceOptions(book, className = "") {
-  const options = [];
+/* Recommendations use the current book's series first, then the same reading age. */
+function initRelatedBooks() {
+  const target = document.querySelector("[data-related-books]");
+  const currentId = document.querySelector("[data-book-rating]")?.dataset.bookRating;
+  if (!target || !currentId) return;
 
-  if (book.format !== "Kindle eBook" && book.price) {
-    options.push({ format: "Paperback", price: book.price });
-  }
+  const currentBook = BOOKS.find((book) => book.id === currentId);
+  if (!currentBook) return;
 
-  if (book.format === "Kindle eBook" && book.price) {
-    options.push({ format: "Kindle eBook", price: book.price });
-  } else if (book.ebookPrice) {
-    options.push({ format: "Kindle eBook", price: book.ebookPrice });
-  }
+  const related = getPublishedBooks()
+    .filter((book) => book.id !== currentId)
+    .sort((a, b) => {
+      const score = (book) => (book.category === currentBook.category ? 2 : 0) + (book.age === currentBook.age ? 1 : 0);
+      return score(b) - score(a);
+    })
+    .slice(0, 3);
 
-  if (!options.length) return "";
-
-  return `
-    <div class="book-price-options ${className}">
-      ${options.map(
-        (option) => `
-          <div class="book-price" aria-label="${escapeHtml(option.format)} price">
-            <span>${escapeHtml(option.format)}</span>
-            <strong>${escapeHtml(option.price)}</strong>
-          </div>
-        `
-      ).join("")}
-    </div>
-  `;
+  target.innerHTML = related.map((book) => `
+    <article class="related-book-card">
+      <a href="${book.detailUrl}">
+        <div class="related-book-cover">${renderBookVisual(book)}</div>
+        <div>
+          <p class="eyebrow">${escapeHtml(book.category)} | Ages ${escapeHtml(book.age)}</p>
+          <h3>${escapeHtml(book.title)}</h3>
+          <p class="book-subtitle">${escapeHtml(book.subtitle)}</p>
+        </div>
+      </a>
+    </article>
+  `).join("");
 }
 
 /* Prevents placeholder links from navigating anywhere. */
