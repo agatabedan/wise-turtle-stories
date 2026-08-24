@@ -160,6 +160,42 @@ const BOOKS = [
     showInSlider: false,
     shortDescription:
       "A heartfelt story of courage, kindness, and hope for children facing big medical challenges and feelings."
+  },
+  {
+    id: "fira-agate-forced-changes",
+    title: "Fira and Agate. Forest Adventures",
+    subtitle: "Forced Changes",
+    age: "teenagers",
+    category: "Fira and Agate",
+    cover: "./assets/library/teens/fira-agate-forced-changes.jpg",
+    detailUrl: "/books#teens",
+    format: "Coming soon",
+    shortDescription:
+      "A gentle, powerful story about sudden change, loss, uncertainty, and finding your ground."
+  },
+  {
+    id: "snowly-air",
+    title: "Snowly Tales. Air.",
+    subtitle: "What’s In the Air?",
+    age: "adults",
+    category: "Parenthood is…",
+    cover: "./assets/library/adults/snowly-air.png",
+    detailUrl: "/books#adults",
+    format: "Coming soon",
+    shortDescription:
+      "For anyone who feels something is wrong but can’t explain why."
+  },
+  {
+    id: "snowly-ground",
+    title: "Snowly Tales. Ground.",
+    subtitle: "Happy Every Day",
+    age: "adults",
+    category: "Parenthood is…",
+    cover: "./assets/library/adults/snowly-ground.png",
+    detailUrl: "/books#adults",
+    format: "Coming soon",
+    shortDescription:
+      "Simple everyday practices for happiness and resilience."
   }
 ];
 
@@ -1207,7 +1243,10 @@ function initBookLibraries() {
         const haystack = `${book.title} ${book.subtitle} ${book.shortDescription} ${book.category}`
           .toLowerCase();
         const matchesQuery = !query || haystack.includes(query);
-        const matchesAge = selectedAge === "all" || book.age === selectedAge;
+        const matchesAge =
+          selectedAge === "all" ||
+          book.age === selectedAge ||
+          (selectedAge === "2-5" && !["teenagers", "adults"].includes(book.age));
         const matchesCategory = selectedCategory === "all" || book.category === selectedCategory;
         const hasPaperback = book.format !== "Kindle eBook" && Boolean(book.price);
         const hasKindle = book.format === "Kindle eBook" || Boolean(book.ebookPrice);

@@ -1,165 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Books | Wise Turtle Stories</title>
-  <meta
-    name="description"
-    content="Search the Wise Turtle Stories library by age, theme, and title."
-  />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
-    rel="stylesheet"
-  />
-
-  <link rel="icon" type="image/png" href="./assets/favicon.png" />
-  <link rel="apple-touch-icon" href="./assets/favicon.png" />
-
-  <link rel="stylesheet" href="./css/styles.css" />
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Wise Turtle Library | Wise Turtle Stories</title>
+  <meta name="description" content="Stories and practical tools for children, teenagers, and adults." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="./assets/favicon.png" /><link rel="stylesheet" href="./css/styles.css" />
 </head>
+<body class="library-page">
+  <header class="site-header"><div class="container nav-wrap"><a href="/" class="brand" aria-label="Wise Turtle Stories home"><img src="./assets/logo.png" alt="Wise Turtle Stories" /></a><button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">Menu</button><nav class="site-nav" id="siteNav"><a href="/">Home</a><a href="/air">Air</a><a href="/lifeafter">Flood</a><a href="/solidground">Ground</a><a href="/fire">Fire</a><a href="/books" class="active">Books</a><a href="/about">The Story Behind Wise Turtle</a><a href="/start">Club</a></nav></div></header>
+  <main>
+    <section class="library-hero section"><div class="container book-library" data-book-library data-limit="12"><div class="section-heading"><p class="eyebrow">The Wise Turtle Library</p><h1>Every guide begins with a story.</h1><p class="section-subtitle">Stories and practical tools for children, teens and adults—helping you navigate life’s changing weather.</p></div><div class="library-controls"><label><span>Search</span><input type="search" data-book-search placeholder="Search books..." /></label><label><span>Age</span><select data-age-filter><option value="all">All ages</option><option value="2-5">Kids</option><option value="teenagers">Teenagers</option><option value="adults">Adults</option></select></label><label><span>Category</span><select data-category-filter><option value="all">All categories</option><option value="Yan The Little Squirrel">Yan The Little Squirrel</option><option value="Noah The Little Otter">Noah The Little Otter</option><option value="Parenthood is…">Parenthood is…</option></select></label><label><span>Format</span><select data-format-filter><option value="all">All formats</option><option value="paperback">Paperback</option><option value="kindle">Kindle eBook</option></select></label><div class="library-view-toggle" role="group" aria-label="Library view"><span>View</span><button type="button" data-library-view="grid" aria-pressed="true">Grid</button><button type="button" data-library-view="list" aria-pressed="false">List</button></div></div><div class="library-grid" data-books-grid data-view="grid"></div><p class="empty-state" data-books-empty hidden>No books match those filters yet.</p></div></section>
 
-<body>
-  <header class="site-header">
-    <div class="container nav-wrap">
-      <a href="/" class="brand" aria-label="Wise Turtle Stories home">
-        <img src="./assets/logo.png" alt="Wise Turtle Stories" />
-      </a>
+    <section id="children" class="reader-shelf reader-shelf--kids"><img class="reader-divider" src="./assets/library/kids/divider.png" alt="Yan and friends" /><div class="container"><header class="reader-heading"><p class="eyebrow">Children</p><h2>Little Explorers</h2><p>Helping children build healthy maps from the very beginning.</p></header><div class="reader-books reader-books--kids"><a class="reader-book" href="/book-yan"><img src="./assets/Cover1.jpeg" alt="Yan the Little Squirrel: Big Feelings, Little Choices" /><span>Yan the Little Squirrel</span><small>Big Feelings, Little Choices</small></a><a class="reader-book" href="/book-story-two"><img src="./assets/yan-calm-front.jpg" alt="Yan the Little Squirrel: Big Feelings, We Calm Together" /><span>Yan the Little Squirrel</span><small>Big Feelings, We Calm Together</small></a><a class="reader-book" href="/book-noah-river"><img src="./assets/noah-river-front.png" alt="Noah the Little Otter" /><span>Noah the Little Otter</span><small>And the River That Wouldn’t Stop Flowing</small></a><a class="reader-book" href="/book-big-change"><img src="./assets/yan-big-change-front.png" alt="Yan the Little Squirrel and a Big Change" /><span>Yan the Little Squirrel</span><small>And a Big Change</small></a></div><h3 class="reader-subheading">Activities</h3><div class="activity-row"><article class="activity-card"><div class="activity-icon">✦</div><h3>Welcome to Yan’s World</h3><p>A playful starter pack for little explorers.</p><a class="btn btn-secondary" href="./downloads/yan-adventure-starter-pack.pdf" download>Free Download</a></article><article class="activity-card"><div class="activity-icon">✦</div><h3>Trip to New York</h3><p>An activity book for a little adventure at home.</p><a class="btn btn-secondary" href="./downloads/yan-trip-to-new-york.pdf" download>Free Download</a></article><article class="activity-card"><div class="activity-icon">✦</div><h3>Cut-Out Stickers for Summer Adventure</h3><p>Printable stickers for sunny storytime fun.</p><a class="btn btn-secondary" href="./downloads/yan-summer-stickers.pdf" download>Free Download</a></article></div><div class="reader-subscribe"><div><p class="eyebrow">Free Parent Guide</p><h3>Turn toddler meltdowns into calmer moments</h3><p>Get the free Wise Turtle parent guide for no battles, waiting tantrums, and separation anxiety.</p></div><a class="btn btn-primary" href="/#newsletter">Send me the guide</a></div></div></section>
 
-      <button
-        class="menu-toggle"
-        id="menuToggle"
-        aria-label="Open menu"
-        aria-expanded="false"
-      >
-        Menu
-      </button>
+    <section id="teens" class="reader-shelf reader-shelf--teens"><img class="reader-divider" src="./assets/library/teens/divider.png" alt="Young forest friends" /><div class="container"><header class="reader-heading"><p class="eyebrow">Teenagers</p><h2>Young Explorers</h2><p>Helping teenagers discover who they are.</p></header><div class="feature-reader-card"><img src="./assets/library/teens/fira-agate-forced-changes.jpg" alt="Fira and Agate: Forest Adventures – Forced Changes" /><div><p class="eyebrow">Coming Soon</p><h3>Fira and Agate. Forest Adventures</h3><h4>Forced Changes</h4><p>How do you keep standing when everything is changing?</p><p>A gentle, powerful story about sudden change, loss, and uncertainty, and about learning to adapt, reconnect, and find your ground when life feels beyond your control.</p><span class="coming-soon">Coming soon!</span></div></div><div class="library-signup"><p class="eyebrow">A little wisdom every month.</p><p>You’ll receive a thoughtful story, a practical tool, and occasional free resources to help you navigate life’s changing weather.</p><a class="btn btn-primary" href="/#newsletter">I’d Love That</a></div></div></section>
 
-      <nav class="site-nav" id="siteNav">
-        <a href="/">Home</a>
-        <a href="/air">Air</a>
-        <a href="/lifeafter">Flood</a>
-        <a href="/solidground">Ground</a>
-        <a href="/fire">Fire</a>
-        <a href="/books" class="active">Books</a>
-        <a href="/start">Club</a>
-        <a href="/about">The Story Behind Wise Turtle</a>
-      </nav>
-    </div>
-  </header>
-
-  <main class="section">
-    <div class="container book-library" data-book-library>
-      <div class="section-heading reveal reveal-up">
-        <p class="eyebrow">Library</p>
-        <h1>Find the right story</h1>
-        <p class="section-subtitle">
-          Search all current Wise Turtle Stories books by title, age, or theme.
-        </p>
-      </div>
-
-      <div class="library-controls reveal reveal-up delay-1">
-        <label>
-          <span>Search</span>
-          <input type="search" data-book-search placeholder="Search books..." />
-        </label>
-
-        <label>
-          <span>Age</span>
-          <select data-age-filter>
-            <option value="all">All ages</option>
-            <option value="2-5">Ages 2-5</option>
-            <option value="3-8">Ages 3-8</option>
-            <option value="4-7">Ages 4-7</option>
-          </select>
-        </label>
-
-        <label>
-          <span>Category</span>
-          <select data-category-filter>
-            <option value="all">All categories</option>
-            <option value="Yan The Little Squirrel">Yan The Little Squirrel</option>
-            <option value="Noah The Little Otter">Noah The Little Otter</option>
-          </select>
-        </label>
-
-        <label>
-          <span>Format</span>
-          <select data-format-filter>
-            <option value="all">All formats</option>
-            <option value="paperback">Paperback</option>
-            <option value="kindle">Kindle eBook</option>
-          </select>
-        </label>
-
-        <div class="library-view-toggle" role="group" aria-label="Library view">
-          <span>View</span>
-          <button type="button" data-library-view="grid" aria-pressed="true">Grid</button>
-          <button type="button" data-library-view="list" aria-pressed="false">List</button>
-        </div>
-      </div>
-
-      <div class="library-grid reveal reveal-up delay-2" data-books-grid data-view="grid"></div>
-      <p class="empty-state" data-books-empty hidden>No books match those filters yet.</p>
-    </div>
-
-    <section class="section">
-      <div class="container">
-        <div class="newsletter-box reveal reveal-up">
-          <p class="eyebrow">Free Parent Guide</p>
-          <h2>Turn toddler meltdowns into calmer moments</h2>
-          <p class="newsletter-text">
-            Get the free Wise Turtle parent guide for no battles, waiting tantrums,
-            and separation anxiety.
-          </p>
-
-          <div class="inline-actions">
-            <a class="btn btn-primary" href="/#newsletter">Send me the guide</a>
-            <a class="btn btn-secondary" href="/about">Learn about the author</a>
-          </div>
-        </div>
-      </div>
-    </section>
+    <section id="adults" class="reader-shelf reader-shelf--adults"><img class="reader-divider" src="./assets/library/adults/divider-books.png" alt="Wise Turtle friends" /><div class="container"><header class="reader-heading"><p class="eyebrow">Adults</p><h2>Adult Explorers</h2><p>Stories and practical guides for your own journey.</p></header><div class="adult-books"><article class="feature-reader-card"><img src="./assets/library/adults/snowly-air.png" alt="Snowly Tales: What Is in the Air?" /><div><p class="eyebrow">Coming Soon</p><h3>Snowly Tales. Air.</h3><h4>What’s In the Air?</h4><p>For Anyone Who Feels Something Is Wrong but Can’t Explain Why</p><p>When something feels wrong but you can’t explain why, follow Snowly into the air and discover what your thoughts, feelings, and repeating patterns have been trying to tell you.</p><span class="coming-soon">Coming soon!</span></div></article><article class="feature-reader-card"><img src="./assets/library/adults/snowly-ground.png" alt="Snowly Tales: Happy Every Day" /><div><p class="eyebrow">Coming Soon</p><h3>Snowly Tales. Ground.</h3><h4>Happy Every Day</h4><p>Simple Practices for Happiness and Resilience</p><p>Simple everyday practices that help you notice more joy, strengthen resilience, and create a happier life—one day at a time.</p><span class="coming-soon">Coming soon!</span></div></article><article class="feature-reader-card feature-reader-card--guide"><div class="guide-cover"><span>POCKET<br />WEATHER<br />GUIDE</span><small>A Grey Day</small></div><div><p class="eyebrow">Free guide</p><h3>Pocket Weather Guide</h3><h4>A Grey Day. When I feel small and miserable.</h4><p>A free pocket guide for grey days, with simple grounding steps to help you separate feelings from facts and take one small step forward when you feel small and miserable.</p><div class="inline-actions"><a class="btn btn-primary" href="./downloads/pocket-weather-guide-grey-day.pdf" download>Download for Free!</a><a class="btn btn-secondary" href="/#newsletter">Send it to me</a></div></div></article></div><img class="reader-divider reader-divider--gifts" src="./assets/library/adults/divider-gifts.png" alt="Wise Turtle friends with gifts" /><div class="gifts-message"><h3>For every age. For every journey. For every kind of weather.</h3><p>There’s a story worth giving.</p><span>Gift ideas are coming soon.</span></div><div class="library-signup"><p class="eyebrow">A little wisdom every month.</p><p>You’ll receive a thoughtful story, a practical tool, and occasional free resources to help you navigate life’s changing weather.</p><a class="btn btn-primary" href="/#newsletter">I’d Love That</a></div></div></section>
   </main>
-
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div>
-        <h3>Wise Turtle Stories</h3>
-        <p>Gentle children's books for little readers and their families.</p>
-      </div>
-
-      <div>
-        <h4>Explore</h4>
-        <ul class="footer-links">
-          <li><a href="/">Home</a></li>
-          <li><a href="/air">Air</a></li>
-          <li><a href="/lifeafter">Flood</a></li>
-          <li><a href="/solidground">Ground</a></li>
-          <li><a href="/fire">Fire</a></li>
-          <li><a href="/books">Books</a></li>
-          <li><a href="/start">Club</a></li>
-          <li><a href="/about">The Story Behind Wise Turtle</a></li>
-          <li><a href="/privacy">Privacy</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h4>Free Guide</h4>
-        <p>Helpful words for big-feeling moments.</p>
-        <a href="/#newsletter" class="btn btn-secondary btn-small">Get the Guide</a>
-      </div>
-    </div>
-
-    <div class="container footer-bottom">
-      <p>&copy; <span id="year"></span> Wise Turtle Stories. All rights reserved.</p>
-    </div>
-  </footer>
-
+  <footer class="site-footer"><div class="container footer-grid"><div><h3>Wise Turtle Stories</h3><p>Gentle children's books for little readers and their families.</p></div><div><h4>Explore</h4><ul class="footer-links"><li><a href="/">Home</a></li><li><a href="/air">Air</a></li><li><a href="/lifeafter">Flood</a></li><li><a href="/solidground">Ground</a></li><li><a href="/fire">Fire</a></li><li><a href="/books">Books</a></li><li><a href="/about">The Story Behind Wise Turtle</a></li><li><a href="/start">Club</a></li><li><a href="/privacy">Privacy</a></li></ul></div><div><h4>Free Guide</h4><p>Helpful words for big-feeling moments.</p><a href="/#newsletter" class="btn btn-secondary btn-small">Get the Guide</a></div></div><div class="container footer-bottom"><p>&copy; <span id="year"></span> Wise Turtle Stories. All rights reserved.</p></div></footer>
   <script src="./js/script.js"></script>
-</body>
-</html>
+</body></html>

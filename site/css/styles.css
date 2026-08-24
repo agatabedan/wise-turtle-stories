@@ -2207,6 +2207,55 @@ a[aria-disabled="true"] {
   }
 }
 
+/* =========================================================
+   LIBRARY SHELVES: children, teenagers, and adults.
+   ========================================================= */
+.library-page { background: #edf6e9; }
+.library-hero { padding-bottom: 56px; }
+.reader-shelf { position: relative; padding: 0 0 78px; scroll-margin-top: 82px; }
+.reader-shelf--kids { background: #dcefd6; color: #28513a; }
+.reader-shelf--teens { background: #f3e7ef url("../assets/library/teens/background.png") center/cover; color: #4d3859; }
+.reader-shelf--adults { background: #edf6fb url("../assets/library/adults/background.png") center/cover; color: #244c6e; }
+.reader-divider { display: block; width: 100%; max-height: 230px; object-fit: cover; object-position: center; margin: 0 0 12px; }
+.reader-heading { max-width: 660px; margin: 0 auto 28px; text-align: center; }
+.reader-heading h2 { margin: 0 0 8px; font-family: "Playfair Display", serif; font-size: clamp(2rem, 4vw, 3.4rem); color: inherit; }
+.reader-heading p:last-child { margin: 0; font-size: 1.08rem; }
+.reader-books { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; align-items: end; max-width: 1030px; margin: 0 auto; }
+.reader-book { display: flex; flex-direction: column; gap: 5px; min-width: 0; color: inherit; text-decoration: none; text-align: center; font-weight: 800; }
+.reader-book img { width: min(100%, 164px); aspect-ratio: 0.64; object-fit: cover; margin: 0 auto 7px; border-radius: 7px; box-shadow: 0 12px 20px rgba(39, 61, 42, .18); transition: transform .18s ease; }
+.reader-book:hover img { transform: translateY(-5px); }
+.reader-book small { min-height: 34px; font-size: .82rem; font-weight: 600; line-height: 1.25; }
+.reader-subheading { margin: 46px 0 16px; font-family: "Playfair Display", serif; font-size: 2rem; text-align: center; }
+.activity-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.activity-card, .feature-reader-card, .library-signup, .reader-subscribe { border: 1px solid rgba(55, 100, 72, .2); border-radius: 16px; background: rgba(255,255,255,.82); box-shadow: 0 10px 24px rgba(44, 71, 52, .08); }
+.activity-card { padding: 22px; }
+.activity-card h3 { margin: 0 0 8px; font-size: 1.05rem; }
+.activity-card p { min-height: 48px; margin: 0 0 17px; font-size: .93rem; line-height: 1.45; }
+.activity-icon { width: 34px; height: 34px; display: grid; place-items: center; margin-bottom: 10px; border-radius: 50%; background: #76b96d; color: white; }
+.reader-subscribe, .library-signup { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-top: 34px; padding: 23px 26px; }
+.reader-subscribe h3, .library-signup p { margin: 0; }
+.reader-subscribe p { margin: 5px 0 0; }
+.feature-reader-card { display: grid; grid-template-columns: minmax(160px, 270px) 1fr; gap: 30px; max-width: 930px; margin: 0 auto; padding: 28px; }
+.feature-reader-card > img { width: 100%; max-height: 390px; object-fit: contain; border-radius: 7px; box-shadow: 0 10px 22px rgba(54, 56, 75, .17); }
+.feature-reader-card h3 { margin: 0; font-family: "Playfair Display", serif; font-size: clamp(1.6rem, 3vw, 2.3rem); color: inherit; }
+.feature-reader-card h4 { margin: 5px 0 15px; font-size: 1.1rem; }
+.feature-reader-card p { line-height: 1.55; }
+.coming-soon { display: inline-block; padding: 7px 12px; border-radius: 99px; background: #72578a; color: white; font-size: .82rem; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; }
+.library-signup { max-width: 930px; margin-inline: auto; }
+.library-signup p { max-width: 600px; line-height: 1.5; }
+.adult-books { display: grid; gap: 20px; }
+.reader-shelf--adults .feature-reader-card { max-width: 1030px; }
+.feature-reader-card--guide { grid-template-columns: minmax(160px, 270px) 1fr; }
+.guide-cover { aspect-ratio: .68; display: flex; flex-direction: column; justify-content: space-between; padding: 24px; border-radius: 7px; background: linear-gradient(145deg, #bbc7d0, #718b9c); color: white; font-family: "Playfair Display", serif; box-shadow: 0 10px 22px rgba(54, 56, 75, .17); }
+.guide-cover span { font-size: clamp(1.45rem, 3vw, 2.3rem); line-height: 1.05; }
+.guide-cover small { font-size: 1.1rem; }
+.reader-divider--gifts { margin: 56px 0 7px; }
+.gifts-message { margin: 0 auto 22px; max-width: 680px; text-align: center; }
+.gifts-message h3 { margin: 0; font-family: "Playfair Display", serif; font-size: clamp(1.45rem, 3vw, 2.3rem); color: inherit; }
+.gifts-message p { margin: 8px 0; font-size: 1.12rem; }
+.gifts-message span { font-size: .88rem; font-weight: 800; }
+@media (max-width: 760px) { .reader-shelf { padding-bottom: 54px; } .reader-divider { max-height: 135px; } .reader-books { grid-template-columns: repeat(2, 1fr); } .activity-row { grid-template-columns: 1fr; } .activity-card p { min-height: 0; } .feature-reader-card, .feature-reader-card--guide { grid-template-columns: 1fr; gap: 17px; padding: 20px; } .feature-reader-card > img, .guide-cover { width: min(220px, 100%); margin: 0 auto; } .reader-subscribe, .library-signup { align-items: flex-start; flex-direction: column; gap: 15px; } }
+
 /* The Life After journey begins beneath an adult Wise Turtle identity. */
 header.lifeafter-header {
   position: absolute;
