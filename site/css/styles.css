@@ -796,6 +796,20 @@ a[aria-disabled="true"] {
   box-shadow: 0 16px 40px rgba(30, 50, 30, 0.14);
 }
 
+.library-card .inline-actions {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 160ms ease;
+}
+
+.library-card:hover .inline-actions,
+.library-card:focus-within .inline-actions {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+
 .library-cover {
   min-height: 250px;
   display: grid;
