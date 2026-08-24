@@ -222,12 +222,6 @@ p {
   color: white;
 }
 
-/* The story label is intentionally longer than the other navigation labels. */
-.site-nav a[href="/about"] {
-  font-size: 0.72rem;
-  padding-inline: 7px;
-}
-
 @media (min-width: 861px) {
   .nav-wrap,
   .solidground-header .nav-wrap {
