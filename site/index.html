@@ -3,340 +3,140 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Wise Turtle Stories | Gentle books for little readers</title>
-  <meta
-    name="description"
-    content="Wise Turtle Stories creates gentle books and parent resources for little readers and families."
-  />
-
+  <title>Wise Turtle | Stories, Guidance, Growth</title>
+  <meta name="description" content="Wise Turtle helps children, adults, families, and organizations navigate life’s changing weather through stories, guidance, and practical tools." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
-    rel="stylesheet"
-  />
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
   <link rel="icon" type="image/png" href="./assets/favicon.png" />
   <link rel="apple-touch-icon" href="./assets/favicon.png" />
-
   <link rel="stylesheet" href="./css/styles.css" />
 </head>
-
-<body>
-  <header class="site-header">
+<body class="home-page">
+  <header class="site-header home-header">
     <div class="container nav-wrap">
-      <a href="/" class="brand" aria-label="Wise Turtle Stories home">
-        <img src="./assets/logo.png" alt="Wise Turtle Stories" />
-      </a>
-
-      <button
-        class="menu-toggle"
-        id="menuToggle"
-        aria-label="Open menu"
-        aria-expanded="false"
-      >
-        Menu
-      </button>
-
-      <nav class="site-nav" id="siteNav">
-        <a href="/" class="active">Home</a>
-        <a href="/air">Air</a>
-        <a href="/lifeafter">Flood</a>
-        <a href="/solidground">Ground</a>
+      <a href="/" class="brand" aria-label="Wise Turtle home"><img src="./assets/logo.png" alt="Wise Turtle — Stories. Guidance. Growth." /></a>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="siteNav">Menu</button>
+      <nav class="site-nav" id="siteNav" aria-label="Main navigation">
+        <a href="/" class="active" aria-current="page">Home</a>
+        <a href="/about">The Story</a>
+        <a href="/air">In the Air</a>
+        <a href="/lifeafter">After the Flood</a>
+        <a href="/solidground">Solid Ground</a>
         <a href="/fire">Fire</a>
         <a href="/books">Books</a>
         <a href="/start">Club</a>
-        <a href="/about">The Story</a>
+        <a href="/contact">Contact</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="section book-slider-section" id="book-slider">
-      <div class="container">
-        <div class="section-heading reveal reveal-up">
-          <p class="eyebrow">Book Shelf</p>
-          <h2>Start with a story that fits today</h2>
-          <p class="section-subtitle">
-            Browse the current Wise Turtle Stories collection. More titles will be added soon.
-          </p>
-        </div>
-
-        <div class="book-slider reveal reveal-up delay-1" data-book-slider>
-          <div class="slider-frame">
-            <div class="slider-slides" data-slider-slides></div>
-          </div>
-
-          <div class="slider-controls" aria-label="Book slider controls">
-            <button type="button" class="slider-arrow" data-slider-prev aria-label="Previous book">
-              Previous
-            </button>
-            <div class="slider-dots" data-slider-dots></div>
-            <button type="button" class="slider-arrow" data-slider-next aria-label="Next book">
-              Next
-            </button>
-          </div>
-        </div>
+    <section class="home-hero" aria-labelledby="home-title">
+      <img src="./assets/home/hero.png" alt="A traveller looking over a sunlit landscape and a winding path" />
+      <div class="home-hero-copy reveal reveal-left">
+        <p class="home-kicker">Stories. Guidance. Growth.</p>
+        <h1 id="home-title">Life is a lot like the weather.</h1>
+        <p>It can change gradually or all at once.<br />We can’t control it.<br />But we can learn to recognize the signs, prepare for change, recover from life’s storms, and keep moving forward.</p>
+        <p class="home-hero-closing">Every journey begins by recognizing the weather you’re in today.</p>
       </div>
+      <a href="#journeys" class="home-scroll" aria-label="Explore the four Wise Turtle journeys"><span>Explore your journey</span><b aria-hidden="true">↓</b></a>
     </section>
 
-    <section class="hero section">
-      <div class="container hero-grid">
-        <div class="hero-copy reveal reveal-left">
-          <p class="eyebrow">Gentle books for ages 2-5</p>
-          <h1>Stories for big feelings and little hearts</h1>
-          <p class="lead">
-            Thoughtful children's books and simple parent resources for calm routines,
-            emotional learning, and warm reading time together.
-          </p>
-
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="/books">Explore Books</a>
-            <a class="btn btn-secondary" href="#newsletter">Get the Free Guide</a>
-          </div>
-
-          <div class="hero-meta" aria-label="Book highlights">
-            <span>Ages 2-5</span>
-            <span>Paperback only</span>
-            <span>Parent-friendly stories</span>
-          </div>
-        </div>
-
-        <div class="hero-card has-cover reveal reveal-right delay-1">
-          <img
-            src="./assets/Cover1.jpeg"
-            alt="Cover of Yan The Little Squirrel: Big Feelings, Little Choices"
-            class="book-cover"
-          />
-        </div>
-      </div>
+    <section id="journeys" class="home-weather-grid" aria-label="Choose your journey">
+      <a class="weather-tile weather-tile--air" href="/air">
+        <img src="./assets/home/air.png" alt="Sunlight and soft clouds meeting a distant storm" />
+        <div class="weather-copy"><span class="weather-label">Air</span><h2>Something’s<br />in the Air</h2><p>Everything looks fine.<br />Yet something inside tells you your life no longer fits.</p><b class="weather-action">Listen to the Wind <span aria-hidden="true">→</span></b></div>
+      </a>
+      <a class="weather-tile weather-tile--flood" href="/lifeafter">
+        <img src="./assets/home/flood.png" alt="A flooded valley as sunlight returns through the clouds" />
+        <div class="weather-copy"><span class="weather-label">Water</span><h2>After the Flood</h2><p>Life changed.<br />Now what?</p><b class="weather-action">Begin Rebuilding <span aria-hidden="true">→</span></b></div>
+      </a>
+      <div class="weather-turtle" aria-hidden="true"><img src="./assets/home/turtle-circle.png" alt="" /></div>
+      <a class="weather-tile weather-tile--ground" href="/solidground">
+        <img src="./assets/home/ground.png" alt="A bright green seedling emerging from dark soil" />
+        <div class="weather-copy"><span class="weather-label">Earth</span><h2>Finding<br />Solid Ground</h2><p>Prepare yourself<br />for future storms.</p><b class="weather-action">Build Your Foundation <span aria-hidden="true">→</span></b></div>
+      </a>
+      <a class="weather-tile weather-tile--fire" href="/fire">
+        <img src="./assets/home/fire.png" alt="A warm campfire glowing at sunset" />
+        <div class="weather-copy"><span class="weather-label">Fire</span><h2>Keep the<br />Fire Burning</h2><p>You know where you’re going.<br />Achieve your goal.</p><b class="weather-action">Create Your Life <span aria-hidden="true">→</span></b></div>
+      </a>
     </section>
 
-    <section class="section">
-      <div class="container">
-        <div class="section-heading reveal reveal-up">
-          <p class="eyebrow">Featured Book</p>
-          <h2>Yan the Little Squirrel</h2>
-          <p class="section-subtitle">Safe Summer Adventures</p>
-        </div>
+    <section class="home-library" aria-labelledby="library-title">
+      <div class="container home-library-inner">
+        <header class="home-library-heading reveal reveal-up"><p class="home-kicker">The Wise Turtle Library</p><h2 id="library-title">Stories for every weather.</h2><p>Books and practical tools for every age and every part of the journey.</p></header>
 
-        <div class="card featured-book reveal reveal-up delay-1">
-          <div class="featured-book-cover has-cover">
-            <img
-              src="./assets/yan-adventures-front.jpg"
-              alt="Cover of Yan the Little Squirrel: Safe Summer Adventures"
-            />
-          </div>
-
-          <div>
-            <h3>Three sunny stories about staying safe while having fun</h3>
-            <p>
-              Yan, Hedgie, and Red Birdie help toddlers practice sunscreen, hats,
-              and drinking water through playful summer adventures.
-            </p>
-
-            <ul class="check-list">
-              <li>For ages 2-5 and parents reading together</li>
-              <li>Paperback and Kindle eBook available now</li>
-              <li>Includes cut-out stickers and practical parent tips</li>
-            </ul>
-
-            <div class="inline-actions">
-              <a class="btn btn-primary" href="/book-story-three">View Book Details</a>
-              <a
-                class="btn btn-secondary"
-                href="https://www.amazon.ca/Yan-Little-Squirrel-Adventures-stories/dp/B0H7WDSNDP"
-                target="_blank"
-                rel="noopener"
-              >
-                Buy on Amazon
-              </a>
+        <article class="home-shelf reveal reveal-up" data-home-shelf>
+          <div class="home-shelf-copy"><span class="shelf-symbol" aria-hidden="true">❧</span><h3>Children</h3><p>Yan the Little Squirrel Books</p><a class="home-outline-link" href="/books#children">Explore <span aria-hidden="true">→</span></a></div>
+          <div class="home-shelf-stage">
+            <div class="home-shelf-books" data-home-shelf-track tabindex="0" aria-label="Children’s books">
+              <a href="/book-yan"><img src="./assets/Cover1.jpeg" alt="Yan the Little Squirrel: Big Feelings, Little Choices" /></a>
+              <a href="/book-story-two"><img src="./assets/yan-calm-front.jpg" alt="Yan the Little Squirrel: Big Feelings, We Calm Together" /></a>
+              <a href="/book-felt-sick"><img src="./assets/yan-felt-sick-front.png" alt="Yan the Little Squirrel Who Felt Sick" /></a>
+              <a href="/book-story-three"><img src="./assets/yan-adventures-front.jpg" alt="Yan the Little Squirrel: Safe Summer Adventures" /></a>
+              <a href="/book-together-hospital"><img src="./assets/yan-hospital-front.png" alt="Yan the Little Squirrel: Together in Hospital" /></a>
+              <a href="/book-big-change"><img src="./assets/yan-big-change-front.png" alt="Yan the Little Squirrel and a Big Change" /></a>
             </div>
+            <button class="shelf-arrow shelf-arrow--previous" type="button" data-home-shelf-previous aria-label="Scroll children’s shelf left">‹</button>
+            <button class="shelf-arrow shelf-arrow--next" type="button" data-home-shelf-next aria-label="Scroll children’s shelf right">›</button>
           </div>
-        </div>
+        </article>
+
+        <article class="home-shelf reveal reveal-up" data-home-shelf>
+          <div class="home-shelf-copy"><span class="shelf-symbol" aria-hidden="true">♧</span><h3>Teens</h3><p>Fira and Agate: Forest Adventures</p><a class="home-outline-link" href="/books#teens">Explore <span aria-hidden="true">→</span></a></div>
+          <div class="home-shelf-stage">
+            <div class="home-shelf-books" data-home-shelf-track tabindex="0" aria-label="Books for teenagers"><a href="/books#teens"><img src="./assets/library/teens/fira-agate-forced-changes.jpg" alt="Fira and Agate: Forest Adventures — Forced Changes" /></a></div>
+            <button class="shelf-arrow shelf-arrow--previous" type="button" data-home-shelf-previous aria-label="Scroll teen shelf left">‹</button>
+            <button class="shelf-arrow shelf-arrow--next" type="button" data-home-shelf-next aria-label="Scroll teen shelf right">›</button>
+          </div>
+        </article>
+
+        <article class="home-shelf reveal reveal-up" data-home-shelf>
+          <div class="home-shelf-copy"><span class="shelf-symbol" aria-hidden="true">▣</span><h3>Adults</h3><p>Snowly Tales, journals and practical guides</p><a class="home-outline-link" href="/books#adults">Explore <span aria-hidden="true">→</span></a></div>
+          <div class="home-shelf-stage">
+            <div class="home-shelf-books" data-home-shelf-track tabindex="0" aria-label="Books and guides for adults">
+              <a href="/books#adults"><img src="./assets/library/adults/snowly-air.png" alt="Snowly Tales: What’s In the Air?" /></a>
+              <a href="/books#adults"><img src="./assets/library/adults/snowly-ground.png" alt="Snowly Tales: Happy Every Day" /></a>
+              <a href="./downloads/pocket-weather-guide-grey-day.pdf" download><span class="home-guide-cover"><b>Pocket<br />Weather<br />Guide</b><small>A Grey Day</small></span></a>
+            </div>
+            <button class="shelf-arrow shelf-arrow--previous" type="button" data-home-shelf-previous aria-label="Scroll adult shelf left">‹</button>
+            <button class="shelf-arrow shelf-arrow--next" type="button" data-home-shelf-next aria-label="Scroll adult shelf right">›</button>
+          </div>
+        </article>
       </div>
     </section>
 
-    <section class="section reviews-section" data-review-wrapper>
-      <div class="container">
-        <div class="section-heading reveal reveal-up">
-          <p class="eyebrow">Top Reviews</p>
-          <h2>What readers are saying</h2>
-        </div>
-
-        <div
-          class="review-carousel reveal reveal-up delay-1"
-          data-review-section
-          data-review-mode="carousel"
-          data-review-limit="2"
-        >
-          <div class="review-track" data-review-list></div>
-          <div class="review-controls" aria-label="Review carousel controls">
-            <button type="button" class="review-arrow" data-review-prev aria-label="Previous review">
-              Previous
-            </button>
-            <div class="review-dots" data-review-dots></div>
-            <button type="button" class="review-arrow" data-review-next aria-label="Next review">
-              Next
-            </button>
-          </div>
-        </div>
-      </div>
+    <section class="home-join" id="newsletter" aria-labelledby="join-title">
+      <img src="./assets/home/join-journey.png" alt="Families sharing stories together around a campfire" />
+      <div class="home-join-copy reveal reveal-right"><p class="home-kicker">Wise Turtle Club</p><h2 id="join-title">Walk the journey with us.</h2><p>Join thousands of people who grow, learn, and laugh together. Receive reflections, practical tools, printable activities, and stories for every season of life.</p><a href="/start" class="btn btn-primary">Join the Journey <span aria-hidden="true">→</span></a></div>
     </section>
 
-    <section class="section alt-bg">
-      <div class="container book-library" data-book-library data-limit="4">
-        <div class="section-heading reveal reveal-up">
-          <p class="eyebrow">Find a Story</p>
-          <h2>Search the library</h2>
-          <p class="section-subtitle">
-            Filter by age or theme to find the best fit for your little reader.
-          </p>
-        </div>
-
-        <div class="library-controls reveal reveal-up delay-1">
-          <label>
-            <span>Search</span>
-            <input type="search" data-book-search placeholder="Search by title, feeling, routine..." />
-          </label>
-
-          <label>
-            <span>Age</span>
-            <select data-age-filter>
-              <option value="all">All ages</option>
-            <option value="2-5">Ages 2-5</option>
-            <option value="3-8">Ages 3-8</option>
-            <option value="4-7">Ages 4-7</option>
-            </select>
-          </label>
-
-          <label>
-            <span>Category</span>
-            <select data-category-filter>
-              <option value="all">All categories</option>
-            <option value="Yan The Little Squirrel">Yan The Little Squirrel</option>
-            <option value="Noah The Little Otter">Noah The Little Otter</option>
-            </select>
-          </label>
-
-          <label>
-            <span>Format</span>
-            <select data-format-filter>
-              <option value="all">All formats</option>
-              <option value="paperback">Paperback</option>
-              <option value="kindle">Kindle eBook</option>
-            </select>
-          </label>
-
-          <div class="library-view-toggle" role="group" aria-label="Library view">
-            <span>View</span>
-            <button type="button" data-library-view="grid" aria-pressed="true">Grid</button>
-            <button type="button" data-library-view="list" aria-pressed="false">List</button>
-          </div>
-        </div>
-
-        <div class="library-grid reveal reveal-up delay-2" data-books-grid data-view="grid"></div>
-        <p class="empty-state" data-books-empty hidden>No books match those filters yet.</p>
-
-        <div class="inline-actions library-more">
-          <a class="btn btn-secondary" href="/books">Open Full Library</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="newsletter">
-      <div class="container">
-        <div class="newsletter-box reveal reveal-up">
-          <div>
-            <p class="eyebrow">Free Parent Guide</p>
-            <h2>Turn toddler meltdowns into calmer moments</h2>
-            <p class="newsletter-text">
-              Get the free Wise Turtle parent guide for no battles, waiting tantrums,
-              and separation anxiety.
-            </p>
-          </div>
-
-          <form id="newsletterForm" class="newsletter-form" data-newsletter-form>
-            <label for="email" class="sr-only">Email address</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              placeholder="Enter your email"
-              required
-              autocomplete="email"
-            />
-            <button type="submit" class="btn btn-primary">Send me the guide</button>
-          </form>
-
-          <p class="form-note">
-            By subscribing, you agree to receive email updates. You can unsubscribe anytime.
-            <a href="/privacy">Privacy Policy</a>
-          </p>
-          <p id="formMessage" class="form-message" data-form-message aria-live="polite"></p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section alt-bg">
-      <div class="container split-panel">
-        <div class="section-heading reveal reveal-left">
-          <p class="eyebrow">About the Brand</p>
-          <h2>Why Wise Turtle Stories?</h2>
-        </div>
-        <div class="reveal reveal-right delay-1">
-          <p>
-            Wise Turtle Stories is a children's book brand focused on kind, thoughtful
-            storytelling for young readers and the adults who read with them.
-          </p>
-          <p>
-            The goal is simple: beautiful stories families can return to when feelings are big,
-            routines are hard, or everyone needs a softer moment.
-          </p>
-          <div class="inline-actions">
-            <a class="btn btn-primary" href="/about">Meet the Author</a>
-            <a class="btn btn-secondary" href="/contact">Get in Touch</a>
-          </div>
-        </div>
+    <section class="home-about" aria-labelledby="about-anna-title">
+      <div class="container home-about-inner">
+        <div class="home-about-photo reveal reveal-left"><img src="./assets/home/anna.png" alt="Anna Klimentova, founder of Wise Turtle" /></div>
+        <div class="home-about-copy reveal reveal-right"><p class="home-kicker">The person behind Wise Turtle</p><h2 id="about-anna-title">Hi, I’m Anna.</h2><p>I believe we spend too much time learning how to predict tomorrow’s weather… and too little time learning how to recognize the weather in our own lives.</p><p>That’s why I created Wise Turtle: to help children, adults, families, and organizations navigate life’s changing skies with wisdom, courage, and hope.</p><a class="home-outline-link" href="/about">Learn more <span aria-hidden="true">→</span></a></div>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div>
-        <h3>Wise Turtle Stories</h3>
-        <p>Gentle children's books for little readers and their families.</p>
+  <footer class="site-footer home-footer">
+    <div class="container home-footer-inner">
+      <div class="home-footer-connect">
+        <h2>Let’s Connect</h2>
+        <div class="home-social-links" aria-label="Wise Turtle social links">
+          <a href="https://www.instagram.com/wiseturtlebooks/" target="_blank" rel="noopener"><span aria-hidden="true">◎</span><b>@WiseTurtleBooks</b></a>
+          <a href="https://www.instagram.com/annaklimentova1/" target="_blank" rel="noopener"><span aria-hidden="true">◎</span><b>@annaklimentova1</b></a>
+          <span class="home-social-future"><span aria-hidden="true">f</span><b>Facebook</b></span>
+          <span class="home-social-future"><span aria-hidden="true">in</span><b>Anna Klimentova</b></span>
+          <span class="home-social-future"><span aria-hidden="true">▶</span><b>YouTube · future</b></span>
+          <span class="home-social-future"><span aria-hidden="true">p</span><b>Pinterest · future</b></span>
+          <a href="mailto:anna@wiseturtle.ca"><span aria-hidden="true">✉</span><b>anna@wiseturtle.ca</b></a>
+        </div>
       </div>
-
-      <div>
-        <h4>Explore</h4>
-        <ul class="footer-links">
-          <li><a href="/">Home</a></li>
-          <li><a href="/air">Air</a></li>
-          <li><a href="/lifeafter">Flood</a></li>
-          <li><a href="/solidground">Ground</a></li>
-          <li><a href="/fire">Fire</a></li>
-          <li><a href="/books">Books</a></li>
-          <li><a href="/start">Club</a></li>
-          <li><a href="/about">The Story</a></li>
-          <li><a href="/privacy">Privacy</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h4>Free Guide</h4>
-        <p>Get a gentle guide for hard parenting moments.</p>
-        <a href="#newsletter" class="btn btn-secondary btn-small">Get the Guide</a>
-      </div>
-    </div>
-
-    <div class="container footer-bottom">
-      <p>&copy; <span id="year"></span> Wise Turtle Stories. All rights reserved.</p>
+      <div class="home-footer-bottom"><p>© <span id="year"></span> Wise Turtle. All rights reserved.</p><nav aria-label="Legal links"><a href="/privacy">Privacy Policy</a><a href="/contact">Contact</a></nav></div>
     </div>
   </footer>
-
   <script src="./js/script.js"></script>
 </body>
 </html>

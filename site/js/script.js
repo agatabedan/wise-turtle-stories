@@ -301,6 +301,7 @@ initDisabledLinks();
 initLegalTocHighlight();
 initProtectedStory();
 initLazyFloodArtwork();
+initHomeShelves();
 
 /* Mobile header menu: opens/closes the nav on small screens. */
 function initMobileMenu() {
@@ -326,6 +327,40 @@ function initMobileMenu() {
 function initFooterYears() {
   document.querySelectorAll("#year, [data-year]").forEach((yearEl) => {
     yearEl.textContent = String(new Date().getFullYear());
+  });
+}
+
+/* Each homepage library shelf scrolls independently and keeps its arrows accurate. */
+function initHomeShelves() {
+  document.querySelectorAll("[data-home-shelf]").forEach((shelf) => {
+    const track = shelf.querySelector("[data-home-shelf-track]");
+    const previous = shelf.querySelector("[data-home-shelf-previous]");
+    const next = shelf.querySelector("[data-home-shelf-next]");
+    if (!track || !previous || !next) return;
+
+    function updateArrows() {
+      const maximum = Math.max(0, track.scrollWidth - track.clientWidth);
+      previous.disabled = track.scrollLeft <= 2;
+      next.disabled = maximum <= 2 || track.scrollLeft >= maximum - 2;
+    }
+
+    function move(direction) {
+      track.scrollBy({
+        left: direction * Math.max(track.clientWidth * 0.72, 220),
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"
+      });
+    }
+
+    previous.addEventListener("click", () => move(-1));
+    next.addEventListener("click", () => move(1));
+    track.addEventListener("scroll", updateArrows, { passive: true });
+    window.addEventListener("resize", updateArrows);
+
+    track.querySelectorAll("img").forEach((image) => {
+      if (!image.complete) image.addEventListener("load", updateArrows, { once: true });
+    });
+
+    updateArrows();
   });
 }
 
