@@ -2520,8 +2520,8 @@ a[aria-disabled="true"] {
 .weather-label::before {
   content: "";
   display: block;
-  width: 58px;
-  height: 58px;
+  width: 48px;
+  height: 48px;
   margin: 0 auto 11px;
   background: center / contain no-repeat;
 }
