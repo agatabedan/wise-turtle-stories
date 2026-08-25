@@ -302,6 +302,7 @@ initLegalTocHighlight();
 initProtectedStory();
 initContentProtection();
 initLazyFloodArtwork();
+initStoryBookExperience();
 initHomeShelves();
 
 /* Mobile header menu: opens/closes the nav on small screens. */
@@ -1588,6 +1589,62 @@ function initLazyFloodArtwork() {
   pages.forEach((page, index) => {
     if (index < 2) loadArtwork(page);
     else observer.observe(page);
+  });
+}
+
+/* The Story is a long illustrated page: reveal copy as each scene arrives and
+   only request later artwork shortly before the visitor reaches it. */
+function initStoryBookExperience() {
+  const storyBook = document.querySelector(".story-page .story-book");
+  if (!storyBook) return;
+
+  const screens = Array.from(storyBook.querySelectorAll(".story-screen"));
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function revealCopy(screen) {
+    screen.querySelectorAll(".story-copy").forEach((copy) => copy.classList.add("is-visible"));
+  }
+
+  // The hero is visible immediately, so reveal it after the first paint.
+  window.requestAnimationFrame(() => {
+    window.requestAnimationFrame(() => revealCopy(screens[0]));
+  });
+
+  if (reduceMotion || !("IntersectionObserver" in window)) {
+    screens.forEach(revealCopy);
+    screens.forEach((screen) => {
+      const image = screen.querySelector("img[data-src]");
+      if (image) {
+        image.src = image.dataset.src;
+        image.removeAttribute("data-src");
+      }
+    });
+    return;
+  }
+
+  const copyObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      revealCopy(entry.target);
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.2, rootMargin: "0px 0px -8% 0px" });
+
+  const artworkObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      const image = entry.target.querySelector("img[data-src]");
+      if (image) {
+        image.src = image.dataset.src;
+        image.removeAttribute("data-src");
+      }
+      observer.unobserve(entry.target);
+    });
+  }, { rootMargin: "1100px 0px" });
+
+  screens.forEach((screen, index) => {
+    if (index > 0) copyObserver.observe(screen);
+    if (screen.querySelector("img[data-src]")) artworkObserver.observe(screen);
   });
 }
 
