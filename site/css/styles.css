@@ -192,7 +192,7 @@ p {
   display: grid;
   grid-template-columns: repeat(8, minmax(0, 1fr));
   align-items: stretch;
-  gap: 8px;
+  gap: clamp(2px, 0.65vw, 10px);
   max-width: 1060px;
 }
 
@@ -201,25 +201,25 @@ p {
   align-items: center;
   justify-content: center;
   width: 100%;
-  min-height: 54px;
-  padding: 9px 10px;
-  border: 1px solid #d4e6d0;
-  border-radius: 999px;
-  background: #e8f3e4;
-  color: var(--green-ink);
-  font-family: "Playfair Display", serif;
-  font-size: 0.86rem;
-  font-weight: 700;
+  min-height: 42px;
+  padding: 7px 5px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #243127;
+  font-family: "Inter", sans-serif;
+  font-size: clamp(0.65rem, 0.74vw, 0.86rem);
+  font-weight: 600;
   line-height: 1.15;
   text-align: center;
-  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  transition: color 0.15s ease, box-shadow 0.15s ease;
 }
 
 .site-nav a:hover,
 .site-nav a.active {
-  background: var(--green);
-  border-color: var(--green);
-  color: white;
+  background: transparent;
+  color: #243127;
+  box-shadow: inset 0 -2px 0 #526b39;
 }
 
 @media (min-width: 861px) {
@@ -2313,7 +2313,7 @@ a[aria-disabled="true"] {
 }
 
 .home-page .home-header .site-nav {
-  grid-template-columns: repeat(9, minmax(0, 1fr));
+  grid-template-columns: repeat(8, minmax(0, 1fr));
   gap: clamp(2px, 0.65vw, 10px);
 }
 
@@ -2820,6 +2820,26 @@ a[aria-disabled="true"] {
 .home-join-copy .form-note { color: #596555; }
 .home-join-copy .form-note a { color: #2f5128; }
 
+.club-page {
+  min-height: calc(100vh - 174px);
+  display: grid;
+  align-items: center;
+  background: linear-gradient(145deg, #f7f1e7, #edf4e9);
+}
+
+.club-newsletter-box {
+  max-width: 760px;
+  margin-inline: auto;
+  padding: clamp(32px, 6vw, 64px);
+}
+
+.club-newsletter-box h1 {
+  margin: 0 0 12px;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.25rem, 5vw, 4.4rem);
+  line-height: 1.04;
+}
+
 .home-about {
   padding: clamp(70px, 8vw, 120px) 0;
   background: #fbf7ef;
@@ -3126,17 +3146,14 @@ header.lifeafter-header {
 }
 
 .lifeafter-header .site-nav a {
-  border-color: rgba(62, 83, 63, 0.26);
-  background: rgba(248, 244, 233, 0.36);
   color: #284232;
-  backdrop-filter: blur(5px);
 }
 
 .lifeafter-header .site-nav a:hover,
 .lifeafter-header .site-nav a.active {
-  border-color: rgba(43, 75, 51, 0.56);
-  background: rgba(49, 84, 57, 0.72);
-  color: #fffaf0;
+  background: transparent;
+  color: #284232;
+  box-shadow: inset 0 -2px 0 #526b39;
 }
 
 .lifeafter-header .menu-toggle {
@@ -3179,17 +3196,14 @@ header.solidground-header {
 }
 
 .solidground-header .site-nav a {
-  border-color: rgba(62, 83, 63, 0.26);
-  background: rgba(248, 244, 233, 0.36);
   color: #284232;
-  backdrop-filter: blur(5px);
 }
 
 .solidground-header .site-nav a:hover,
 .solidground-header .site-nav a.active {
-  border-color: rgba(43, 75, 51, 0.56);
-  background: rgba(49, 84, 57, 0.72);
-  color: #fffaf0;
+  background: transparent;
+  color: #284232;
+  box-shadow: inset 0 -2px 0 #526b39;
 }
 
 .solidground-header .menu-toggle {

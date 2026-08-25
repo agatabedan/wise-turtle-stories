@@ -7,7 +7,7 @@
   <title>Wise Turtle Club | Wise Turtle Stories</title>
   <meta
     name="description"
-    content="Wise Turtle Club — coming soon. Check back later!"
+    content="Join the Wise Turtle Club for stories, reflections, practical tools, and gentle guidance."
   />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -44,21 +44,28 @@
         <a href="/intheair">Air</a>
         <a href="/lifeafter">Flood</a>
         <a href="/solidground">Ground</a>
-        <a href="/fire">Fire</a>
+        <a href="/keepthefire">Fire</a>
         <a href="/books">Books</a>
-        <a href="/start" class="active">Club</a>
+        <a href="/start" class="active" aria-current="page">Club</a>
         <a href="/about">The Story</a>
       </nav>
     </div>
   </header>
 
-  <main class="section coming-soon-page">
+  <main class="section club-page">
     <div class="container">
-      <div class="coming-soon-panel reveal reveal-up">
+      <section class="newsletter-box club-newsletter-box reveal reveal-up" id="newsletter" aria-labelledby="club-title">
         <p class="eyebrow">Wise Turtle Club</p>
-        <h1>Coming soon...</h1>
-        <p class="coming-soon-text">Check back later!</p>
-      </div>
+        <h1 id="club-title">Walk the journey with us.</h1>
+        <p class="newsletter-text">Join thousands of people who grow, learn, and laugh together. Receive reflections, practical tools, printable activities, and stories for every season of life.</p>
+        <form class="newsletter-form" data-newsletter-form>
+          <label for="clubNewsletterEmail" class="sr-only">Email address</label>
+          <input type="email" id="clubNewsletterEmail" name="email" placeholder="Enter your email" required autocomplete="email" />
+          <button type="submit" class="btn btn-primary">Join the Journey <span aria-hidden="true">→</span></button>
+        </form>
+        <p class="form-note">By subscribing, you agree to receive email updates. You can unsubscribe anytime. <a href="/privacy">Privacy Policy</a></p>
+        <p class="form-message" data-form-message aria-live="polite"></p>
+      </section>
     </div>
   </main>
 
@@ -69,7 +76,7 @@
         <li><a href="/intheair">Air</a></li>
         <li><a href="/lifeafter">Flood</a></li>
         <li><a href="/solidground">Ground</a></li>
-        <li><a href="/fire">Fire</a></li>
+        <li><a href="/keepthefire">Fire</a></li>
         <li><a href="/books">Books</a></li>
         <li><a href="/start">Club</a></li>
           <li><a href="/about">The Story</a></li>

@@ -865,7 +865,8 @@ const htmlRedirects = new Map([
   ["/solidground.html", "/solidground"],
   ["/air.html", "/intheair"],
   ["/air", "/intheair"],
-  ["/fire.html", "/fire"],
+  ["/fire.html", "/keepthefire"],
+  ["/fire", "/keepthefire"],
   ["/book-yan.html", "/book-yan"],
   ["/book-story-two.html", "/book-story-two"],
   ["/book-story-three.html", "/book-story-three"],
@@ -895,6 +896,11 @@ app.use((req, res, next) => {
 // Keep the intended public URL while reusing the existing Air page file.
 app.get("/intheair", (_req, res) => {
   res.sendFile(path.join(SITE_DIR, "air.html"));
+});
+
+// Keep the intended public URL while reusing the existing Fire page file.
+app.get("/keepthefire", (_req, res) => {
+  res.sendFile(path.join(SITE_DIR, "fire.html"));
 });
 
 // The same Express service hosts the static HTML/CSS/JS site for Render.
