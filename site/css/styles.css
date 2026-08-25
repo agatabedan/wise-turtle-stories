@@ -2677,7 +2677,7 @@ a[aria-disabled="true"] {
   overscroll-behavior-inline: contain;
   padding: 16px 54px 42px 24px;
   scroll-padding-inline-start: 24px;
-  background: url("../assets/home/shelf.webp") center bottom / 100% 132px no-repeat;
+  background: url("../assets/home/shelf-transparent.webp") center bottom / 100% 132px no-repeat;
   scrollbar-width: none;
   scroll-behavior: smooth;
   scroll-snap-type: x proximity;
