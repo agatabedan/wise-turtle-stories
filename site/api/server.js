@@ -895,7 +895,15 @@ app.use((req, res, next) => {
 app.use(
   express.static(SITE_DIR, {
     dotfiles: "ignore",
-    extensions: ["html"]
+    extensions: ["html"],
+    setHeaders: (res, filePath) => {
+      const extension = path.extname(filePath).toLowerCase();
+      if ([".webp", ".png", ".jpg", ".jpeg", ".svg", ".woff2"].includes(extension)) {
+        res.setHeader("Cache-Control", "public, max-age=86400");
+      } else {
+        res.setHeader("Cache-Control", "no-cache");
+      }
+    }
   })
 );
 

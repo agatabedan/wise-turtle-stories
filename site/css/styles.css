@@ -2676,7 +2676,7 @@ a[aria-disabled="true"] {
   overflow-x: auto;
   overscroll-behavior-inline: contain;
   padding: 16px 54px 42px 24px;
-  background: url("../assets/home/shelf.png") center bottom / 100% 132px no-repeat;
+  background: url("../assets/home/shelf.webp") center bottom / 100% 132px no-repeat;
   scrollbar-width: none;
   scroll-behavior: smooth;
   scroll-snap-type: x proximity;
@@ -2861,7 +2861,7 @@ a[aria-disabled="true"] {
   margin: 0;
   overflow: hidden;
   border: 0;
-  background: #f8f4ec url("../assets/home/footer.png") center bottom / cover no-repeat;
+  background: #f8f4ec url("../assets/home/footer.webp") center bottom / cover no-repeat;
 }
 
 .home-footer-inner {
