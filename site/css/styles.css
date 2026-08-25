@@ -2593,6 +2593,40 @@ a[aria-disabled="true"] {
   object-fit: cover;
 }
 
+/* Keep all four desktop journey tiles visible within a single screen. */
+@media (min-width: 861px) {
+  .home-weather-grid {
+    height: 100svh;
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+  }
+
+  .weather-tile {
+    min-height: 0;
+  }
+
+  .weather-copy {
+    padding: clamp(18px, 2.4vw, 38px) 22px;
+  }
+
+  .weather-copy h2 {
+    margin: 8px 0 10px;
+    font-size: clamp(1.9rem, 3.3vw, 3.7rem);
+  }
+
+  .weather-copy p {
+    margin-bottom: 14px;
+    font-size: clamp(0.88rem, 1vw, 1rem);
+  }
+
+  .weather-action {
+    padding: 9px 17px;
+  }
+
+  .weather-turtle {
+    width: clamp(112px, 12vw, 180px);
+  }
+}
+
 .home-library {
   padding: clamp(72px, 8vw, 120px) 0;
   background:
