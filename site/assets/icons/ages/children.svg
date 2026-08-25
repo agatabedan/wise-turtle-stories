@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Children</title>
+  <circle cx="32" cy="32" r="27" fill="none" stroke="#3f7f4d" stroke-width="2"/>
+  <g fill="none" stroke="#3f7f4d" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="m31 15 12 12-12 12-12-12Z"/>
+    <path d="m31 15v24M19 27h24M31 39c0 4-5 3-5 7M26 46l-4-2M26 46l2 4"/>
+  </g>
+</svg>

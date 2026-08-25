@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Adults</title>
+  <circle cx="32" cy="32" r="27" fill="none" stroke="#3f7f4d" stroke-width="2"/>
+  <g fill="none" stroke="#3f7f4d" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M15 32c5-2 10-2 17 2v15c-7-4-12-4-17-2Z"/>
+    <path d="M49 32c-5-2-10-2-17 2v15c7-4 12-4 17-2Z"/>
+    <path d="M32 34v15"/>
+    <circle cx="24" cy="21" r="6"/>
+    <circle cx="40" cy="21" r="6"/>
+    <path d="M30 21h4M18 20l-4-1M46 20l4-1"/>
+  </g>
+</svg>

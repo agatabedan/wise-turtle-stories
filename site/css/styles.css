@@ -2636,6 +2636,14 @@ a[aria-disabled="true"] {
   font-size: 1.7rem;
 }
 
+.shelf-age-icon {
+  display: block;
+  width: 34px;
+  height: 34px;
+  margin: 0 0 8px;
+  object-fit: contain;
+}
+
 .home-shelf-copy h3 {
   margin: 0;
   font-family: "Playfair Display", serif;
