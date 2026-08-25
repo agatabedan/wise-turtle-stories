@@ -863,7 +863,8 @@ const htmlRedirects = new Map([
   ["/start.html", "/start"],
   ["/lifeafter.html", "/lifeafter"],
   ["/solidground.html", "/solidground"],
-  ["/air.html", "/air"],
+  ["/air.html", "/intheair"],
+  ["/air", "/intheair"],
   ["/fire.html", "/fire"],
   ["/book-yan.html", "/book-yan"],
   ["/book-story-two.html", "/book-story-two"],
@@ -889,6 +890,11 @@ app.use((req, res, next) => {
 
   const suffix = req.url.slice(pathname.length);
   return res.redirect(301, `${targetPath}${suffix}`);
+});
+
+// Keep the intended public URL while reusing the existing Air page file.
+app.get("/intheair", (_req, res) => {
+  res.sendFile(path.join(SITE_DIR, "air.html"));
 });
 
 // The same Express service hosts the static HTML/CSS/JS site for Render.
