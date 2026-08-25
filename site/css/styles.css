@@ -2519,16 +2519,16 @@ a[aria-disabled="true"] {
 .weather-label::before {
   content: "";
   display: block;
-  width: 52px;
-  height: 52px;
+  width: 58px;
+  height: 58px;
   margin: 0 auto 11px;
   background: center / contain no-repeat;
 }
 
-.weather-tile--air .weather-label::before { background-image: url("../assets/icons/elements/air.svg"); }
-.weather-tile--flood .weather-label::before { background-image: url("../assets/icons/elements/water.svg"); }
-.weather-tile--ground .weather-label::before { background-image: url("../assets/icons/elements/earth.svg"); }
-.weather-tile--fire .weather-label::before { background-image: url("../assets/icons/elements/fire.svg"); }
+.weather-tile--air .weather-label::before { background-image: url("../assets/icons/elements/air-white.svg"); }
+.weather-tile--flood .weather-label::before { background-image: url("../assets/icons/elements/water-white.svg"); }
+.weather-tile--ground .weather-label::before { background-image: url("../assets/icons/elements/earth-white.svg"); }
+.weather-tile--fire .weather-label::before { background-image: url("../assets/icons/elements/fire-white.svg"); }
 
 .weather-copy h2 {
   width: 100%;
