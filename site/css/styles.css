@@ -2419,8 +2419,6 @@ a[aria-disabled="true"] {
 .home-hero-copy .home-hero-closing {
   max-width: 430px;
   margin-top: 24px;
-  font-family: "Playfair Display", serif;
-  font-size: clamp(1.08rem, 1.4vw, 1.4rem);
   font-style: italic;
 }
 
