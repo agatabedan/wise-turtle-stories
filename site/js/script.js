@@ -516,7 +516,7 @@ function initNewsletterForms() {
 
   forms.forEach((form) => {
     const messageEl = form
-      .closest(".newsletter-box, .contact-card")
+      .closest(".newsletter-box, .contact-card, .home-join-copy")
       ?.querySelector("[data-form-message], #formMessage");
 
     form.addEventListener("submit", async (event) => {

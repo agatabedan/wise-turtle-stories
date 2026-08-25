@@ -2804,6 +2804,22 @@ a[aria-disabled="true"] {
   padding-inline: 24px;
 }
 
+.home-newsletter-form {
+  position: relative;
+  z-index: 1;
+  max-width: 560px;
+}
+
+.home-join-copy .form-note,
+.home-join-copy .form-message {
+  position: relative;
+  z-index: 1;
+  max-width: 560px;
+}
+
+.home-join-copy .form-note { color: #596555; }
+.home-join-copy .form-note a { color: #2f5128; }
+
 .home-about {
   padding: clamp(70px, 8vw, 120px) 0;
   background: #fbf7ef;
