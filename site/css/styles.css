@@ -5152,7 +5152,8 @@ header.story-header {
 }
 
 /* Page 16 has a deliberately light space in the illustration for this copy. */
-.story-page .story-copy--flood {
+.story-page .story-copy--flood,
+.story-page .story-copy--ground {
   align-self: flex-start;
   width: min(470px, 31vw);
   margin: clamp(116px, 18vh, 205px) 0 0 clamp(20vw, 320px);
@@ -5231,7 +5232,8 @@ header.story-header {
     width: min(760px, calc(100% - 32px));
   }
 
-  .story-page .story-copy--flood {
+  .story-page .story-copy--flood,
+  .story-page .story-copy--ground {
     align-self: auto;
     width: min(440px, calc(100% - 32px));
     margin: 0 16px 28px;
