@@ -4973,3 +4973,20 @@ body.reveal-ready .reveal.is-visible.reveal-scale {
     transform: none !important;
   }
 }
+
+/* Site-wide casual-copy protection. Form controls stay usable. */
+.content-protected,
+.content-protected body,
+.content-protected body * {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.content-protected input,
+.content-protected textarea,
+.content-protected select,
+.content-protected [contenteditable="true"] {
+  -webkit-user-select: text;
+  user-select: text;
+}

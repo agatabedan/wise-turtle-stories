@@ -300,6 +300,7 @@ initReviewSystem();
 initDisabledLinks();
 initLegalTocHighlight();
 initProtectedStory();
+initContentProtection();
 initLazyFloodArtwork();
 initHomeShelves();
 
@@ -1490,6 +1491,44 @@ function initProtectedStory() {
     protectedStory.addEventListener(eventName, (event) => {
       event.preventDefault();
     });
+  });
+}
+
+/* Discourages casual copying and saving of the site's public content. */
+function initContentProtection() {
+  document.documentElement.classList.add("content-protected");
+
+  const isEditableTarget = (target) => target instanceof Element && Boolean(
+    target.closest('input, textarea, select, [contenteditable="true"]')
+  );
+
+  document.addEventListener("contextmenu", (event) => {
+    if (!isEditableTarget(event.target)) event.preventDefault();
+  });
+
+  document.addEventListener("selectstart", (event) => {
+    if (!isEditableTarget(event.target)) event.preventDefault();
+  });
+
+  document.addEventListener("dragstart", (event) => {
+    if (event.target instanceof Element && event.target.closest("img, picture, video, a")) {
+      event.preventDefault();
+    }
+  });
+
+  ["copy", "cut"].forEach((eventName) => {
+    document.addEventListener(eventName, (event) => {
+      if (!isEditableTarget(event.target)) event.preventDefault();
+    });
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (isEditableTarget(event.target)) return;
+
+    const key = event.key.toLowerCase();
+    if ((event.ctrlKey || event.metaKey) && ["c", "s", "u", "x"].includes(key)) {
+      event.preventDefault();
+    }
   });
 }
 
