@@ -183,8 +183,8 @@ p {
 .brand img {
   width: 300px;
   height: 78px;
-  object-fit: contain;
-  object-position: left center;
+  object-fit: cover;
+  object-position: center;
 }
 
 .site-nav {
