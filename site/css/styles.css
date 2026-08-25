@@ -2918,8 +2918,14 @@ a[aria-disabled="true"] {
   font-weight: 800;
 }
 
+.home-social-links > a > img,
+.home-social-links > span > img {
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+}
+
 .home-social-links b { font-weight: 600; }
-.home-social-future { opacity: 0.62; }
 
 .home-footer-bottom {
   position: absolute;
