@@ -2509,18 +2509,16 @@ a[aria-disabled="true"] {
 .weather-label::before {
   content: "";
   display: block;
-  width: 35px;
-  height: 35px;
+  width: 52px;
+  height: 52px;
   margin: 0 auto 11px;
-  border: 1px solid rgba(255, 255, 255, 0.76);
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.08);
+  background: center / contain no-repeat;
 }
 
-.weather-tile--air .weather-label::before { content: "≈"; line-height: 31px; font-size: 1.55rem; }
-.weather-tile--flood .weather-label::before { content: "◠"; line-height: 30px; font-size: 1.25rem; }
-.weather-tile--ground .weather-label::before { content: "⌁"; line-height: 31px; font-size: 1.4rem; }
-.weather-tile--fire .weather-label::before { content: "♨"; line-height: 31px; font-size: 1.2rem; }
+.weather-tile--air .weather-label::before { background-image: url("../assets/icons/elements/air.svg"); }
+.weather-tile--flood .weather-label::before { background-image: url("../assets/icons/elements/water.svg"); }
+.weather-tile--ground .weather-label::before { background-image: url("../assets/icons/elements/earth.svg"); }
+.weather-tile--fire .weather-label::before { background-image: url("../assets/icons/elements/fire.svg"); }
 
 .weather-copy h2 {
   width: 100%;
