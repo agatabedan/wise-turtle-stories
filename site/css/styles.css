@@ -2488,6 +2488,9 @@ a[aria-disabled="true"] {
 
 .weather-copy {
   width: min(520px, 82%);
+  display: grid;
+  grid-template-rows: auto minmax(1.96em, auto) minmax(3.2em, auto) auto;
+  justify-items: center;
   padding: clamp(40px, 5vw, 82px) 22px;
   text-align: center;
   text-shadow: 0 2px 16px rgba(0, 0, 0, 0.5);
@@ -2518,6 +2521,8 @@ a[aria-disabled="true"] {
 .weather-tile--fire .weather-label::before { content: "♨"; line-height: 31px; font-size: 1.2rem; }
 
 .weather-copy h2 {
+  width: 100%;
+  min-height: 1.96em;
   margin: 11px 0 14px;
   color: #fff;
   font-family: "Playfair Display", serif;
@@ -2528,6 +2533,7 @@ a[aria-disabled="true"] {
 }
 
 .weather-copy p {
+  width: 100%;
   min-height: 3.2em;
   margin: 0 0 22px;
   font-size: clamp(0.95rem, 1.1vw, 1.1rem);
@@ -2535,6 +2541,7 @@ a[aria-disabled="true"] {
 }
 
 .weather-action {
+  align-self: end;
   display: inline-flex;
   align-items: center;
   gap: 14px;
