@@ -2925,7 +2925,11 @@ a[aria-disabled="true"] {
   position: relative;
   z-index: 1;
   width: min(1320px, calc(100% - 40px));
+  min-height: 360px;
   padding: 52px 0 28px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
 }
 
 .home-footer h2 {
@@ -2975,10 +2979,7 @@ a[aria-disabled="true"] {
 .home-social-links b { font-weight: 600; }
 
 .home-footer-bottom {
-  position: absolute;
-  right: 0;
-  bottom: 24px;
-  left: 0;
+  margin-top: auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -3108,7 +3109,7 @@ a[aria-disabled="true"] {
     background-size: auto 310px;
     background-position: right bottom;
   }
-  .home-footer-inner { padding-top: 44px; }
+  .home-footer-inner { min-height: 560px; padding-top: 44px; }
   .home-footer-connect { padding-bottom: 110px; }
   .home-social-links { max-width: 100%; gap: 12px; }
   .home-social-links > a,
