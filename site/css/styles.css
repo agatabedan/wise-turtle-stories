@@ -155,8 +155,7 @@ p {
 
 /* Sticky header, logo, and navigation buttons. */
 .site-header {
-  position: sticky;
-  top: 0;
+  position: relative;
   z-index: 20;
   background: rgba(241, 247, 238, 0.92);
   border-bottom: 1px solid rgba(219, 231, 216, 0.9);
@@ -2302,7 +2301,7 @@ a[aria-disabled="true"] {
 }
 
 .home-page .home-header {
-  position: fixed;
+  position: absolute;
   inset: 0 0 auto;
   z-index: 50;
   border: 0;
@@ -3157,7 +3156,7 @@ a[aria-disabled="true"] {
 
 /* The Life After journey begins beneath an adult Wise Turtle identity. */
 header.lifeafter-header {
-  position: fixed;
+  position: absolute;
   inset: 0 0 auto;
   background: transparent;
   border-bottom-color: transparent;
@@ -3196,7 +3195,7 @@ header.lifeafter-header {
 }
 
 header.solidground-header {
-  position: fixed;
+  position: absolute;
   inset: 0 0 auto;
   background: transparent;
   border-bottom-color: transparent;
@@ -4737,8 +4736,8 @@ body.reveal-ready .reveal.is-visible.reveal-scale {
   }
 
   .site-header {
-    position: sticky;
-    top: 0;
+    position: relative;
+    top: auto;
     z-index: 60;
     backdrop-filter: none;
     background: rgba(241, 247, 238, 0.98);
