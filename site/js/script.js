@@ -1250,11 +1250,14 @@ function initBookLibraries() {
     const categoryFilter = library.querySelector("[data-category-filter]");
     const formatFilter = library.querySelector("[data-format-filter]");
     const grid = library.querySelector("[data-books-grid]");
+    const moreButton = library.querySelector("[data-books-more]");
     const empty = library.querySelector("[data-books-empty]");
     const viewButtons = library.querySelectorAll("[data-library-view]");
     const limit = Number(library.dataset.limit || getPublishedBooks().length);
 
     if (!grid) return;
+
+    let isExpanded = false;
 
     function setView(view) {
       const selectedView = view === "list" ? "list" : "grid";
@@ -1303,15 +1306,29 @@ function initBookLibraries() {
           (selectedFormat === "paperback" && hasPaperback) ||
           (selectedFormat === "kindle" && hasKindle);
         return matchesQuery && matchesAge && matchesCategory && matchesFormat;
-      }).slice(0, limit);
+      });
+      const hasActiveFilters = Boolean(query) || selectedAge !== "all" || selectedCategory !== "all" || selectedFormat !== "all";
+      const visibleBooks = isExpanded || hasActiveFilters ? filtered : filtered.slice(0, limit);
 
-      grid.innerHTML = filtered.map(renderLibraryCard).join("");
+      grid.innerHTML = visibleBooks.map(renderLibraryCard).join("");
       if (empty) empty.hidden = filtered.length > 0;
+      if (moreButton) moreButton.hidden = isExpanded || hasActiveFilters || filtered.length <= limit;
     }
 
     [searchInput, ageFilter, categoryFilter, formatFilter].forEach((control) => {
-      control?.addEventListener("input", render);
-      control?.addEventListener("change", render);
+      control?.addEventListener("input", () => {
+        isExpanded = true;
+        render();
+      });
+      control?.addEventListener("change", () => {
+        isExpanded = true;
+        render();
+      });
+    });
+
+    moreButton?.addEventListener("click", () => {
+      isExpanded = true;
+      render();
     });
 
     render();

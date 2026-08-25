@@ -612,6 +612,16 @@ a[aria-disabled="true"] {
   gap: 18px;
 }
 
+.library-more-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 28px;
+}
+
+.library-more-wrap [hidden] {
+  display: none;
+}
+
 /* Compact cover view lets the full library fit on screen at a glance. */
 .library-grid[data-view="grid"] {
   grid-template-columns: repeat(4, minmax(0, 1fr));
