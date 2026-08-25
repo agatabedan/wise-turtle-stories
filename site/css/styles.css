@@ -2651,6 +2651,8 @@ a[aria-disabled="true"] {
   line-height: 1.42;
 }
 
+.home-shelf-copy h3 + .home-outline-link { margin-top: 17px; }
+
 .home-outline-link {
   display: inline-flex;
   align-items: center;
