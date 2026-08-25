@@ -5061,6 +5061,113 @@ body.reveal-ready .reveal.is-visible.reveal-scale {
   user-select: text;
 }
 
+/* The Story uses the same transparent, illustration-led system as Life After. */
+header.story-header {
+  position: absolute;
+  inset: 0 0 auto;
+  background: transparent;
+  border-bottom-color: transparent;
+  backdrop-filter: none;
+}
+
+.story-header .brand img {
+  width: clamp(178px, 23vw, 220px);
+  height: clamp(48px, 6vw, 72px);
+  object-fit: cover;
+  object-position: center;
+  filter: drop-shadow(0 1px 8px rgba(255, 250, 238, 0.52));
+}
+
+.story-header .site-nav a {
+  color: #284232;
+}
+
+.story-header .site-nav a:hover,
+.story-header .site-nav a.active {
+  background: transparent;
+  color: #284232;
+  box-shadow: inset 0 -2px 0 #526b39;
+}
+
+.story-header .menu-toggle {
+  border-color: rgba(62, 83, 63, 0.3);
+  background: rgba(248, 244, 233, 0.55);
+  color: #284232;
+  backdrop-filter: blur(5px);
+}
+
+.story-page .story-screen::after,
+.story-page .story-hero::after,
+.story-page .story-screen--closing::after {
+  background: transparent;
+}
+
+.story-page .story-copy {
+  width: min(440px, 34vw);
+  padding: 0;
+  color: #292722;
+  text-shadow: 0 1px 10px rgba(255, 250, 238, 0.82);
+}
+
+.story-page .story-copy--left {
+  background: transparent;
+  border-radius: 0;
+  backdrop-filter: none;
+}
+
+.story-page .story-copy--hero,
+.story-page .story-copy--closing {
+  width: min(760px, 62vw);
+  color: #fffaf0;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.78);
+}
+
+.story-page .story-copy h1,
+.story-page .story-copy h2 {
+  margin-bottom: 18px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.story-page .story-copy h1 {
+  font-size: clamp(3rem, 7vw, 6.8rem);
+}
+
+.story-page .story-copy h2 {
+  font-size: clamp(2.1rem, 3.5vw, 3.6rem);
+}
+
+.story-page .story-copy p {
+  margin-bottom: 12px;
+  font-size: clamp(1.05rem, 1.35vw, 1.38rem);
+  line-height: 1.48;
+}
+
+@media (max-width: 900px) {
+  .story-header .site-nav {
+    background: rgba(248, 244, 233, 0.93);
+    border-color: rgba(62, 83, 63, 0.24);
+  }
+
+  .story-page .story-screen::after,
+  .story-page .story-hero::after,
+  .story-page .story-screen--closing::after,
+  .story-page .story-copy--left {
+    background: transparent;
+  }
+
+  .story-page .story-copy,
+  .story-page .story-copy--hero {
+    width: min(440px, calc(100% - 32px));
+    padding: 0;
+  }
+
+  .story-page .story-copy--hero,
+  .story-page .story-copy--closing {
+    width: min(760px, calc(100% - 32px));
+  }
+}
+
 /* Keep Home, Life After, Ground, and Fire on one fixed header system. */
 @media (min-width: 1051px) {
   .home-page .home-header .nav-wrap,
