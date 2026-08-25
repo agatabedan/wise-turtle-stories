@@ -2251,6 +2251,7 @@ a[aria-disabled="true"] {
 .reader-shelf--teens { background: #f3e7ef url("../assets/library/teens/background.webp") center/cover; color: #4d3859; }
 .reader-shelf--adults { background: #edf6fb url("../assets/library/adults/background.webp") center/cover; color: #244c6e; }
 .reader-divider { display: block; width: 100%; max-height: 230px; object-fit: cover; object-position: center; margin: 0 0 12px; }
+.reader-shelf--kids .reader-divider { height: 230px; max-height: none; object-fit: contain; }
 .reader-heading { max-width: 660px; margin: 0 auto 28px; text-align: center; }
 .reader-heading h2 { margin: 0 0 8px; font-family: "Playfair Display", serif; font-size: clamp(2rem, 4vw, 3.4rem); color: inherit; }
 .reader-heading p:last-child { margin: 0; font-size: 1.08rem; }
@@ -2288,7 +2289,7 @@ a[aria-disabled="true"] {
 .gifts-message h3 { margin: 0; font-family: "Playfair Display", serif; font-size: clamp(1.45rem, 3vw, 2.3rem); color: inherit; }
 .gifts-message p { margin: 8px 0; font-size: 1.12rem; }
 .gifts-message span { font-size: .88rem; font-weight: 800; }
-@media (max-width: 760px) { .reader-shelf { padding-bottom: 54px; } .reader-divider { max-height: 135px; } .reader-books { grid-template-columns: repeat(2, 1fr); } .activity-row { grid-template-columns: 1fr; } .activity-card p { min-height: 0; } .feature-reader-card, .feature-reader-card--guide { grid-template-columns: 1fr; gap: 17px; padding: 20px; } .feature-reader-card > img, .guide-cover { width: min(220px, 100%); margin: 0 auto; } .reader-subscribe, .library-signup { align-items: flex-start; flex-direction: column; gap: 15px; } }
+@media (max-width: 760px) { .reader-shelf { padding-bottom: 54px; } .reader-divider { max-height: 135px; } .reader-shelf--kids .reader-divider { height: 150px; max-height: none; } .reader-books { grid-template-columns: repeat(2, 1fr); } .activity-row { grid-template-columns: 1fr; } .activity-card p { min-height: 0; } .feature-reader-card, .feature-reader-card--guide { grid-template-columns: 1fr; gap: 17px; padding: 20px; } .feature-reader-card > img, .guide-cover { width: min(220px, 100%); margin: 0 auto; } .reader-subscribe, .library-signup { align-items: flex-start; flex-direction: column; gap: 15px; } }
 
 /* Homepage: an elegant, nature-led map through life’s changing weather. */
 .home-page {
