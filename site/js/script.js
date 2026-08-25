@@ -17,7 +17,7 @@ const BOOKS = [
     subtitle: "Big Feelings, Little Choices",
     age: "2-5",
     category: YAN_CATEGORY,
-    cover: "./assets/Cover1.jpeg",
+    cover: "./assets/Cover1.webp",
     detailUrl: "/book-yan",
     amazonUrl: "https://www.amazon.ca/Yan-Little-Squirrel-Wise-Turtle/dp/B0GR6HLRK8",
     sampleUrl: "https://read.amazon.ca/sample/B0GR6HLRK8?clientId=share",
@@ -37,7 +37,7 @@ const BOOKS = [
     subtitle: "Big Feelings, We Calm Together",
     age: "2-5",
     category: YAN_CATEGORY,
-    cover: "./assets/yan-calm-front.jpg",
+    cover: "./assets/yan-calm-front.webp",
     detailUrl: "/book-story-two",
     amazonUrl: "https://www.amazon.ca/Little-Squirell-Wise-Turtle-Stories/dp/B0GSZPYMLF",
     sampleUrl: "https://read.amazon.ca/sample/B0GSZPYMLF?clientId=share",
@@ -58,7 +58,7 @@ const BOOKS = [
     subtitle: "Safe Summer Adventures",
     age: "2-5",
     category: YAN_CATEGORY,
-    cover: "./assets/yan-adventures-front.jpg",
+    cover: "./assets/yan-adventures-front.webp",
     detailUrl: "/book-story-three",
     amazonUrl: "https://www.amazon.ca/Yan-Little-Squirrel-Adventures-stories/dp/B0H7WDSNDP",
     sampleUrl: "https://read.amazon.ca/sample/B0H7WDSNDP?clientId=share",
@@ -80,7 +80,7 @@ const BOOKS = [
     subtitle: "Who Felt Sick",
     age: "2-5",
     category: YAN_CATEGORY,
-    cover: "./assets/yan-felt-sick-front.png",
+    cover: "./assets/yan-felt-sick-front.webp",
     detailUrl: "/book-felt-sick",
     amazonUrl: "https://www.amazon.ca/gp/product/B0H3JBP5ZM?ref_=dbs_m_mng_rwt_calw_tkin_2&storeType=ebooks",
     sampleUrl: "https://www.amazon.ca/gp/product/B0H3JBP5ZM?ref_=dbs_m_mng_rwt_calw_tkin_2&storeType=ebooks&asin=B0H3JBP5ZM&revisionId=ae59c0a7&format=3&depth=1",
@@ -101,7 +101,7 @@ const BOOKS = [
     subtitle: "Together in Hospital",
     age: "2-5",
     category: YAN_CATEGORY,
-    cover: "./assets/yan-hospital-front.png",
+    cover: "./assets/yan-hospital-front.webp",
     detailUrl: "/book-together-hospital",
     amazonUrl: "https://www.amazon.ca/dp/B0HD2CWFY8",
     sampleUrl: "https://www.amazon.ca/dp/B0HD2CWFY8?asin=B0HD2CWFY8&revisionId=&format=4&depth=1",
@@ -123,7 +123,7 @@ const BOOKS = [
     subtitle: "And a Big Change",
     age: "4-7",
     category: YAN_CATEGORY,
-    cover: "./assets/yan-big-change-front.png",
+    cover: "./assets/yan-big-change-front.webp",
     detailUrl: "/book-big-change",
     amazonUrl: "https://www.amazon.ca/dp/B0HG2WTM8S",
     sampleUrl: "https://www.amazon.ca/dp/B0HG2WTM8S?asin=B0HG2WTM8S&revisionId=&format=4&depth=1",
@@ -145,7 +145,7 @@ const BOOKS = [
     subtitle: "And the River That Wouldn’t Stop Flowing",
     age: "3-8",
     category: NOAH_CATEGORY,
-    cover: "./assets/noah-river-front.png",
+    cover: "./assets/noah-river-front.webp",
     detailUrl: "/book-noah-river",
     amazonUrl: "https://www.amazon.ca/dp/B0H5JMBGX6",
     sampleUrl: "https://www.amazon.ca/dp/B0H5JMBGX6?asin=B0H5JMBGX6&revisionId=&format=4&depth=1",
@@ -167,7 +167,7 @@ const BOOKS = [
     subtitle: "Forced Changes",
     age: "teenagers",
     category: "Fira and Agate",
-    cover: "./assets/library/teens/fira-agate-forced-changes.jpg",
+    cover: "./assets/library/teens/fira-agate-forced-changes.webp",
     detailUrl: "/books#teens",
     format: "Coming soon",
     shortDescription:
@@ -179,7 +179,7 @@ const BOOKS = [
     subtitle: "What’s In the Air?",
     age: "adults",
     category: "Parenthood is…",
-    cover: "./assets/library/adults/snowly-air.png",
+    cover: "./assets/library/adults/snowly-air.webp",
     detailUrl: "/books#adults",
     format: "Coming soon",
     shortDescription:
@@ -191,7 +191,7 @@ const BOOKS = [
     subtitle: "Happy Every Day",
     age: "adults",
     category: "Parenthood is…",
-    cover: "./assets/library/adults/snowly-ground.png",
+    cover: "./assets/library/adults/snowly-ground.webp",
     detailUrl: "/books#adults",
     format: "Coming soon",
     shortDescription:
@@ -339,6 +339,14 @@ function initHomeShelves() {
     const next = shelf.querySelector("[data-home-shelf-next]");
     if (!track || !previous || !next) return;
 
+    function resetToStart() {
+      const previousScrollBehavior = track.style.scrollBehavior;
+      track.style.scrollBehavior = "auto";
+      track.scrollLeft = 0;
+      track.style.scrollBehavior = previousScrollBehavior;
+      updateArrows();
+    }
+
     function updateArrows() {
       const maximum = Math.max(0, track.scrollWidth - track.clientWidth);
       previous.disabled = track.scrollLeft <= 2;
@@ -361,7 +369,10 @@ function initHomeShelves() {
       if (!image.complete) image.addEventListener("load", updateArrows, { once: true });
     });
 
-    updateArrows();
+    previous.disabled = true;
+    next.disabled = true;
+    window.requestAnimationFrame(resetToStart);
+    window.addEventListener("load", () => window.requestAnimationFrame(resetToStart), { once: true });
   });
 }
 

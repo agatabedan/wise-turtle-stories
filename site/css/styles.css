@@ -1769,7 +1769,7 @@ a[aria-disabled="true"] {
   border-radius: 8px;
   background-image:
     linear-gradient(rgba(250, 244, 230, 0.62), rgba(250, 244, 230, 0.62)),
-    url("/assets/lifeafter/lifeafter-blank-buttons.png");
+    url("/assets/lifeafter/lifeafter-blank-buttons.webp");
   background-position: center;
   background-size: cover;
   box-shadow: var(--shadow);
@@ -2236,8 +2236,8 @@ a[aria-disabled="true"] {
 .library-hero { padding-bottom: 56px; }
 .reader-shelf { position: relative; padding: 0 0 78px; scroll-margin-top: 82px; }
 .reader-shelf--kids { background: #dcefd6; color: #28513a; }
-.reader-shelf--teens { background: #f3e7ef url("../assets/library/teens/background.png") center/cover; color: #4d3859; }
-.reader-shelf--adults { background: #edf6fb url("../assets/library/adults/background.png") center/cover; color: #244c6e; }
+.reader-shelf--teens { background: #f3e7ef url("../assets/library/teens/background.webp") center/cover; color: #4d3859; }
+.reader-shelf--adults { background: #edf6fb url("../assets/library/adults/background.webp") center/cover; color: #244c6e; }
 .reader-divider { display: block; width: 100%; max-height: 230px; object-fit: cover; object-position: center; margin: 0 0 12px; }
 .reader-heading { max-width: 660px; margin: 0 auto 28px; text-align: center; }
 .reader-heading h2 { margin: 0 0 8px; font-family: "Playfair Display", serif; font-size: clamp(2rem, 4vw, 3.4rem); color: inherit; }
@@ -2676,6 +2676,7 @@ a[aria-disabled="true"] {
   overflow-x: auto;
   overscroll-behavior-inline: contain;
   padding: 16px 54px 42px 24px;
+  scroll-padding-inline-start: 24px;
   background: url("../assets/home/shelf.webp") center bottom / 100% 132px no-repeat;
   scrollbar-width: none;
   scroll-behavior: smooth;
@@ -3169,7 +3170,7 @@ header.solidground-header {
 
 .solidground-story {
   color: #242b23;
-  background: #f7f0df url("/assets/solidground/solid-ground-background.png") center / cover fixed;
+  background: #f7f0df url("/assets/solidground/solid-ground-background.webp") center / cover fixed;
 }
 
 .solidground-hero {
@@ -3177,7 +3178,7 @@ header.solidground-header {
   display: grid;
   place-items: center;
   padding: 150px 24px 108px;
-  background: url("/assets/solidground/hero-solid-ground.png") center / cover no-repeat;
+  background: url("/assets/solidground/hero-solid-ground.webp") center / cover no-repeat;
 }
 
 .solidground-hero-copy {
@@ -3243,7 +3244,7 @@ header.solidground-header {
 }
 
 .solidground-audience {
-  background: url("/assets/solidground/solid-ground-background.png") center / cover no-repeat;
+  background: url("/assets/solidground/solid-ground-background.webp") center / cover no-repeat;
 }
 
 .solidground-section-heading {
@@ -3371,7 +3372,7 @@ header.solidground-header {
   box-sizing: border-box;
   padding-inline: 0;
   padding-top: 0;
-  background: url("/assets/solidground/before-footer.png") center / cover no-repeat;
+  background: url("/assets/solidground/before-footer.webp") center / cover no-repeat;
 }
 
 .solidground-other .solidground-section-heading {
