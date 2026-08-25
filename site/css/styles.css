@@ -5159,6 +5159,18 @@ header.story-header {
   margin: clamp(116px, 18vh, 205px) 0 0 clamp(20vw, 320px);
 }
 
+.story-page .story-copy--parenthood {
+  align-self: flex-start;
+  width: min(500px, 35vw);
+  margin: clamp(172px, 24vh, 270px) auto 0;
+  text-align: center;
+}
+
+.story-page .story-copy--parenthood p {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .story-page.reveal-ready .story-copy {
   opacity: 0;
   transform: translate3d(0, 34px, 0);
@@ -5234,6 +5246,12 @@ header.story-header {
 
   .story-page .story-copy--flood,
   .story-page .story-copy--ground {
+    align-self: auto;
+    width: min(440px, calc(100% - 32px));
+    margin: 0 16px 28px;
+  }
+
+  .story-page .story-copy--parenthood {
     align-self: auto;
     width: min(440px, calc(100% - 32px));
     margin: 0 16px 28px;
